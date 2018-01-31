@@ -30,7 +30,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 45px;
+  height: 1.333333rem;
   background-color: wheat;
   display: flex;
   align-items: center;

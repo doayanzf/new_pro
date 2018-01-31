@@ -28,7 +28,7 @@ export default {
     }
     .imgBack{
         width: 100%;
-        height: 12.65252rem;
+        height: 6.047745rem;
         border: 1px red solid;
         background: url('img/header_bg@3x.png');
         background-size: cover;
