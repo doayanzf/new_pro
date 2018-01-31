@@ -23,22 +23,22 @@ export default {
     
 <style lang="css" scoped>
     .tmain{
-        width: 57px;
-        height: 79px;
+        width: 1.511936rem;
+        height: 2.095491rem;
     }
     li{
-        width: 90px;
-        height: 47px;
+        width: 2.387268rem;
+        height: 1.246684rem;
     }
     h1{
-        font-size: 14px;
+        font-size: .371353rem;
         margin: 0 auto;
     }
     img{
-        width: 50px;
-        height: 50px;
+        width: 1.32626rem;
+        height: 1.32626rem;
     }
     span{
-        font-size: 10px;
+        font-size: .265252rem;
     }
 </style>
