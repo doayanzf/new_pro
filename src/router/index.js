@@ -11,6 +11,19 @@ import Home from '../components/Home/Home.vue'
 import Car from '../components/Car/Car.vue'
 import Sort from '../components/Sort/Sort.vue'
 import Mine from '../components/Mine/Mine.vue'
+// 导入分类二级路由
+import TuiJian from '../components/Sort/TuiJian.vue'
+import WoChuyx from '../components/Sort/WoChuyx.vue'
+import CanGuanmc from '../components/Sort/CanGuanmc.vue'
+import QuanBujc from '../components/Sort/QuanBujc.vue'
+import ErTongzq from '../components/Sort/ErTongzq.vue'
+import ShuCai from '../components/Sort/ShuCai.vue'
+import ShuiGuo from '../components/Sort/ShuiGuo.vue'
+import RouQind from '../components/Sort/RouQind.vue'
+import ShuiChanhx from '../components/Sort/ShuiChanhx.vue'
+import RuYinxd from '../components/Sort/RuYinxd.vue'
+import DianXinss from '../components/Sort/DianXinss.vue'
+
 
 
 // 创建路由实例，并且配置路由规则
@@ -23,7 +36,21 @@ export default new VueRouter({
     // { path: '', component: Home },
     { path: '', redirect: '/home' },
     { path: '/home', component: Home },
-    { path: '/Sort', component: Sort },
+    { path: '/sort', component: Sort, children: [
+      {path: 'tuijian', component: TuiJian},
+      {path: 'wochuyouxuan', component: WoChuyx},
+      {path: 'canguanmingcai', component: CanGuanmc},
+      {path: 'quanbujingcai', component: QuanBujc},
+      {path: 'ertongzhuanqu', component: ErTongzq},
+      {path: 'shucai', component: ShuCai},
+      {path: 'shuiguo', component: ShuiGuo},
+      {path: 'rouqindan', component: RouQind},
+      {path: 'chuichanhaixian', component: ShuiChanhx},
+      {path: 'ruyinxidian', component: RuYinxd},
+      {path: 'dianxisushi', component: DianXinss}
+      
+      
+    ] },
     { path: '/mine', component: Mine },
     { path: '/car', component: Car }
   ]
