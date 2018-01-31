@@ -1,0 +1,34 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+	font-size: .234375rem;
+	font-family: 微软雅黑;
+}
+
+
+
+ul,ol{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+	color: #000;
+}
+
+img{
+	border: 0;
+}
+
+textarea{
+	resize: none;
+}
+
+input,a,textarea{
+	outline: none;
+}
