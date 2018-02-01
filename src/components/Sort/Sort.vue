@@ -1,6 +1,7 @@
 <template>
-    <div id="app">
-       <!-- <h1>{{ msg }}</h1> -->
+    <div class="body">
+        
+       
        <div class="search">
            <div class="search-input">
                <img src="./img/icon-search-40@2x.png" alt="">
@@ -57,39 +58,50 @@ export default {
         margin: 0;
         padding: 0;
     }
+    .body::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
     
     .search{
         width: 100%;
-        height: 50px;
+        height: 1.32626rem;
         background-color: white;
         display: flex;
         justify-content: center;
+        margin-bottom: .265252rem;
     }
     .search-input{
-        width: 359px;
-        height: 35px;
+        width: 9.522546rem;
+        height: .928382rem;
+        margin-top: .132626rem;
         border: 2px solid #f4f5f7;
         border-radius: 5%;
         color: gray;
     
     }
     .search-input img{
-        width: 23px;
-        height: 18px;
-        padding-top: 10px;
+        width: .66313rem;
+        height: .66313rem;
+        padding-top: .132626rem;
         
     }
     .sort-options{
-        background: #f4f5f7;
-        width: 92px;
+        background: white;
+        width: 2.440318rem;
        
     }
+    .sort-options ul{
+        /* border-right: 2px solid #e7e7e7; */
+    }
     .sort-options li{
-        width: 92px;
-        height: 51px;
+        width: 2.440318rem;
+        height: 1.352785rem;
         display: flex;
         justify-content: center;
-        line-height: 51px;
+        line-height: 1.352785rem;
+        
         
     }
     .sort-options{
@@ -97,7 +109,9 @@ export default {
     }
     .sort-options-2{
         float: right;
-        width: 250px;
+        width: 7.427056rem;
+        height: 15.145889rem;
+        background: white;
     }
     
     

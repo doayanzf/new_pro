@@ -25,6 +25,9 @@ export default {
 </script>
 
 <style>
+#app{
+  background: #f4f5f7;
+}
 #app .tabbar{
   position: fixed;
   left: 0;
