@@ -23,6 +23,11 @@ import RouQind from '../components/Sort/RouQind.vue'
 import ShuiChanhx from '../components/Sort/ShuiChanhx.vue'
 import RuYinxd from '../components/Sort/RuYinxd.vue'
 import DianXinss from '../components/Sort/DianXinss.vue'
+// 分类二级路由的一级路由
+import ProductDetali from '../components/Sort/ProductDetali'
+
+import GoodsDetails from '../components/Sort/GoodsDetails'
+
 
 
 
@@ -37,6 +42,7 @@ export default new VueRouter({
     { path: '', redirect: '/home' },
     { path: '/home', component: Home },
     { path: '/sort', component: Sort, children: [
+      { path: '', redirect: 'tuijian' },
       {path: 'tuijian', component: TuiJian},
       {path: 'wochuyouxuan', component: WoChuyx},
       {path: 'canguanmingcai', component: CanGuanmc},
@@ -51,6 +57,9 @@ export default new VueRouter({
       
       
     ] },
+    {path: '/productDetail/:productId', component: ProductDetali},
+    {path: '/goodsDetails/:goodId', component: GoodsDetails},
+    
     { path: '/mine', component: Mine },
     { path: '/car', component: Car }
   ]
