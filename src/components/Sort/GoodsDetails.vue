@@ -124,8 +124,8 @@ export default {
     }
     .characteristics img{
         width: 10rem;
-        height: .583554rem;
+        height: .477454rem;
         position: absolute;
-        bottom: 0;
+        bottom: .212202rem;
     }
 </style>
