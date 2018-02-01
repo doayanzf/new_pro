@@ -11,6 +11,8 @@ import Home from '../components/Home/Home.vue'
 import Car from '../components/Car/Car.vue'
 import Sort from '../components/Sort/Sort.vue'
 import Mine from '../components/Mine/Mine.vue'
+// 导入tehui一级路由
+import tehui from '../components/Home/tehui.vue'
 // 导入分类二级路由
 import TuiJian from '../components/Sort/TuiJian.vue'
 import WoChuyx from '../components/Sort/WoChuyx.vue'
@@ -52,7 +54,8 @@ export default new VueRouter({
       
     ] },
     { path: '/mine', component: Mine },
-    { path: '/car', component: Car }
+    { path: '/car', component: Car },
+    { path: '/tehui', component: tehui }
   ]
 })
 
