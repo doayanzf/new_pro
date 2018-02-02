@@ -1,8 +1,8 @@
 <template>
     <div class="box">
        <li v-for="product in productList" :key="product.id" class="tmain" @click="toproductDetail(product.productId)">
-           <img src="./img/4e3b486b-51fc-4147-90f8-54cdb5cf28c2.jpg" alt="">
-           <p>我厨优选蔬菜</p>
+           <img :src="product.checkicon" alt="">
+           <p>{{ product.name }}</p>
        </li>
        
     </div>
@@ -14,14 +14,7 @@ export default {
     data () {
         return {
              msg: '我是推荐',
-             productList: [
-                 {productId: '1001', productName: '商品1', productPrice: 11.5},
-                 {productId: '1002', productName: '商品2', productPrice: 12.5},
-                 {productId: '1003', productName: '商品3', productPrice: 13.5},
-                 {productId: '1004', productName: '商品4', productPrice: 14.5},
-                 {productId: '1005', productName: '商品5', productPrice: 15.5},
-                 
-             ]
+             productList: []
             
         };
     },
@@ -44,6 +37,15 @@ export default {
                 }
             })
         }
+    },
+    created() {
+        this.axios.get('http://10.0.157.219:8888/sort_wochuyouxuan')
+      .then(res => {
+        console.log(res.data.shop_data);
+        
+        this.productList = res.data.shop_data
+      })
+
     }
 }
 </script>
