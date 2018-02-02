@@ -1,10 +1,14 @@
 <template>
     <div class="box">
-        <h1>---我厨精选---</h1>
-       <li class="tmain">
-           <img src="./img/7d78dba5-d085-48e4-a5f7-d60afae06ac4.jpg" alt="">
-           <p>全网抄底</p>
-       </li>
+        <div v-for="product in productList" :key="product.id">
+            <h1>---{{ product.name }}---</h1>
+            <li class="tmain" v-for="pro in product.children" :key="pro.id">
+                <img :src="pro.imgUrl" alt="">
+                <p>{{pro.name}}</p>
+            </li>
+        </div>
+
+        
        
     </div>
 </template>
@@ -15,8 +19,17 @@ export default {
     data () {
         return {
              msg: '我是推荐',
-            
+            productList: []
         };
+    },
+    created() {
+        this.axios.get('http://10.0.157.219:8888/sort_tuijian')
+      .then(res => {
+        console.log(res.data.shop_data);
+        
+        this.productList = res.data.shop_data
+      })
+
     }
 }
 </script>
@@ -35,14 +48,16 @@ export default {
         height: 2.095491rem;
     }
     li{
-        width: 2.387268rem;
-        height: 1.246684rem;
+        width: 1.98939rem;
+        height: 2.758621rem;
+        float: left;
         margin-left: .530504rem;
         margin-top: .397878rem;
     }
     h1{
         font-size: .371353rem;
         text-align: center;
+        clear: both;
     }
     img{
         width: 1.32626rem;
