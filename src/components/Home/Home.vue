@@ -23,33 +23,33 @@
             </div>
  -->
 		<div class="swiper-container">
-			<div class="swiper-wrapper">
-			  <!--<div class="swiper-slide"><a href=""><img src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></a></div>
+			<!-- <div class="swiper-wrapper">
+			  <div class="swiper-slide"><a href=""><img src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></a></div>
 			  <div class="swiper-slide"><a href=""><img src="./img/c24a3227-8177-4ada-b9b6-a390b28f212e (1).jpg" alt=""></a></div>
 			  <div class="swiper-slide"><a href=""><img src="./img/ceb4ac53-dcc2-46dc-839e-54ba336899bf.jpg" alt=""></a></div>
 			  <div class="swiper-slide"><a href=""><img src="./img/1a1c094a-abc3-46a2-8aa0-726b5711bd4e.jpg" alt=""></a></div>
 			  <div class="swiper-slide"><a href=""><img src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></a></div>
 			  <div class="swiper-slide"><a href=""><img src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></a></div>
-			  <div class="swiper-slide"><a href=""><img src="./img/285cbf69-b11f-4f8d-9955-a83a71543c8c.jpg" alt=""></a></div>-->
+			  <div class="swiper-slide"><a href=""><img src="./img/285cbf69-b11f-4f8d-9955-a83a71543c8c.jpg" alt=""></a></div>
 			</div>
-			<div class="swiper-pagination"></div>
+			<div class="swiper-pagination"></div> -->
 		  </div>
 		  <ul id = 'gou'>
-			  <li><img src="./img/4b5226d0-068b-47ab-8942-4cce2079c134.jpg" alt=""></li>
-			  <li><img src="./img/51760a0f-2fb2-465e-936e-cada0969a3f2.jpg" alt=""></li>
-			  <li><img src="./img/04309f99-dd62-4654-a27e-41534240bd98.jpg" alt=""></li>
-			  <li><img src="./img/485a48f7-1df6-4d7a-85c6-193bd65f4e4e.jpg" alt=""></li>
-			  <li><img src="./img/6f4bc5fb-1734-4566-a9a8-4886e7488050.jpg" alt=""></li>
-			  <li><img src="./img/8bd774b9-69aa-4b13-8434-9be4ce30fb5d.jpg" alt=""></li>
-			  <li><img src="./img/e615c3f6-698b-4fe9-ae21-f9a8e8598929.jpg" alt=""></li>
-			  <li><img src="./img/c04031aa-dd93-4c6e-bef6-e3622b247702.jpg" alt=""></li>
+			  <li  @click='tehui'><img src="./img/4b5226d0-068b-47ab-8942-4cce2079c134.jpg" alt=""></li>
+			  <li @click="tejiataocan"><img src="./img/51760a0f-2fb2-465e-936e-cada0969a3f2.jpg" alt=""></li>
+			  <li @click="chaojituangou"><img src="./img/04309f99-dd62-4654-a27e-41534240bd98.jpg" alt=""></li>
+			  <li @click="rexiaojingcai"><img src="./img/485a48f7-1df6-4d7a-85c6-193bd65f4e4e.jpg" alt=""></li>
+			  <li @click="tejiataocan"><img src="./img/6f4bc5fb-1734-4566-a9a8-4886e7488050.jpg" alt=""></li>
+			  <li @click="chaojituangou"><img src="./img/8bd774b9-69aa-4b13-8434-9be4ce30fb5d.jpg" alt=""></li>
+			  <li @click="chaojituangou"><img src="./img/e615c3f6-698b-4fe9-ae21-f9a8e8598929.jpg" alt=""></li>
+			  <li @click="chaojituangou"><img src="./img/c04031aa-dd93-4c6e-bef6-e3622b247702.jpg" alt=""></li>
 		  </ul>
 		  <div id ='kuaibao'>
             <div id='kk'><img src="./img/f58332d2-ad98-4d10-aa96-28d1b8090d37.jpg" class='k1'alt=""></div>
 			
-			<a href="">罗汉上素净菜9.9元 点击购买</a>
+			<a href="" @click="heizhurou">罗汉上素净菜9.9元 点击购买</a>
 			<img src="./img/213213.png" class='k2' alt="">
-            <img class='k3' src="./img/6cc79d06-92ea-4fee-a9d2-edc6fda32407.jpg"  alt="">
+            <img class='k3' @click="heizhurou" src="./img/6cc79d06-92ea-4fee-a9d2-edc6fda32407.jpg"  alt="">
 			 <h1></h1>
 		  </div>
 		  <div id='xianshi'>———— 限时特惠 ————</div>
@@ -62,7 +62,7 @@
 			 <ul id = 'tehui2'>
 				 <li>
 					 <ul id = 'te1'>
-						 <li><img src="./img/48f54c64-c567-495e-94cf-362144ff2625.jpg" alt=""></li>
+						 <li @click='nongfushanquan'><img src="./img/48f54c64-c567-495e-94cf-362144ff2625.jpg" alt=""></li>
 						 <li>农夫山泉17.5...</li>
 						 <li>￥89</li>
 						 <li>￥59.9<img  class= 'add' src="./img/add.png" alt=""></li>
@@ -70,69 +70,69 @@
 				 </li>
 				 <li>
 					 <ul id = 'te2'> 
-						 <li><img src="./img/618ce6a4-6ecf-4f38-8e22-2fdb247699ed.jpg" alt=""></li>
-						 <li>农夫山泉17.5...</li>
-						 <li>￥89</li>
-						 <li>￥59.9<img  class= 'add' src="./img/add.png" alt=""></li>
+						 <li  @click="tejiataocan"><img src="./img/618ce6a4-6ecf-4f38-8e22-2fdb247699ed.jpg" alt=""></li>
+						 <li>江西南丰贡橘...</li>
+						 <li>￥39</li>
+						 <li>￥59.8<img  class= 'add' src="./img/add.png" alt=""></li>
 					 </ul>
 				 </li>
 				 <li>
 					 <ul id = 'te3'>
-						 <li><img src="./img/c8db2f99-d79e-4c4a-97e8-3e95c67a3b2e.jpg" alt=""></li>
-						 <li>农夫山泉17.5...</li>
-						 <li>￥89</li>
-						 <li>￥59.9<img  class= 'add' src="./img/add.png" alt=""></li>
+						 <li @click="chaojituangou"><img src="./img/c8db2f99-d79e-4c4a-97e8-3e95c67a3b2e.jpg" alt=""></li>
+						 <li>我厨优选青浦红...</li>
+						 <li>￥56</li>
+						 <li>￥50.9<img  class= 'add' src="./img/add.png" alt=""></li>
 					 </ul>
 				 </li>
 				 <li>
 					 <ul id = 'te4'>
-						 <li><img src="./img/48f54c64-c567-495e-94cf-362144ff2625.jpg" alt=""></li>
-						 <li>农夫山泉17.5...</li>
-						 <li>￥89</li>
-						 <li>￥59.9<img  class= 'add' src="./img/add.png" alt=""></li>
+						 <li @click="nongjiale"><img src="./img/48f54c64-c567-495e-94cf-362144ff2625.jpg" alt=""></li>
+						 <li>我厨优选崇明青...</li>
+						 <li>￥29</li>
+						 <li>￥10.9<img  class= 'add' src="./img/add.png" alt=""></li>
 					 </ul>
 				 </li>
 				 <li>
 					 <ul id = 'te5' >
-						 <li><img src="./img/27e2c9a5-a583-416b-8818-55f97c2d26b7.jpg" alt=""></li>
-						 <li>农夫山泉17.5...</li>
-						 <li>￥89</li>
-						 <li>￥59.9<img  class= 'add' src="./img/add.png" alt=""></li>
+						 <li  @click="rexiaojingcai"><img src="./img/27e2c9a5-a583-416b-8818-55f97c2d26b7.jpg" alt=""></li>
+						 <li>中粮佳康小排...</li>
+						 <li>￥39</li>
+						 <li>￥43<img  class= 'add' src="./img/add.png" alt=""></li>
 					 </ul>
 				 </li>
 			 </ul>
 			<div id = 'nongjia'>
 				<div id = 'nong1'>
 					<h1>农家乐4菜开心团</h1>
-					<img src="./img/8f64d926-a06e-4ca8-99cf-8e299b4395d0.jpg" alt="">
+					<img  @click="chaojituangou" src="./img/8f64d926-a06e-4ca8-99cf-8e299b4395d0.jpg" alt="">
 				</div>
-				<div id = 'nong2'><img src="./img/a192d8da-e34f-42f6-98ff-27d8ca310761.jpg" alt=""></div>
+				<div id = 'nong2'><img  @click="heizhurou" src="./img/a192d8da-e34f-42f6-98ff-27d8ca310761.jpg" alt=""></div>
 				<div id = 'nong3'>
 					<h1>发现好货</h1>
 					<p>我厨优选新西兰羔羊块</p>
-					<img src="./img/03e0fe1a-df06-4a58-9414-559e69646eed.jpg" alt=""></div>
+					<img  @click="nongjiale" src="./img/03e0fe1a-df06-4a58-9414-559e69646eed.jpg" alt=""></div>
 			</div>
-			<img id ="img" src="./img/157bef06-9a42-4319-821a-421c07c60333.jpg" alt="">
+			<img id ="img"  @click="manglu" src="./img/157bef06-9a42-4319-821a-421c07c60333.jpg" alt="">
 			<div id='maishou'>
 				<div id = 'mai1'>
 					<h1>买手推荐</h1>
 					<p>超值购买</p>
-					<img src="./img/e83a2301-70b4-4e56-bf1a-dcd3a72bfa32.jpg" alt="">
+					<img @click='nongfushanquan' src="./img/e83a2301-70b4-4e56-bf1a-dcd3a72bfa32.jpg" alt="">
 				</div>
 				<div id = 'mai2'>
 					<h1>大厨教做菜</h1>
 					<p>腌笃鲜</p>
-					<img src="./img/5278a768-4657-4f4b-9d07-64ec74f25f04.jpg" alt="">
+					<img @click="zuocai" src="./img/5278a768-4657-4f4b-9d07-64ec74f25f04.jpg" alt="">
 				</div>
 				<div id = 'mai3'>
 					<h1>净菜热销排行</h1>
 					<p>荷塘小炒</p>
-					<img src="./img/68855427-f98d-4658-bd36-d08be25b9e73.jpg" alt="">
+					<img  @click='nongfushanquan' src="./img/68855427-f98d-4658-bd36-d08be25b9e73.jpg" alt="">
 				</div>
 				<div id = 'mai4'>
 					<h1>银行特惠</h1>
 					<p>专享特惠福利</p>
-					<img src="./img/91ed2aea-1130-477a-87af-9b1752a59572.jpg" alt="">
+					<img @click='bank' src="./img/91ed2aea-1130-477a-87af-9b1752a59572.jpg" alt="">
 				</div>
 			</div>
 			 <div id='xinpin'>———— 新品推荐 ————</div>
@@ -145,15 +145,15 @@
 			 <ul id = 'xinpin2'>
 				 <li>
 					 <ul id = 'xin1'>
-						 <li><img src="./img/a07398a3-bf2f-4bde-badc-38848ba6ccce.jpg" alt=""></li>
-						 <li>农夫山泉17.5...</li>
-						 <li>￥89</li>
-						 <li>￥59.9<img  class= 'add' src="./img/add.png" alt=""></li>
+						 <li><img @click='nongfushanquan' src="./img/a07398a3-bf2f-4bde-badc-38848ba6ccce.jpg" alt=""></li>
+						 <li>茨菇500g.</li>
+						 <li>￥9.9</li>
+						 <li>￥5.9<img  class= 'add' src="./img/add.png" alt=""></li>
 					 </ul>
 				 </li>
 				 <li>
 					 <ul id = 'xin2'> 
-						 <li><img src="./img/48f54c64-c567-495e-94cf-362144ff2625.jpg" alt=""></li>
+						 <li><img  @click='nongfushanquan' src="./img/48f54c64-c567-495e-94cf-362144ff2625.jpg" alt=""></li>
 						 <li>农夫山泉17.5...</li>
 						 <li>￥89</li>
 						 <li>￥59.9<img  class= 'add' src="./img/add.png" alt=""></li>
@@ -161,10 +161,10 @@
 				 </li>
 				 <li>
 					 <ul id = 'xin3'>
-						 <li><img src="./img/ab7d738c-aad5-475d-ae92-1ef92dd31e2d.jpg" alt=""></li>
-						 <li>农夫山泉17.5...</li>
-						 <li>￥89</li>
-						 <li>￥59.9<img  class= 'add' src="./img/add.png" alt=""></li>
+						 <li><img  @click='nongfushanquan' src="./img/ab7d738c-aad5-475d-ae92-1ef92dd31e2d.jpg" alt=""></li>
+						 <li>富老三酸菜</li>
+						 <li></li>
+						 <li>￥3.9<img  class= 'add' src="./img/add.png" alt=""></li>
 					 </ul>
 				 </li>
 			 </ul>
@@ -234,23 +234,113 @@ export default {
          this.$router.push({
                 path:'/tehui',
                 query: {
-                    name:'刘',
-                    age:18
+                     name:'本周特惠',
+                    type:1
                 }
             })
-       }
-    }
+	   },
+	    tejiataocan() {
+         this.$router.push({
+                path:'/tejiataocan',
+                query: {
+                    name:'本周特价',
+                    type:2
+                }
+            })
+	   },
+	   chaojituangou() {
+         this.$router.push({
+                path:'/chaojituangou',
+                query: {
+                    name:'超级团购',
+                    type:3
+                }
+            })
+	   },
+	    rexiaojingcai() {
+         this.$router.push({
+                path:'/rexiaojingcai',
+                query: {
+                    name:'热销净菜',
+                    type:4
+                }
+            })
+	   },
+	   heizhurou() {
+         this.$router.push({
+                path:'/heizhurou',
+                query: {
+                    name:'特价黑猪肉',
+                    type:5
+                }
+            })
+	   },
+	   nongfushanquan() {
+         this.$router.push({
+                path:'/nongfushanquan',
+                query: {
+                    name:'农夫山泉',
+                    type:6
+                }
+            })
+	   },
+	    nongjiale() {
+         this.$router.push({
+                path:'/nongjiale',
+                query: {
+                    name:'农夫山泉',
+                    type:7
+                }
+            })
+	   },
+	   manglu() {
+         this.$router.push({
+                path:'/manglu',
+                query: {
+                    name:'忙碌一天做点好吃的',
+                    type:8
+                }
+            })
+	   }, 
+	   zuocai() {
+         this.$router.push({
+                path:'/zuocai',
+                query: {
+                    name:'做菜',
+                    type:9
+                }
+            })
+	   },
+		bank() {
+         this.$router.push({
+                path:'/bank',
+                query: {
+                    name:'银行',
+                    type:10
+                }
+            })
+	   },
+	},
+	  // 在created钩子函数里面做网络请求
+//   created() {
+//     // 使用axios处理网络请求
+//     this.axios.get('http://h5.yztctech.net/api/axf/apimiaosha.php')
+//       .then(res => {
+//         this.productList = res.data.product
+//       })
+//   }
 }
 </script>
     
 <style lang="css" scoped>
-      *{
+    *{
     padding: 0;
     margin: 0;
     box-sizing:border-box;
 	}
 	#box{
 		width:100%;
+		background:white;
 	}
 	#head{
 		width:100%;
@@ -336,7 +426,7 @@ export default {
 	height: 2.122016rem;
 	float: left;
 	list-style: none;
-	margin:0 .238727rem;
+	margin-left:.530504rem;
 	margin-bottom: .530504rem
 }
 #gou li img{
