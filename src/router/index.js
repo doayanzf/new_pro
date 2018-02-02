@@ -11,8 +11,17 @@ import Home from '../components/Home/Home.vue'
 import Car from '../components/Car/Car.vue'
 import Sort from '../components/Sort/Sort.vue'
 import Mine from '../components/Mine/Mine.vue'
-// 导入tehui一级路由
+// 导入首页一级路由
 import tehui from '../components/Home/tehui.vue'
+import tejiataocan from '../components/Home/tejiataocan.vue'
+import chaojituangou from '../components/Home/chaojituangou.vue'
+import rexiaojingcai from '../components/Home/rexiaojingcai.vue'
+import heizhurou from '../components/Home/heizhurou.vue'
+import nongfushanquan from '../components/Home/nongfushanquan.vue'
+import nongjiale from '../components/Home/nongjiale.vue'
+import manglu from '../components/Home/manglu.vue'
+import zuocai from '../components/Home/zuocai.vue'
+import bank from '../components/Home/bank.vue'
 // 导入分类二级路由
 import TuiJian from '../components/Sort/TuiJian.vue'
 import WoChuyx from '../components/Sort/WoChuyx.vue'
@@ -64,7 +73,16 @@ export default new VueRouter({
     
     { path: '/mine', component: Mine },
     { path: '/car', component: Car },
-    { path: '/tehui', component: tehui }
+    { path: '/tehui', component: tehui },
+    { path: '/tejiataocan', component:  tejiataocan },
+    { path: '/chaojituangou', component: chaojituangou },
+    { path: '/rexiaojingcai', component: rexiaojingcai },
+    { path: '/heizhurou', component:heizhurou },
+    { path: '/nongfushanquan', component: chaojituangou },
+    { path: '/nongjiale', component:nongjiale },
+    { path: '/manglu', component:manglu },
+    { path: '/zuocai', component:zuocai},
+    { path: '/bank', component:bank},
   ]
 })
 
