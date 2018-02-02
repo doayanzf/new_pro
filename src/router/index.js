@@ -11,6 +11,17 @@ import Home from '../components/Home/Home.vue'
 import Car from '../components/Car/Car.vue'
 import Sort from '../components/Sort/Sort.vue'
 import Mine from '../components/Mine/Mine.vue'
+// 导入首页一级路由
+import tehui from '../components/Home/tehui.vue'
+import tejiataocan from '../components/Home/tejiataocan.vue'
+import chaojituangou from '../components/Home/chaojituangou.vue'
+import rexiaojingcai from '../components/Home/rexiaojingcai.vue'
+import heizhurou from '../components/Home/heizhurou.vue'
+import nongfushanquan from '../components/Home/nongfushanquan.vue'
+import nongjiale from '../components/Home/nongjiale.vue'
+import manglu from '../components/Home/manglu.vue'
+import zuocai from '../components/Home/zuocai.vue'
+import bank from '../components/Home/bank.vue'
 // 导入分类二级路由
 import TuiJian from '../components/Sort/TuiJian.vue'
 import WoChuyx from '../components/Sort/WoChuyx.vue'
@@ -23,6 +34,11 @@ import RouQind from '../components/Sort/RouQind.vue'
 import ShuiChanhx from '../components/Sort/ShuiChanhx.vue'
 import RuYinxd from '../components/Sort/RuYinxd.vue'
 import DianXinss from '../components/Sort/DianXinss.vue'
+// 分类二级路由的一级路由
+import ProductDetali from '../components/Sort/ProductDetali'
+
+import GoodsDetails from '../components/Sort/GoodsDetails'
+
 
 // 导入mine一级路由
 import Recharge from '../components/Mine/recharge.vue'
@@ -46,9 +62,13 @@ export default new VueRouter({
     // router-link里的to跳转的地址，paht后面要和to一致
     // component就是根据路由地址，找到对应的组件，显示到router-view中
     // { path: '', component: Home },
+
+
+    // 分类页面的二级路由规则
     { path: '', redirect: '/home' },
     { path: '/home', component: Home },
     { path: '/sort', component: Sort, children: [
+      { path: '', redirect: 'tuijian' },
       {path: 'tuijian', component: TuiJian},
       {path: 'wochuyouxuan', component: WoChuyx},
       {path: 'canguanmingcai', component: CanGuanmc},
@@ -64,7 +84,9 @@ export default new VueRouter({
       
     ] },
 
-    { path: '/mine', component: Mine},
+
+    // mine路由规则
+    { path: '/mine', component: Mine} ,
     { path: '/recharge', component: Recharge},
     { path: '/coupon', component: Coupon},
     { path: '/help', component: Help},
@@ -78,9 +100,26 @@ export default new VueRouter({
     { path: '/myAddress', component: MyAddress},
 
 
+    // 购物车的路由规则
+    { path: '/car', component: Car },
 
-    { path: '/coupon', component: Coupon},
-    { path: '/car', component: Car }
+
+    // 分类页面和主页的路由规则
+    {path: '/productDetail/:productId', component: ProductDetali},
+    {path: '/goodsDetails/:goodId', component: GoodsDetails},
+    
+
+    // 主页的路由规则
+    { path: '/tehui', component: tehui },
+    { path: '/tejiataocan', component:  tejiataocan },
+    { path: '/chaojituangou', component: chaojituangou },
+    { path: '/rexiaojingcai', component: rexiaojingcai },
+    { path: '/heizhurou', component:heizhurou },
+    { path: '/nongfushanquan', component: chaojituangou },
+    { path: '/nongjiale', component:nongjiale },
+    { path: '/manglu', component:manglu },
+    { path: '/zuocai', component:zuocai},
+    { path: '/bank', component:bank},
   ]
 })
 

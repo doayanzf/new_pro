@@ -1,14 +1,18 @@
 <template>
    <!-- 总背景图 -->
     <div class="Dbody">
-        <div class="imgBack">
-            <p></p>
-            <p>个人账户</p>
-            <p>账户明细</p>
-        </div>
-        
-        <div class="TopD">
-            <!-- <TopC class="TopC"></TopC> -->
+        <div class="posD">
+            <div class="imgBack">
+                <p></p>
+                <p>个人账户</p>
+                <p>账户明细</p>
+            </div>
+            
+            <div class="TopD">
+                <div class="dLeft"></div>
+                <div class="dRight"></div>
+            </div>
+
         </div>
     </div>
 </template>
