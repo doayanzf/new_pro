@@ -24,6 +24,18 @@ import ShuiChanhx from '../components/Sort/ShuiChanhx.vue'
 import RuYinxd from '../components/Sort/RuYinxd.vue'
 import DianXinss from '../components/Sort/DianXinss.vue'
 
+// 导入mine一级路由
+import Recharge from '../components/Mine/recharge.vue'
+import Coupon from '../components/Mine/coupon.vue'
+import Help from '../components/Mine/help.vue'
+import Order from '../components/Mine/order.vue'
+import Phone from '../components/Mine/phone.vue'
+import Setup from '../components/Mine/setup.vue'
+import About from '../components/Mine/about.vue'
+import GroundBuy from '../components/Mine/groundBuy.vue'
+import DOpinion from '../components/Mine/dOpinion.vue'
+import Myfavorite from '../components/Mine/myfavorite.vue'
+import MyAddress from '../components/Mine/myAddress.vue'
 
 
 // 创建路由实例，并且配置路由规则
@@ -51,7 +63,23 @@ export default new VueRouter({
       
       
     ] },
-    { path: '/mine', component: Mine },
+
+    { path: '/mine', component: Mine},
+    { path: '/recharge', component: Recharge},
+    { path: '/coupon', component: Coupon},
+    { path: '/help', component: Help},
+    { path: '/dOpinion', component: DOpinion},
+    { path: '/order', component: Order},
+    { path: '/phone', component: Phone},
+    { path: '/setup', component: Setup},
+    { path: '/about', component: About},
+    { path: '/groundBuy', component: GroundBuy},
+    { path: '/myfavorite', component: Myfavorite},
+    { path: '/myAddress', component: MyAddress},
+
+
+
+    { path: '/coupon', component: Coupon},
     { path: '/car', component: Car }
   ]
 })
