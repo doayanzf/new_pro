@@ -117,6 +117,9 @@ export default {
                 this.liClass = num;
             }
 
+            this.dataGoodsTow = this.dataGoods[num-1]
+            
+
         }
     },
     created() {
