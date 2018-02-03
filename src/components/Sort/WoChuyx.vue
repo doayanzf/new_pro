@@ -1,8 +1,8 @@
 <template>
     <div class="box">
        <li v-for="product in productList" :key="product.id" class="tmain" @click="toproductDetail(product.productId)">
-           <img src="./img/4e3b486b-51fc-4147-90f8-54cdb5cf28c2.jpg" alt="">
-           <p>我厨优选蔬菜</p>
+           <img :src="product.checkicon" alt="">
+           <p>{{ product.name }}</p>
        </li>
        
     </div>
@@ -14,27 +14,18 @@ export default {
     data () {
         return {
              msg: '我是推荐',
-             productList: [
-                 {productId: '1001', productName: '商品1', productPrice: 11.5},
-                 {productId: '1002', productName: '商品2', productPrice: 12.5},
-                 {productId: '1003', productName: '商品3', productPrice: 13.5},
-                 {productId: '1004', productName: '商品4', productPrice: 14.5},
-                 {productId: '1005', productName: '商品5', productPrice: 15.5},
-                 
-             ]
+             productList: []
             
         };
     },
     methods: {
         toproductDetail(productId){
-            // 使用实例的$router的push方法进行传递, 注意这个是$router 接受的时候是$route
-            // 字符串形式(路由路径)
-            // this.$router.push('/productDetail/' + productId);
-            // 对象形式
-            // this.$router.push({
-            //     path: '/productDetail/' + productId
-            // })
-            // 可以带查询参数 (之前的路由规则不影响)
+            this.axios.get('http://10.0.157.219:8888/sort_wochuyouxuan_cai')
+            .then(res => {
+                console.log(res.data.shop_data);                               
+                this.$store.dispatch('add',res.data.shop_data)
+            }),
+            
             this.$router.push({
 
                 path: '/productDetail/' + productId,
@@ -43,7 +34,21 @@ export default {
                     age: 18
                 }
             })
+            
         }
+    },
+    created() {
+
+        this.axios.get('http://10.0.157.219:8888/sort_wochuyouxuan')
+            .then(res => {
+                this.productList = res.data.shop_data
+        }),
+        this.axios.get('http://10.0.157.219:8888/sort_wochuyouxuan_cai')
+         .then(res => {
+            this.dataGoods = res.data.shop_data
+            this.$store.dispatch('add',res.data.shop_data)
+        })
+
     }
 }
 </script>
