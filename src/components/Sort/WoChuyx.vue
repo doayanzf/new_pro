@@ -22,7 +22,8 @@ export default {
         toproductDetail(productId){
             this.axios.get('http://10.0.157.219:8888/sort_wochuyouxuan_cai')
             .then(res => {
-                console.log(res.data.shop_data);                               
+                console.log(res.data.shop_data);
+                               
                 this.$store.dispatch('add',res.data.shop_data)
             }),
             

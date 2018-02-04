@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div >
        <div class="header">
            <div @click="back()">
                <img src="./img/back.png" alt="">
            </div>
-           <div>我厨优选</div>
+           <div>{{dataGoodsTow.title}}</div>
            <div>
                <img src="./img/icon-search-40@2x.png" alt="">
                <img src="./img/cart_n.png" alt="">
@@ -15,8 +15,8 @@
        <div class="nav">
            <div class="nav_1">
                 <ul>
-                    <li class="li" :class="{liClass: firstClass == 'aaa'}" @click="changeBg(1)">我厨优选蔬菜</li>
-                    <li class="li" :class="{liClass: liClass == 2}" @click="changeBg(2)">我厨优选禽蛋</li>
+                    <li class="li" :class="{liClass: firstClass == 'aaa'}" @click="changeBg(1)">{{dataGoodsTow.name}}</li>
+                    <li class="li" :class="{liClass: liClass == 2}" @click="changeBg(2)">{{dataGoodsTow.name}}</li>
                     <li class="li" :class="{liClass: liClass == 3}" @click="changeBg(3)">我厨优选海鲜</li>
                     <!-- <li>我厨优选海鲜</li>
                     <li>我厨优选海鲜</li>

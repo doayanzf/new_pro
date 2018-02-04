@@ -23,8 +23,7 @@
                <li class="li" :class="{liClass: liClass == 9}" @click="changeBg(9)"><router-link to="/sort/chuichanhaixian" :class="{routerClass: routerClass == 9}">水产海鲜</router-link></li>
                <li class="li" :class="{liClass: liClass == 10}" @click="changeBg(10)"><router-link to="/sort/ruyinxidian" :class="{routerClass: routerClass == 10}">乳饮西点</router-link></li>
                <li class="li" :class="{liClass: liClass == 11}" @click="changeBg(11)"><router-link to="/sort/dianxisushi" :class="{routerClass: routerClass == 11}">点心素食</router-link></li>
-           
-                      
+               
             </ul>
             
             
@@ -49,7 +48,8 @@ export default {
              msg: 'Sort',
              firstClass: 'aaa',
              liClass: 'li',
-             routerClass: 'aaa'
+             routerClass: 'aaa',
+             isShow: false
         };
     },
     methods: {
@@ -64,7 +64,13 @@ export default {
                 this.routerClass = num;
             }
         }
-    }
+    },
+   watch:{
+       $route(){
+        console.log('jianting');
+        this.isShow = true;
+       }
+   } 
 }
 
 </script>
