@@ -22,6 +22,7 @@ import nongjiale from '../components/Home/nongjiale.vue'
 import manglu from '../components/Home/manglu.vue'
 import zuocai from '../components/Home/zuocai.vue'
 import bank from '../components/Home/bank.vue'
+import search from '../components/Home/search.vue'
 // 导入分类二级路由
 import TuiJian from '../components/Sort/TuiJian.vue'
 import WoChuyx from '../components/Sort/WoChuyx.vue'
@@ -120,6 +121,7 @@ export default new VueRouter({
     { path: '/manglu', component:manglu },
     { path: '/zuocai', component:zuocai},
     { path: '/bank', component:bank},
+    { path: '/search', component:search},
   ]
 })
 
