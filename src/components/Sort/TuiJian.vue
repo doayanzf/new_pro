@@ -43,9 +43,9 @@ export default {
         margin-left: .530504rem;
         margin-top: .265252rem;
     }
-    /* .box div{
-        padding-top: .265252rem
-    } */
+    .box div{
+        padding-top: .530504rem
+    }
     .tmain{
         width: 1.511936rem;
         height: 2.095491rem;

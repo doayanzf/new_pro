@@ -20,14 +20,12 @@ export default {
     },
     methods: {
         toproductDetail(productId){
-            // 使用实例的$router的push方法进行传递, 注意这个是$router 接受的时候是$route
-            // 字符串形式(路由路径)
-            // this.$router.push('/productDetail/' + productId);
-            // 对象形式
-            // this.$router.push({
-            //     path: '/productDetail/' + productId
-            // })
-            // 可以带查询参数 (之前的路由规则不影响)
+            this.axios.get('http://10.0.157.219:8888/sort_shucai_cai')
+            .then(res => {
+                console.log(res.data.shop_data);
+                               
+                this.$store.dispatch('add',res.data.shop_data)
+            }),
             this.$router.push({
 
                 path: '/productDetail/' + productId,
@@ -44,7 +42,12 @@ export default {
         console.log(res.data.shop_data);
         
         this.productList = res.data.shop_data
-      })
+      }),
+      this.axios.get('http://10.0.157.219:8888/sort_shucai_cai')
+         .then(res => {
+            this.dataGoods = res.data.shop_data
+            this.$store.dispatch('add',res.data.shop_data)
+        })
 
     }
 }
