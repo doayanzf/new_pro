@@ -39,6 +39,9 @@ import ProductDetali from '../components/Sort/ProductDetali'
 
 import GoodsDetails from '../components/Sort/GoodsDetails'
 
+//  购物车一级路由规则
+import Coudan from '../components/Car/Coudan'
+
 
 // 导入mine一级路由
 import Recharge from '../components/Mine/recharge.vue'
@@ -107,6 +110,7 @@ export default new VueRouter({
     // 分类页面和主页的路由规则
     {path: '/productDetail/:productId', component: ProductDetali},
     {path: '/goodsDetails/:goodId', component: GoodsDetails},
+    {path: '/coudan/:coudanId', component: Coudan},
     
 
     // 主页的路由规则

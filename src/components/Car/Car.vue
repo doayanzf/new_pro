@@ -6,7 +6,7 @@
                 <div><img src="./img/location.png" alt=""></div>
                 <div> {{ address }} </div>
                 <div><img src="./img/xiala.png" alt=""></div>
-                <div>编辑</div>
+                <div @click="edit">{{ span }}</div>
             </header>
             <nav>
                 <ul id="date">
@@ -26,11 +26,11 @@
         </div>
         <div class="wtf"></div>
        <main>
-           <div id="main2">
+           <div id="main1">
                <p class="title"><span>活动</span>其它</p>
                <ul>
                    <li>
-                       <img src="./img/selected.png" alt="" class="selected">
+                       <img src="./img/selected.png" alt="" class="selected" @click="changeImg">
                        <img src="./img/youcai.jpg" alt="" class="footimg">
                        <div class="foot">我厨优选崇明青菜350g</div>
                        <div>
@@ -46,7 +46,7 @@
                        </div>
                    </li>
                    <li>
-                       <img src="./img/selected.png" alt="" class="selected">
+                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
                        <img src="./img/meat.jpg" alt="" class="footimg">
                        <div class="foot">重量家佳康小排400g</div>
                        <div>
@@ -62,7 +62,7 @@
                        </div>
                    </li>
                    <li>
-                       <img src="./img/selected.png" alt="" class="selected">
+                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
                        <img src="./img/duck.jpg" alt="" class="footimg">
                        <div class="foot">崇明两年半龄老麻鸭900g</div>
                        <div>
@@ -80,11 +80,11 @@
                </ul>
                <p class="fenge"></p>
            </div>
-           <div id="main1">
+           <div id="main2">
                <p class="title"><span>折扣</span>同件商品第二件半价</p>
                <ul>
                    <li>
-                       <img src="./img/selected.png" alt="" class="selected">
+                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
                        <img src="./img/mei.jpg" alt="" class="footimg">
                        <div class="foot">我厨优选红霞草莓一盒(15-20枚净含量300g以上)</div>
                        <div>
@@ -100,7 +100,7 @@
                        </div>
                    </li>
                    <li>
-                       <img src="./img/selected.png" alt="" class="selected">
+                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
                        <img src="./img/jv.jpg" alt="" class="footimg">
                        <div class="foot">江西南丰贡桔500g</div>
                        <div>
@@ -120,13 +120,19 @@
            </div>
        </main>
        <div class="wtf2"></div>
-       <footer>
+       <footer v-show="footer">
            <img src="./img/selected.png" alt="">
            <div id="price">合计：<span> {{ price }} </span></div>
            <div id="jiesuan">结算({{ sum }})</div>
-           <div id="baoyou" v-show="paduan">已包邮</div>
-           <div id="baoyou2" v-show="!paduan" @click="coudan">全场满99包邮 点我包邮<span id="trangle"></span></div>
+           <div id="baoyou" v-show="!panduan">已包邮</div>
+           <div id="baoyou2" v-show="panduan" @click="coudan">全场满99包邮 点我包邮<span id="trangle"></span></div>
        </footer>
+       <div id="footer2" v-show="!footer">
+           <img src="./img/unselect.png" alt="">
+           <div>全选</div>
+           <div @click="clear">清除购物车</div>
+           <div>删除</div>
+       </div>
     </div>
 </template>
     
@@ -135,7 +141,7 @@ export default {
     name: "component_name",
     data () {
         return {
-             address: '河北省保定市大牛村',
+             address: '哈尔滨路261号',
              data1: '2/2周五',
              data2: '2/3周六',
              data3: '2/4周日',
@@ -145,8 +151,10 @@ export default {
              secondClass: 'bbb',
              price: '￥123.30',
              sum: '5',
-             panduan: 'false',
-             num1: 1
+             panduan: 'true',
+             num1: 1,
+             footer: true,
+             span: '编辑'
         };
     },
     methods: {
@@ -176,6 +184,30 @@ export default {
             this.num1++;
         },
         coudan() {
+            // 使用实例的$router的push方法进行传递, 注意这个是$router 接受的时候是$route
+            // 字符串形式(路由路径)
+            // this.$router.push('/productDetail/' + productId);
+            // 对象形式
+            // this.$router.push({
+            //     path: '/productDetail/' + productId
+            // })
+            // 可以带查询参数 (之前的路由规则不影响)
+            this.$router.push({
+                path: '/coudan/' + 123,
+                query: {
+                    name: '刘',
+                    age: 18
+                }
+            })
+        },
+        clear() {
+
+        },
+        edit() {
+            this.footer ? this.span = "完成" : this.span = "编辑";
+            this.footer = !this.footer;
+        },
+        changeImg() {
             
         }
     }
@@ -272,13 +304,15 @@ export default {
         height: .266667rem;
         background: #f5f5f5;
     }
+    main{
+        background: #fff;
+    }
     main ul{
         border-top: 2px solid #f2f2f2;
     }
     .title{
-        height: 1.066667rem;
         font-size: .32rem;
-        margin: .32rem 0 0 .32rem;
+        padding: .32rem 0 .32rem .266667rem;
     }
     .title span{
         display: inline-block;
@@ -402,6 +436,41 @@ export default {
         left: 1.2rem;
         bottom: -.16rem;
     }
+    #footer2{
+        width: 10rem;
+        height: 1.4rem;
+        border: 1px solid #eaeae9;
+        position: fixed;
+        bottom: 1.46rem;
+        background: #fff;
+    }
+    #footer2 img{
+        margin: .48rem .266667rem 0;
+        float: left;
+    }
+    #footer2 div{
+        float: left;
+    }
+    #footer2 div:first-of-type{
+        color: #f75200;
+        font-size: .426667rem;
+        margin: .36rem 3.09rem 0 0;
+    }
+    #footer2 div:nth-of-type(2){
+        color: #969696;
+        font-size: .346667rem;
+        margin: .48rem .266667rem 0 0;
+    }
+    #footer2 div:nth-of-type(3){
+        width: 3.066667rem;
+        height: 1.4rem;
+        line-height: 1.4rem;
+        text-align: center;
+        background: #ff3b30;
+        color: #fff;
+        font-size: .4rem;
+    }
+    
     
 </style>
 
