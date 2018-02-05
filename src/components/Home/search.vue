@@ -61,7 +61,7 @@ export default {
     },
     computed: {
         jisuan () {
-            if(!if_flag) {
+            if(!this.if_flag) {
                 return false
             }
         }
