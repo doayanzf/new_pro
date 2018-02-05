@@ -6,7 +6,7 @@
            </div>
            <div>{{dataGoodsTow.title}}</div>
            <div>
-               <img src="./img/icon-search-40@2x.png" alt="">
+               <img src="./img/icon-search-40@2x.png" @click="searc" alt="">
                <img src="./img/cart_n.png" alt="">
            </div>
            
@@ -120,7 +120,12 @@ export default {
             this.dataGoodsTow = this.dataGoods[num-1]
             
 
-        }
+        },
+        searc() {
+         this.$router.push({
+                path:'/search',
+            })
+	   }
     },
     created() {
 

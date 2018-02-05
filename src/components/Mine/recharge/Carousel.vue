@@ -23,16 +23,7 @@ export default {
     }
 }
 
-window.onload = function() {
-  var mySwiper = new Swiper ('.swiper-container', {
-    initialSlide :4,
-    direction: 'horizontal',
-    loop: false,
-    freeMode : true,
-    freeModeMomentum : false,
-    slidesPerView: 'auto',
-  })
-}
+
        
 </script>
     
