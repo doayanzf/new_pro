@@ -3,7 +3,7 @@
         
        
        <div class="search">
-           <div class="search-input">
+           <div class="search-input" @click="searc">
                <img src="./img/icon-search-40@2x.png" alt="">
                <span>支持首字母搜索</span>
            </div>
@@ -63,7 +63,12 @@ export default {
                 this.liClass = num;
                 this.routerClass = num;
             }
-        }
+        },
+        searc() {
+         this.$router.push({
+                path:'/search',
+            })
+	   }
     },
    watch:{
        $route(){
