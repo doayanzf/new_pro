@@ -26,7 +26,7 @@
        </ul>
         <p>清空搜索记录</p>
       </div>
-       <div id ='tishi'  v-show='jisuan'>
+       <div id ='tishi'  v-show='if_flag'>
            <img src="./img2/i-omg.png" alt=""><br>
            搜索内容不能为空
        </div>
@@ -49,20 +49,10 @@ export default {
         },
         sou(){
             if(this.msg == '') {
-                console.log(this.msg)
                  this.if_flag = true
-                window.setTimeout(function(){
-                    
+                window.setTimeout(() => {
                      this.if_flag = false;
-                     console.log(this.if_flag)
                 },1000)
-            }
-        }
-    },
-    computed: {
-        jisuan () {
-            if(!if_flag) {
-                return false
             }
         }
     }
