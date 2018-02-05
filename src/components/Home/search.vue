@@ -3,7 +3,7 @@
         <div id ='head'>
     <img class='back' @click='back' src="./img2/back(1).png" alt="">
     <img   src="./img/search.png" class='img4' alt="">
-       <input type="text" v-model="msg">
+       <input type="text" v-model="msg" @click='dis'>
        <button @click='sou'>搜索</button>
         </div>
         <div  id = 'remen'> 热门搜索
@@ -21,12 +21,12 @@
        
       <div id ='lishi'>
           搜索历史
-          <ul>
-           <li></li>
-       </ul>
+         
+           <msg-li :arr="arr"></msg-li>
+       
         <p>清空搜索记录</p>
       </div>
-       <div id ='tishi'  v-show='jisuan'>
+       <div id ='tishi'  v-show='if_flag'>
            <img src="./img2/i-omg.png" alt=""><br>
            搜索内容不能为空
        </div>
@@ -40,7 +40,9 @@ export default {
         return {
              inputlist:[],
              msg:'',
-             if_flag:false
+             if_flag:'',
+             arr:[],
+            
         };
     },
      methods: {
@@ -51,11 +53,21 @@ export default {
             if(this.msg == '') {
                 console.log(this.msg)
                  this.if_flag = true
-                window.setTimeout(function(){
-                    
-                     this.if_flag = false;
-                     console.log(this.if_flag)
-                },1000)
+                 console.log(this.if_flag)
+                 window.setTimeout(() => {
+                     this.if_flag = false
+                 },2000)
+            }
+            if(this.msg != '') {
+                this.arr.push({goodsname:this.msg})
+                console.log(this.arr)
+                this.msg = ''
+            }
+        },
+       
+        dis(){
+             if(this.msg == '') {
+             this.if_flag = false;
             }
         }
     },
@@ -65,7 +77,25 @@ export default {
                 return false
             }
         }
-    }
+    },
+    components: {
+        'msg-li':{
+            template:`
+                <ul>
+                <li v-for='pro in arr'>{{pro.goodsname}}</li>
+                </ul>
+            `,
+            props: ['arr']
+        }
+    },
+    created(){
+        if(window.localStorage.searchdate) {
+            this.arr = window.localStorage.searchdate
+        } else {
+            window.localStorage.searchdate= []
+            this.arr = window.localStorage.searchdate
+        }
+    },
 }
 </script>
     
