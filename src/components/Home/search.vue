@@ -24,7 +24,7 @@
          
            <msg-li :arr="arr"></msg-li>
        
-        <p>清空搜索记录</p>
+        <p @click="shanchu">清空搜索记录</p>
       </div>
        <div id ='tishi'  v-show='if_flag'>
            <img src="./img2/i-omg.png" alt=""><br>
@@ -45,30 +45,36 @@ export default {
             
         };
     },
-     methods: {
-        back() {
-            history.back()
-        },
-        sou(){
-            if(this.msg == '') {
-                console.log(this.msg)
-                 this.if_flag = true
-                 console.log(this.if_flag)
-                 window.setTimeout(() => {
-                     this.if_flag = false
-                 },2000)
-            }
-            if(this.msg != '') {
-                this.arr.push({goodsname:this.msg})
-                console.log(this.arr)
-                this.msg = ''
-            }
-        },
+    methods: {
+    back() {
+        history.back()
+    },
+    sou(){
+        if(this.msg == '') {
+            console.log(this.msg)
+                this.if_flag = true
+                console.log(this.if_flag)
+                window.setTimeout(() => {
+                    this.if_flag = false
+                },2000)
+        }
+        if(this.msg != '') {
+            
+            this.arr.push(this.msg)
+            this.msg = ''
+            window.localStorage.setItem("searchdate",JSON.stringify(this.arr))
+
+        }
+    },
        
-        dis(){
-             if(this.msg == '') {
-             this.if_flag = false;
-            }
+    dis(){
+            if(this.msg == '') {
+            this.if_flag = false;
+        }
+    },
+     shanchu() {
+        window.localStorage.removeItem('searchdate')
+        this.arr = []
         }
     },
     computed: {
@@ -82,19 +88,17 @@ export default {
         'msg-li':{
             template:`
                 <ul>
-                <li v-for='pro in arr'>{{pro.goodsname}}</li>
+                <li v-for='pro in arr'  class='aaa' style="height:.795756rem; line-height:.795756rem;border-bottom:1px solid #666">{{pro}}</li>
                 </ul>
             `,
             props: ['arr']
         }
     },
     created(){
+        // 本地存储与页面数据同步
         if(window.localStorage.searchdate) {
-            this.arr = window.localStorage.searchdate
-        } else {
-            window.localStorage.searchdate= []
-            this.arr = window.localStorage.searchdate
-        }
+            this.arr = JSON.parse(window.localStorage.searchdate)            
+        } 
     },
 }
 </script>
@@ -104,11 +108,10 @@ export default {
         width: 9.94695rem;
         background: white;
     }
-    .bac{
+    .back{
         position:fixed;
         width:2.65252rem;
         height:2.65252rem;
-       
     }
     #head{
         width:100%;
@@ -188,6 +191,7 @@ export default {
         color:#afafaf;
         text-align:center
     }
+    
     #tishi{
         position: fixed;
         width:3.97878rem;
@@ -201,8 +205,8 @@ export default {
        padding-top:.265252rem;
        
     }
-       #tishi img{
-           width:.795756rem;
-           height:.795756rem;
-       }
+    #tishi img{
+        width:.795756rem;
+        height:.795756rem;
+    }
 </style>

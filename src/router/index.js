@@ -23,6 +23,16 @@ import manglu from '../components/Home/manglu.vue'
 import zuocai from '../components/Home/zuocai.vue'
 import bank from '../components/Home/bank.vue'
 import search from '../components/Home/search.vue'
+import bobing from '../components/Home/bobing.vue'
+import youxuan from '../components/Home/youxuan.vue'
+import xihongshi from '../components/Home/xihongshi.vue'
+import juzi from '../components/Home/juzi.vue'
+import jiakang from '../components/Home/jiakang.vue'
+import jirou from '../components/Home/jirou.vue'
+import daiyv from '../components/Home/daiyv.vue'
+import niunai from '../components/Home/niunai.vue'
+import gutang from '../components/Home/gutang.vue'
+import dami from '../components/Home/dami.vue'
 // 导入分类二级路由
 import TuiJian from '../components/Sort/TuiJian.vue'
 import WoChuyx from '../components/Sort/WoChuyx.vue'
@@ -80,7 +90,8 @@ export default new VueRouter({
       {path: 'rouqindan', component: RouQind},
       {path: 'chuichanhaixian', component: ShuiChanhx},
       {path: 'ruyinxidian', component: RuYinxd},
-      {path: 'dianxisushi', component: DianXinss}
+      {path: 'dianxisushi', component: DianXinss},
+      
       
       
     ] },
@@ -122,6 +133,16 @@ export default new VueRouter({
     { path: '/zuocai', component:zuocai},
     { path: '/bank', component:bank},
     { path: '/search', component:search},
+    { path: '/bobing', component:bobing},
+    { path: '/youxuan', component:youxuan},
+    { path: '/xihongshi', component:xihongshi},
+    { path: '/juzi', component:juzi},
+    { path: '/jiakang', component:jiakang},
+    { path: '/jirou', component:jirou},
+    { path: '/daiyv', component:daiyv},
+    { path: '/niunai', component:niunai},
+    { path: '/gutang', component:gutang},
+    { path: '/dami', component:dami},
   ]
 })
 
