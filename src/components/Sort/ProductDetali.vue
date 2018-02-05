@@ -37,9 +37,10 @@
                </div>
                <div class="content_more_right">
                    <div class="right_1">
-                        <strong>{{product.goodsName}}</strong>
+                       <strong>{{product.goodsName}}</strong>
                         <br>
-                        <span>{{product.description}}</span>
+                        <span>{{product.description}}</span> 
+                    
                    </div>
                    <div class="right_2">
                        <p>￥{{product.marketPrice}}&nbsp;&nbsp;<span>￥{{product.price}}</span></p>

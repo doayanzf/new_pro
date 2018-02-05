@@ -37,6 +37,8 @@ import RuYinxd from '../components/Sort/RuYinxd.vue'
 import DianXinss from '../components/Sort/DianXinss.vue'
 // 分类二级路由的一级路由
 import ProductDetali from '../components/Sort/ProductDetali'
+import SouSuo from '../components/Home/SouSuo'
+
 
 import GoodsDetails from '../components/Sort/GoodsDetails'
 
@@ -108,6 +110,8 @@ export default new VueRouter({
     // 分类页面和主页的路由规则
     {path: '/productDetail/:productId', component: ProductDetali},
     {path: '/goodsDetails/:goodId', component: GoodsDetails},
+    {path: '/souSuo/:goodId', component: SouSuo},
+    
     
 
     // 主页的路由规则
