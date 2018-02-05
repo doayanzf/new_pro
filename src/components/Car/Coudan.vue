@@ -7,7 +7,8 @@
         <main>
             <ul>
                 <li>
-                    <img src="./img/unselect2.png" alt="">
+                    <div><img src="./img/unselect2.png" alt=""></div>
+                    
                 </li>
             </ul>
         </main>
@@ -82,6 +83,8 @@ export default {
         height: 1.173333rem;
         border-top: 1px solid #e9e9e9;
         background: #fff;
+        position: fixed;
+        bottom: 0;
     }
     footer div{
         float: left;
