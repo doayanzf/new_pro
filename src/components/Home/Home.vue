@@ -4,7 +4,7 @@
 			<li><img src="./img/wochuLogo.png" class='img1' alt=""></li>
 			<li><a class='img2' href="">请填写地址 </a></li>
 			<li><a href=""><img src="./img/icon.png" class='img3' alt=""></a></li>
-			<li><a href=""><img  @click = 'searc' src="./img/search.png" class='img4'alt=""></a></li>
+			<li><a href=""><img  @click = 'searc' src="./img/search.png" class='img4' alt=""></a></li>
 		</ul>
 	
 		<div class="swiper-container">
