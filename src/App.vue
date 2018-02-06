@@ -23,8 +23,35 @@ export default {
   },
   computed: {
     isShow() {
-        if ((this.$route.path.indexOf('/productDetail/') != -1) 
-        || this.$route.path.indexOf('/coudan') != -1) {
+        if ((this.$route.path.indexOf('/productDetail/') != -1) || 
+        (this.$route.path.indexOf('/coudan') != -1) ||
+         (this.$route.path.indexOf('/tehui') != -1) || 
+         (this.$route.path.indexOf('/bank') != -1) || 
+         (this.$route.path.indexOf('/bobing') != -1) || 
+         (this.$route.path.indexOf('/chaojituangou') != -1) || 
+         (this.$route.path.indexOf('/daiyv') != -1) || 
+         (this.$route.path.indexOf('/dami') != -1) || 
+         (this.$route.path.indexOf('/gutang') != -1) || 
+         (this.$route.path.indexOf('/heizhurou') != -1) || 
+         (this.$route.path.indexOf('/jiakang') != -1) || 
+         (this.$route.path.indexOf('/juzi') != -1) || 
+         (this.$route.path.indexOf('/manglu') != -1) || 
+         (this.$route.path.indexOf('/niunai') != -1) || 
+         (this.$route.path.indexOf('/nongfushanquan') != -1) || 
+         (this.$route.path.indexOf('/nongjiale') != -1) || 
+         (this.$route.path.indexOf('/rexiaojingcai') != -1) || 
+         (this.$route.path.indexOf('/search') != -1) || 
+         (this.$route.path.indexOf('/SouSuo') != -1) || 
+         (this.$route.path.indexOf('/tejiataocan') != -1) || 
+         (this.$route.path.indexOf('/xihongshi') != -1) || 
+         (this.$route.path.indexOf('/youxuan') != -1) || 
+         (this.$route.path.indexOf('/zuocai') != -1)
+         
+         
+         
+         
+         
+         ){
             return false;
         } else {
             return true;

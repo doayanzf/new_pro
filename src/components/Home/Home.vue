@@ -49,7 +49,7 @@
 						 <li @click='nongfushanquan'><img :src="you.imgUrl" alt=""></li>
 						 <li>{{you.goodsName}}</li>
 						 <li>￥{{you.marketPrice}}</li>
-						 <li>￥{{you.price}}<img  class= 'add' src="./img/add.png" alt=""></li>
+						 <li>￥{{you.price}}<img  @click = 'add_note(you)' class= 'add' src="./img/add.png" alt=""></li>
 					 </ul>
 				 </li>
 			 </ul>
@@ -99,7 +99,7 @@
 						 <li><img @click='nongfushanquan' :src="cao.imgUrl" alt=""></li>
 						 <li>{{cao.goodsName}}</li>
 						 <li>￥{{cao.marketPrice}}</li>
-						 <li>￥{{cao.price}}<img  class= 'add' src="./img/add.png" alt=""></li>
+						 <li>￥{{cao.price}}<img  @click = 'add_note(cao)' class= 'add' src="./img/add.png" alt=""></li>
 					 </ul>
 				 </li> 
 			 </ul>
@@ -109,7 +109,7 @@
 					<li><img :src="pro2list.imgUrl" @click = 'fn(prolist.foodid)' alt="">
 					<h1>{{pro2list.goodsName}}</h1>
 					<h2>￥{{pro2list.marketPrice}}</h2>
-					<h3>￥{{pro2list.price}}<img  class= 'add' src="./img/add.png" alt=""></h3>
+					<h3>￥{{pro2list.price}}<img  @click = 'add_note(pro2list)'  class= 'add' src="./img/add.png" alt=""></h3>
 					</li>
 				</ul>
 			</div>
@@ -126,7 +126,7 @@
 
 
 
-			 <div id='kong'></div>
+		<div id='kong'></div>
 	</div>
 </template>
     
@@ -145,6 +145,10 @@ export default {
         };
 	},
     methods: {
+		// 添加货物
+	   add_note(data) {
+		    this.$store.dispatch('add_goods',data)
+	   },
        tehui() {
          this.$router.push({
                 path:'/tehui',
