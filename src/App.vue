@@ -4,7 +4,7 @@
       换句话说，就是每点击一个路由跳转，我们只是把router-view中的内容替换掉而已
      -->
     <router-view></router-view>
-    <div class="tabbar">
+    <div class="tabbar" v-show="isShow">
       <router-link to="/home">首页</router-link>
       <router-link to="/Sort">分类</router-link>
       <router-link to="/car">购物车</router-link>
@@ -20,17 +20,31 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  computed: {
+    isShow() {
+        if ((this.$route.path.indexOf('/productDetail/') != -1) 
+        || this.$route.path.indexOf('/coudan') != -1) {
+            return false;
+        } else {
+            return true;
+        }
+        // return this.$route.path.indexOf('/productDetail/') == -1 ? true : false;
+    }
   }
 }
 </script>
 
 <style>
+#app{
+  background: #f4f5f7;
+}
 #app .tabbar{
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 45px;
+  height: 1.333333rem;
   background-color: wheat;
   display: flex;
   align-items: center;
