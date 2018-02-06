@@ -190,12 +190,11 @@ export default {
     }
   },
 
-  created() {
-    if (window.localStorage.searchdate) {
-      this.arr = JSON.parse(window.localStorage.searchdate);
-    } else {
-      // window.localStorage.searchdate = [];
-      // this.arr = window.localStorage.searchdate;
+    created() {
+
+        if (window.localStorage.searchdate) {
+            this.arr = JSON.parse(window.localStorage.searchdate);
+        } 
     }
 
     // this.axios.get('http://10.0.157.250:8888/s_niuPai')
