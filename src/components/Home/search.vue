@@ -190,17 +190,8 @@ export default {
     created() {
 
         if (window.localStorage.searchdate) {
-            this.arr = window.localStorage.searchdate;
-        } else {
-            window.localStorage.searchdate = [];
-            this.arr = window.localStorage.searchdate;
-        }
-
-        this.axios.get('http://10.0.157.219:8888/s_niuPai')
-            .then(res => {
-            this.dataGoods = res.data.shop_data
-            this.$store.dispatch('re',res.data.shop_data)
-        })
+            this.arr = JSON.parse(window.localStorage.searchdate);
+        } 
     }
 }
 
