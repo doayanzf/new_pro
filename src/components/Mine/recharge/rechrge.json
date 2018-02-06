@@ -1,0 +1,230 @@
+{
+  "statusCode": "200",
+  "errorMessage": "",
+  "data": {
+    "goods": [
+      {
+        "goodsGuid": "e1a53f12-44ef-4b87-934d-9f9560c0dce9",
+        "goodsName": "500元",
+        "price": 500.00,
+        "icon": "https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/1fbc748d-4dd3-4715-9f78-8fd3d115ec7f.jpg",
+        "picUrl": "https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/1fbc748d-4dd3-4715-9f78-8fd3d115ec7f.jpg",
+        "description": "<p style=\"white-space: normal;\">充值200元，送1张潮香村榴莲芝士蛋糕60g券（满99用，30天有效）</p><p style=\"white-space: normal;\">充500元，送1张文昌鸡850g券（满149用，60天有效）、1张去壳北极甜虾仁200g券（满128用，90天有效）</p><p style=\"white-space: normal;\">充1000元，送4张10元券（满109用，不含团购，60天有效）、1张俏苏阁熟冻麻辣小龙虾6-8钱*22-29只/1.6kg（净虾重≥850g）盒券（满198用，14天有效）</p><p style=\"white-space: normal;\">充2000元，送6张10元券（满109用，90天有效）、1张汶莱有机生蓝虾（71/90）800g券（满198用，90天有效）、1张澳洲安格斯雪花牛排1kg(5片超值装）券（满288用，90天有效）、1张去壳北极甜虾仁200g券（满128用，90天有效）、1张红功夫麻辣小龙虾（4—6钱/只）1000g券（满168用，30天有效）、1张兴牧散养有机母鸡750g券（满198用，90天有效）</p><p style=\"white-space: normal;\">充值成功后，不支持退款，以上优惠券使用门槛均不含团购！</p><!--!doctype-->",
+        "amount": 500,
+        "displayAmount": "得520元再送20元现金券",
+        "isDefault": 0,
+        "vouchers": [
+          {
+            "rId": "fe15a25e-9312-4959-85f4-a1b71301f4a7",
+            "couponId": 1431,
+            "name": "20元现金券1（充值送券）",
+            "count": 1,
+            "displayName": "20元券满200元可用，不含团购"
+          }
+        ]
+      },
+      {
+        "goodsGuid": "ac9b0aeb-61fd-4ba6-933f-763c9c24faed",
+        "goodsName": "1000元",
+        "price": 1000.00,
+        "icon": null,
+        "picUrl": null,
+        "description": "<p style=\"white-space: normal;\">充值200元，送1张潮香村榴莲芝士蛋糕60g券（满99用，30天有效）</p><p style=\"white-space: normal;\">充500元，送1张文昌鸡850g券（满149用，60天有效）、1张去壳北极甜虾仁200g券（满128用，90天有效）</p><p style=\"white-space: normal;\">充1000元，送4张10元券（满109用，不含团购，60天有效）、1张俏苏阁熟冻麻辣小龙虾6-8钱*22-29只/1.6kg（净虾重≥850g）盒券（满198用，14天有效）</p><p style=\"white-space: normal;\">充2000元，送6张10元券（满109用，90天有效）、1张汶莱有机生蓝虾（71/90）800g券（满198用，90天有效）、1张澳洲安格斯雪花牛排1kg(5片超值装）券（满288用，90天有效）、1张去壳北极甜虾仁200g券（满128用，90天有效）、1张红功夫麻辣小龙虾（4—6钱/只）1000g券（满168用，30天有效）、1张兴牧散养有机母鸡750g券（满198用，90天有效）</p><p style=\"white-space: normal;\">充值成功后，不支持退款，以上优惠券使用门槛均不含团购！</p><p><br/></p>",
+        "amount": 1000,
+        "displayAmount": "得1050元再送50元现金券",
+        "isDefault": 0,
+        "vouchers": [
+          {
+            "rId": "4b161259-d2d2-46e8-bac5-57945ad3371e",
+            "couponId": 1432,
+            "name": "10元现金券1（充值送券）",
+            "count": 1,
+            "displayName": "10元券满99元可用，不含团购"
+          },
+          {
+            "rId": "4b161259-d2d2-46e8-bac5-57945ad3371e",
+            "couponId": 1431,
+            "name": "20元现金券1（充值送券）",
+            "count": 2,
+            "displayName": "20元券满200元可用，不含团购"
+          }
+        ]
+      },
+      {
+        "goodsGuid": "ae3ca1c0-32e7-4722-8ecb-24159cefc596",
+        "goodsName": "2000元",
+        "price": 2000.00,
+        "icon": null,
+        "picUrl": null,
+        "description": "<p style=\"white-space: normal;\">充值200元，送1张潮香村榴莲芝士蛋糕60g券（满99用，30天有效）</p><p style=\"white-space: normal;\">充500元，送1张文昌鸡850g券（满149用，60天有效）、1张去壳北极甜虾仁200g券（满128用，90天有效）</p><p style=\"white-space: normal;\">充1000元，送4张10元券（满109用，不含团购，60天有效）、1张俏苏阁熟冻麻辣小龙虾6-8钱*22-29只/1.6kg（净虾重≥850g）盒券（满198用，14天有效）</p><p style=\"white-space: normal;\">充2000元，送6张10元券（满109用，90天有效）、1张汶莱有机生蓝虾（71/90）800g券（满198用，90天有效）、1张澳洲安格斯雪花牛排1kg(5片超值装）券（满288用，90天有效）、1张去壳北极甜虾仁200g券（满128用，90天有效）、1张红功夫麻辣小龙虾（4—6钱/只）1000g券（满168用，30天有效）、1张兴牧散养有机母鸡750g券（满198用，90天有效）</p><p style=\"white-space: normal;\">充值成功后，不支持退款，以上优惠券使用门槛均不含团购！</p><p><br/></p>",
+        "amount": 2000,
+        "displayAmount": "得2150元再送240元现金券",
+        "isDefault": 0,
+        "vouchers": [
+          {
+            "rId": "4ccd6161-dc4c-46b0-94e5-6fa9a70561d6",
+            "couponId": 1434,
+            "name": "20元现金券2（充值送券）",
+            "count": 6,
+            "displayName": "20元券满200元可用，不含团购"
+          },
+          {
+            "rId": "4ccd6161-dc4c-46b0-94e5-6fa9a70561d6",
+            "couponId": 1435,
+            "name": "50元现金券（充值送券）",
+            "count": 2,
+            "displayName": "50元券满300元可用，不含团购"
+          },
+          {
+            "rId": "4ccd6161-dc4c-46b0-94e5-6fa9a70561d6",
+            "couponId": 1433,
+            "name": "10元现金券2（充值送券）",
+            "count": 2,
+            "displayName": "10元券满99元可用，不含团购"
+          }
+        ]
+      },
+      {
+        "goodsGuid": "f8e4d7b0-0969-4689-a95b-e85333d78b5e",
+        "goodsName": "5000元",
+        "price": 5000.00,
+        "icon": null,
+        "picUrl": null,
+        "description": null,
+        "amount": 1,
+        "displayAmount": "得5400元再送419元现金券",
+        "isDefault": 1,
+        "vouchers": [
+          {
+            "rId": "69eeff16-9b9f-4f7a-a289-147ffa29d62b",
+            "couponId": 1434,
+            "name": "20元现金券2（充值送券）",
+            "count": 10,
+            "displayName": "20元优惠券满200元可用，不含团购"
+          },
+          {
+            "rId": "69eeff16-9b9f-4f7a-a289-147ffa29d62b",
+            "couponId": 1435,
+            "name": "50元现金券（充值送券）",
+            "count": 2,
+            "displayName": "50元优惠券满300元可用，不含团购"
+          },
+          {
+            "rId": "69eeff16-9b9f-4f7a-a289-147ffa29d62b",
+            "couponId": 1433,
+            "name": "10元现金券2（充值送券）",
+            "count": 2,
+            "displayName": "10元优惠券满99元可用，不含团购"
+          },
+          {
+            "rId": "69eeff16-9b9f-4f7a-a289-147ffa29d62b",
+            "couponId": 1436,
+            "name": "99元现金券（充值送券）",
+            "count": 1,
+            "displayName": "99元优惠券满100元可用，不含团购"
+          }
+        ]
+      }
+    ],
+    "paytypes": [
+      {
+        "id": 6,
+        "code": "weixinpay",
+        "name": "微信支付",
+        "fee": "",
+        "description": "",
+        "order": 1,
+        "config": "[\r\n    {\r\n        \"source\": \"A\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"I\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"H\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"P\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"WechatH\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    }\r\n]\t",
+        "enabled": 1,
+        "isBacktrack": 0,
+        "isPayGoods": 1,
+        "isPayRule": 0,
+        "isDefault": 1
+      },
+      {
+        "id": 18,
+        "code": "unionpay",
+        "name": "银联在线支付",
+        "fee": "0",
+        "description": "",
+        "order": 2,
+        "config": "[\r\n    {\r\n        \"source\": \"A\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"I\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"H\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"P\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"WechatH\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    }\r\n]\t",
+        "enabled": 1,
+        "isBacktrack": 1,
+        "isPayGoods": 0,
+        "isPayRule": 0,
+        "isDefault": 0
+      },
+      {
+        "id": 21,
+        "code": "bestpay",
+        "name": "翼支付",
+        "fee": "",
+        "description": "",
+        "order": 4,
+        "config": "[\r\n    {\r\n        \"source\": \"A\",\r\n        \"version\": [\"4.6.0\"],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"I\",\r\n        \"version\": [\"4.6.0\"],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"H\",\r\n        \"version\": [\"4.6.0\"],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"P\",\r\n        \"version\": [\"4.6.0\"],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"WechatH\",\r\n        \"version\": [\"4.6.0\"],\r\n        \"isTrue\": true\r\n    }\r\n]",
+        "enabled": 1,
+        "isBacktrack": 0,
+        "isPayGoods": 1,
+        "isPayRule": 0,
+        "isDefault": 0
+      },
+      {
+        "id": 5,
+        "code": "alipay",
+        "name": "支付宝",
+        "fee": "0",
+        "description": "",
+        "order": 5,
+        "config": "[\r\n    {\r\n        \"source\": \"A\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"I\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"H\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"P\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"WechatH\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    }\r\n]\t",
+        "enabled": 1,
+        "isBacktrack": 0,
+        "isPayGoods": 0,
+        "isPayRule": 0,
+        "isDefault": 0
+      },
+      {
+        "id": 7,
+        "code": "ccbpay",
+        "name": "建行支付",
+        "fee": "",
+        "description": "",
+        "order": 99,
+        "config": "[\r\n    {\r\n        \"source\": \"A\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"I\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"H\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"P\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"WechatH\",\r\n        \"version\": [],\r\n        \"isTrue\": true\r\n    }\r\n]\t",
+        "enabled": 1,
+        "isBacktrack": 0,
+        "isPayGoods": 1,
+        "isPayRule": 0,
+        "isDefault": 0
+      },
+      {
+        "id": 20,
+        "code": "abcpay",
+        "name": "农行支付",
+        "fee": "0",
+        "description": "",
+        "order": 99,
+        "config": "[\r\n    {\r\n        \"source\": \"A\",\r\n        \"version\": [\"4.6.0\"],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"I\",\r\n        \"version\": [\"4.6.0\"],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"H\",\r\n        \"version\": [\"4.6.0\"],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"P\",\r\n        \"version\": [\"4.6.0\"],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"WechatH\",\r\n        \"version\": [\"4.6.0\"],\r\n        \"isTrue\": true\r\n    }\r\n]",
+        "enabled": 1,
+        "isBacktrack": 0,
+        "isPayGoods": 1,
+        "isPayRule": 1,
+        "isDefault": 0
+      },
+      {
+        "id": 22,
+        "code": "bocom",
+        "name": "交行支付",
+        "fee": "0",
+        "description": "",
+        "order": 99,
+        "config": "[\r\n    {\r\n        \"source\": \"A\",\r\n        \"version\": [\r\n            \"4.6.0\",\r\n            \"4.7.0\",\r\n            \"4.8.0\"\r\n        ],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"I\",\r\n        \"version\": [\r\n            \"4.6.0\",\r\n            \"4.7.0\",\r\n            \"4.8.0\"\r\n        ],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"H\",\r\n        \"version\": [\r\n            \"4.6.0\",\r\n            \"4.7.0\",\r\n            \"4.8.0\"\r\n        ],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"P\",\r\n        \"version\": [\r\n            \"4.6.0\",\r\n            \"4.7.0\",\r\n            \"4.8.0\"\r\n        ],\r\n        \"isTrue\": true\r\n    },\r\n    {\r\n        \"source\": \"WechatH\",\r\n        \"version\": [\r\n            \"4.6.0\",\r\n            \"4.7.0\",\r\n            \"4.8.0\"\r\n        ],\r\n        \"isTrue\": true\r\n    }\r\n]",
+        "enabled": 1,
+        "isBacktrack": 1,
+        "isPayGoods": 1,
+        "isPayRule": 1,
+        "isDefault": 0
+      }
+    ]
+  }
+}

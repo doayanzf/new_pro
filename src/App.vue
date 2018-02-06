@@ -34,6 +34,7 @@ export default {
   background: #f4f5f7;
 }
 #app .tabbar{
+  z-index: 3;
   position: fixed;
   left: 0;
   right: 0;
