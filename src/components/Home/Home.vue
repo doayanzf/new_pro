@@ -6,18 +6,16 @@
 			<li><a href=""><img src="./img/icon.png" class='img3' alt=""></a></li>
 			<li><a href=""><img  @click = 'searc' src="./img/search.png" class='img4' alt=""></a></li>
 		</ul>
-	
 		<div class="swiper-container">
-			<!-- <div class="swiper-wrapper">
-			  <div class="swiper-slide"><a href=""><img src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></a></div>
-			  <div class="swiper-slide"><a href=""><img src="./img/c24a3227-8177-4ada-b9b6-a390b28f212e (1).jpg" alt=""></a></div>
-			  <div class="swiper-slide"><a href=""><img src="./img/ceb4ac53-dcc2-46dc-839e-54ba336899bf.jpg" alt=""></a></div>
-			  <div class="swiper-slide"><a href=""><img src="./img/1a1c094a-abc3-46a2-8aa0-726b5711bd4e.jpg" alt=""></a></div>
-			  <div class="swiper-slide"><a href=""><img src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></a></div>
-			  <div class="swiper-slide"><a href=""><img src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></a></div>
-			  <div class="swiper-slide"><a href=""><img src="./img/285cbf69-b11f-4f8d-9955-a83a71543c8c.jpg" alt=""></a></div>
-			</div>
-			<div class="swiper-pagination"></div> -->
+			<mt-swipe :auto="1000">
+			<mt-swipe-item><img src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img src="./img/c24a3227-8177-4ada-b9b6-a390b28f212e (1).jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img src="./img/ceb4ac53-dcc2-46dc-839e-54ba336899bf.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img src="./img/1a1c094a-abc3-46a2-8aa0-726b5711bd4e.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img src="./img/285cbf69-b11f-4f8d-9955-a83a71543c8c.jpg" alt=""></mt-swipe-item>
+			</mt-swipe>
 		  </div>
 		  <ul id = 'gou'>
 			  <li  @click='tehui'><img src="./img/4b5226d0-068b-47ab-8942-4cce2079c134.jpg" alt=""></li>
@@ -30,19 +28,19 @@
 			  <li @click="chaojituangou"><img src="./img/c04031aa-dd93-4c6e-bef6-e3622b247702.jpg" alt=""></li>
 		  </ul>
 		  <div id ='kuaibao'>
-            <div id='kk'>
-				<img src="./img/f58332d2-ad98-4d10-aa96-28d1b8090d37.jpg" class='k1' alt="">
-			</div>
-			<a href="" @click="heizhurou">罗汉上素净菜9.9元 点击购买</a>
-			<img src="./img/213213.png" class='k2' alt="">
-            <img class='k3' @click="heizhurou" src="./img/6cc79d06-92ea-4fee-a9d2-edc6fda32407.jpg"  alt="">
+           	  <div id='kk'>
+			  		<img src="./img/f58332d2-ad98-4d10-aa96-28d1b8090d37.jpg" class='k1' alt="">
+			  </div>
+			  <a href="" @click="heizhurou">罗汉上素净菜9.9元 点击购买</a>
+			  <img src="./img/213213.png" class='k2' alt="">
+              <img class='k3' @click="heizhurou" src="./img/6cc79d06-92ea-4fee-a9d2-edc6fda32407.jpg"  alt="">
 		  </div>
 		  <div id='xianshi'>———— 限时特惠 ————</div>
-			<ul id='maya' @click='tehui'>
-		  		<li><img :src="youhui[0].items[0].imgUrl" class='u2' alt=""></li>
-			<li>{{youhui[0].items[0].goodsName}}</li>
-			<li>￥{{youhui[0].items[0].price}}<span>￥{{youhui[0].items[0].marketPrice}}</span><img class= 'add' src="./img/add.png" alt=""></li>
-		     </ul>
+			<ul id='maya'>
+		  		 <li><img :src="youhui[0].items[0].imgUrl"  @click='tehui' class='u2' alt=""></li>
+			     <li>{{youhui[0].items[0].goodsName}}</li>
+			     <li>￥{{youhui[0].items[0].price}}<span>￥{{youhui[0].items[0].marketPrice}}</span><img  @click = "add_note(youhui[0].items[0])" class= 'add' src="./img/add.png" alt=""></li>
+		    </ul>
 			 <ul id = 'tehui2'>
 				 <li v-for="you in youhui[1].items" :key='you.id'>
 					 <ul	class = 'te1'>
@@ -88,10 +86,10 @@
 				</div>
 			</div>
 			 <div id='xinpin'>———— 新品推荐 ————</div>
-			<ul id='caomei' @click='tehui'>
-				<li><img :src="caome[0].items[0].imgUrl" class='u2' alt=""></li>
+			<ul id='caomei' >
+				<li><img :src="caome[0].items[0].imgUrl" class='u2' @click='tehui' alt=""></li>
 				<li>{{caome[0].items[0].goodsName}}</li>
-				<li>￥{{caome[0].items[0].price}}<span>￥{{caome[0].items[0].marketPrice}}</span><img class= 'add' src="./img/add.png" alt=""></li>
+				<li>￥{{caome[0].items[0].price}}<span>￥{{caome[0].items[0].marketPrice}}</span><img class= 'add'  @click = "add_note(youhui[0].items[0])" src="./img/add.png" alt=""></li>
 		     </ul>
 			 <ul id = 'xinpin2'>
 				 <li v-for="cao in caome[1].items" :key='cao.id'>
@@ -123,7 +121,13 @@
 </template>
     
 <script>
+ import {Swipe, SwipeItem} from 'mint-ui'
+ import 'mint-ui/lib/style.css'
 export default {
+	 components: {
+  'mt-swipe': Swipe,
+  'mt-swipe-item': SwipeItem
+ },
     name: "component_name",
     data () {
         return {
@@ -374,11 +378,16 @@ export default {
 	#box{
 		width:100%;
 		background:white;
+		padding-top:0.1px;
+		z-index:2
 	}
 	#head{
+		position:fixed;
 		width:100%;
 		height:1.405836rem;
-		padding: 0 .265252rem
+		padding: 0 .265252rem;
+		z-index:3;
+		background:white;
 	} 
 	#head li{
 		list-style: none;
@@ -435,10 +444,11 @@ export default {
 	}
 	.swiper-container {
 		width:100%;
-		height:4.774536rem
+		height:4.774536rem;
+		margin-top:1.405836rem
 	}
 	.swiper-container img{
-		width:100%
+		width:9.94695rem;
 	}
 	#gou{
 		width:100%;
@@ -538,18 +548,12 @@ export default {
 		height:1.061008rem
 	}
 	#maya li:nth-of-type(3) {
-		font-size:.371353rem;
-		color:#666666;
-		width:5.835544rem;
-		height:1.061008rem
-	}
-	#maya li:nth-of-type(4) {
 		font-size:.477454rem;
 		color:red;
 		width:5.835544rem;
 		height:1.061008rem
 	}
-	#maya li:nth-of-type(4) span{
+	#maya li:nth-of-type(3) span{
 		font-size:.424403rem;
 		text-decoration:line-through;
 		color:#9999a5;
@@ -758,18 +762,12 @@ export default {
 		height:2.122016rem
 	}
 	#caomei li:nth-of-type(3) {
-		font-size:.371353rem;
-		color:#666666;
-		width:5.835544rem;
-		height:1.061008rem
-	}
-	#caomei li:nth-of-type(4) {
 		font-size:.477454rem;
 		color:red;
 		width:5.835544rem;
 		height:1.061008rem
 	}
-	#caomei li:nth-of-type(4) span{
+	#caomei li:nth-of-type(3) span{
 		font-size:.424403rem;
 		text-decoration:line-through;
 		color:#9999a5;

@@ -4,7 +4,10 @@ import { start } from 'repl';
 import { read, stat } from 'fs';
 
 Vue.use(Vuex)
+import { Swipe, SwipeItem } from 'mint-ui';
 
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
 export default new Vuex.Store ({
     state: {
         pageData:'',

@@ -139,7 +139,7 @@ export default new VueRouter({
     { path: '/chaojituangou', component: chaojituangou },
     { path: '/rexiaojingcai', component: rexiaojingcai },
     { path: '/heizhurou', component:heizhurou },
-    { path: '/nongfushanquan', component: chaojituangou },
+    { path: '/nongfushanquan', component:nongfushanquan },
     { path: '/nongjiale', component:nongjiale },
     { path: '/manglu', component:manglu },
     { path: '/zuocai', component:zuocai},
