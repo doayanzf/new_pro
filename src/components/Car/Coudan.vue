@@ -1,14 +1,66 @@
 <template>
     <div>
         <header>
-            <img src="./img/back.png" alt="">
+            <img src="./img/back.png" alt="" @click="back">
             <div>凑单</div>
         </header>
         <main>
             <ul>
                 <li>
-                    <div><img src="./img/unselect2.png" alt=""></div>
-                    
+                    <div class="selected"></div>
+                    <img src="./img/doujiang.jpg" alt="" class="food">
+                    <div class="title">清美特浓豆浆395ml</div>
+                    <div class="jiage">
+                        <div class="pricenow">￥7.9</div>
+                        <div class="price">￥9.9</div>
+                    </div>
+                    <div>
+                        <img src="./img/btn_des.png" alt="" @click="reduce()">
+                        <div class="number">{{ num }}</div>
+                        <img src="./img/btn_add.png" alt="" @click="plus()">
+                    </div>
+                </li>
+                <li>
+                    <div class="selected"></div>
+                    <img src="./img/carrot.jpg" alt="" class="food">
+                    <div class="title">清美特浓豆浆395ml</div>
+                    <div class="jiage">
+                        <div class="pricenow">￥1.2</div>
+                        <div class="price">￥3.7</div>
+                    </div>
+                    <div>
+                        <img src="./img/btn_des.png" alt="" @click="reduce()">
+                        <div class="number">{{ num }}</div>
+                        <img src="./img/btn_add.png" alt="" @click="plus()">
+                    </div>
+                </li>
+                <li>
+                    <div class="selected"></div>
+                    <img src="./img/youcai.jpg" alt="" class="food">
+                    <div class="title">这特么是油菜</div>
+                    <div class="jiage">
+                        <div class="pricenow">￥6.9</div>
+                        <div class="price">￥12.9</div>
+                    </div>
+                    <div>
+                        <img src="./img/btn_des.png" alt="" @click="reduce()">
+                        <div class="number">{{ num }}</div>
+                        <img src="./img/btn_add.png" alt="" @click="plus()">
+                    </div>
+                </li>
+                <li>
+                    <div class="selected"></div>
+                    <img src="./img/temorrow.jpg" alt="" class="food">
+                    <div class="title">这特么是金针菇</div>
+                    <div class="jiage">
+                        <div class="pricenow">￥3.9</div>
+                        <div class="price">￥6.9</div>
+                    </div>
+                    <div>
+                        <img src="./img/btn_des.png" alt="" @click="reduce()">
+                        <div class="number">{{ num }}</div>
+                        <img src="./img/btn_add.png" alt="" @click="plus()">
+                    </div>
                 </li>
             </ul>
         </main>
@@ -27,7 +79,8 @@ export default {
     name: "component_name",
     data () {
         return {
-            price: '￥33.30'
+            price: '￥33.30',
+            num: 1
         };
     },
     methods: {
@@ -48,6 +101,15 @@ export default {
                     age: 18
                 }
             })
+        },
+        reduce() {
+            this.num--;
+        },
+        plus() {
+            this.num++;
+        },
+        back() {
+            this.$router.go(-1);
         }
     }
     
@@ -77,7 +139,50 @@ export default {
     }
     main li{
         height: 2.506667rem;
+        border-bottom: .08rem solid #fff;
     }
+    main div,img{
+        float: left;
+    }
+    .selected{
+        margin: .96rem 0 0 .32rem;
+        margin: 1.226667rem .32rem 0;
+        width: .44rem;
+        height: .44rem;
+        background: url(./img/unselect2.png);
+        float: left;
+    }
+    .food{
+        margin: .266667rem .373333rem 0 .266667rem;
+    }
+    .title{
+        margin-top: .373333rem;
+        width: 2.8rem;
+    }
+    .pricenow{
+        width: 1.066667rem;
+        height: .373333rem;
+        font-size: .373333rem;
+        color: #f75200;
+    }
+    .price{
+        width: 1.066667rem;
+        color: #999999;
+        text-decoration: line-through;
+    }
+    .jiage{
+        width: 1.066667rem;
+        height: .8rem;
+        margin: .3rem 0 0 2.56rem;
+    }
+    .number{
+        width: .746667rem;
+        height: .693333rem;
+        border: 1px solid #ececec;
+        text-align: center;
+        line-height: .693333rem;
+    }
+
     footer{
         width: 10rem;
         height: 1.173333rem;

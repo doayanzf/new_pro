@@ -37,12 +37,12 @@
 		  </div>
 		  <div id='xianshi'>———— 限时特惠 ————</div>
 			<ul id='maya'>
-		  		 <li><img :src="youhui[0].items[0].imgUrl"  @click='tehui' class='u2' alt=""></li>
-			     <li>{{youhui[0].items[0].goodsName}}</li>
-			     <li>￥{{youhui[0].items[0].price}}<span>￥{{youhui[0].items[0].marketPrice}}</span><img  @click = "add_note(youhui[0].items[0])" class= 'add' src="./img/add.png" alt=""></li>
+		  		 <li><img :src="youhui[0].ite[0].imgUrl"  @click='tehui' class='u2' alt=""></li>
+			     <li>{{youhui[0].ite[0].goodsName}}</li>
+			     <li>￥{{youhui[0].ite[0].price}}<span>￥{{youhui[0].ite[0].marketPrice}}</span><img  @click = "add_note(youhui[0].ite[0])" class= 'add' src="./img/add.png" alt=""></li>
 		    </ul>
 			 <ul id = 'tehui2'>
-				 <li v-for="you in youhui[1].items" :key='you.id'>
+				 <li v-for="you in youhui[1].ite" :key='you.id'>
 					 <ul	class = 'te1'>
 						 <li @click='nongfushanquan'><img :src="you.imgUrl" alt=""></li>
 						 <li>{{you.goodsName}}</li>
@@ -87,12 +87,12 @@
 			</div>
 			 <div id='xinpin'>———— 新品推荐 ————</div>
 			<ul id='caomei' >
-				<li><img :src="caome[0].items[0].imgUrl" class='u2' @click='tehui' alt=""></li>
-				<li>{{caome[0].items[0].goodsName}}</li>
-				<li>￥{{caome[0].items[0].price}}<span>￥{{caome[0].items[0].marketPrice}}</span><img class= 'add'  @click = "add_note(youhui[0].items[0])" src="./img/add.png" alt=""></li>
+				<li><img :src="caome[0].ite[0].imgUrl" class='u2' @click='tehui' alt=""></li>
+				<li>{{caome[0].ite[0].goodsName}}</li>
+				<li>￥{{caome[0].ite[0].price}}<span>￥{{caome[0].ite[0].marketPrice}}</span><img class= 'add'  @click = "add_note(youhui[0].ite[0])" src="./img/add.png" alt=""></li>
 		     </ul>
 			 <ul id = 'xinpin2'>
-				 <li v-for="cao in caome[1].items" :key='cao.id'>
+				 <li v-for="cao in caome[1].ite" :key='cao.id'>
 					 <ul class = 'xin1'>
 						 <li><img @click='nongfushanquan' :src="cao.imgUrl" alt=""></li>
 						 <li>{{cao.goodsName}}</li>
@@ -102,8 +102,8 @@
 				 </li> 
 			 </ul>
 			<div class = 'newyearfood' v-for='prolist in pro3' :Key='prolist.id' >
-				<img :src="prolist.imge.items[0].imgUrl">
-				<ul class='dongtaishengcheng' v-for='pro2list in prolist.list.items' :Key='pro2list.id'>
+				<img :src="prolist.imge.ite[0].imgUrl">
+				<ul class='dongtaishengcheng' v-for='pro2list in prolist.list.ite' :Key='pro2list.id'>
 					<li><img :src="pro2list.imgUrl" @click = 'fn(prolist.foodid)' alt="">
 						<h1>{{pro2list.goodsName}}</h1>
 						<h2>￥{{pro2list.marketPrice}}</h2>

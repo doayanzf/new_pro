@@ -29,101 +29,30 @@
            <div id="main1">
                <p class="title"><span>活动</span>其它</p>
                <ul>
-                   <li>
-                       <img src="./img/selected.png" alt="" class="selected" @click="changeImg">
-                       <img src="./img/youcai.jpg" alt="" class="footimg">
-                       <div class="foot">我厨优选崇明青菜350g</div>
+                   <li v-for="(pro, index) in dataGoods">
+                       <div  @click="changeImg()" class="selected"></div>
+                       <img :src="pro.imgUrl" alt="" class="foodImg">
+                       <div class="food">{{ pro.goodsName }}</div>
                        <div>
                            <div>
-                               <div class="pricenow">￥3.9</div>
-                               <div class="price">￥6.5</div>
+                               <div class="pricenow">￥{{ pro.price }}</div>
+                               <div class="price">￥{{ pro.marketPrice }}</div>
                            </div>
                            <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce(1)">
-                               <div>{{ num1 }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus(1)">
-                           </div>
-                       </div>
-                   </li>
-                   <li>
-                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
-                       <img src="./img/meat.jpg" alt="" class="footimg">
-                       <div class="foot">重量家佳康小排400g</div>
-                       <div>
-                           <div>
-                               <div class="pricenow">￥18.9</div>
-                               <div class="price">￥26.8</div>
-                           </div>
-                           <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce(1)">
-                               <div>{{ num1 }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus(1)">
-                           </div>
-                       </div>
-                   </li>
-                   <li>
-                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
-                       <img src="./img/duck.jpg" alt="" class="footimg">
-                       <div class="foot">崇明两年半龄老麻鸭900g</div>
-                       <div>
-                           <div>
-                               <div class="pricenow">￥89</div>
-                               <div class="price">￥98</div>
-                           </div>
-                           <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce(1)">
-                               <div>{{ num1 }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus(1)">
+                               <img src="./img/reduce.png" alt="" @click="reduce(index)">
+                               <div>{{ num[index] }}</div>
+                               <img src="./img/plus.png" alt="" @click="plus(index)">
                            </div>
                        </div>
                    </li>
                </ul>
-               <p class="fenge"></p>
-           </div>
-           <div id="main2">
-               <p class="title"><span>折扣</span>同件商品第二件半价</p>
-               <ul>
-                   <li>
-                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
-                       <img src="./img/mei.jpg" alt="" class="footimg">
-                       <div class="foot">我厨优选红霞草莓一盒(15-20枚净含量300g以上)</div>
-                       <div>
-                           <div>
-                               <div class="pricenow">￥19.9</div>
-                               <div class="price">￥39.9</div>
-                           </div>
-                           <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce(1)">
-                               <div>{{ num1 }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus(1)">
-                           </div>
-                       </div>
-                   </li>
-                   <li>
-                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
-                       <img src="./img/jv.jpg" alt="" class="footimg">
-                       <div class="foot">江西南丰贡桔500g</div>
-                       <div>
-                           <div>
-                               <div class="pricenow">￥7.9</div>
-                               <div class="price">￥9.9</div>
-                           </div>
-                           <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce(1)">
-                               <div>{{ num1 }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus(1)">
-                           </div>
-                       </div>
-                   </li>
-               </ul>
-               <p class="fenge"></p>
            </div>
        </main>
        <div class="wtf2"></div>
        <footer v-show="footer">
            <img src="./img/selected.png" alt="">
-           <div id="price">合计：<span> {{ price }} </span></div>
-           <div id="jiesuan">结算({{ sum }})</div>
+           <div id="price">合计：<span>￥{{ price.toFixed(2) }}</span></div>
+           <div id="jiesuan">结算({{ this.dataGoods.length }})</div>
            <div id="baoyou" v-show="!panduan">已包邮</div>
            <div id="baoyou2" v-show="panduan" @click="coudan">全场满99包邮 点我包邮<span id="trangle"></span></div>
        </footer>
@@ -149,12 +78,13 @@ export default {
              timeClass: 'time',
              firstClass: 'aaa',
              secondClass: 'bbb',
-             price: '￥123.30',
-             sum: '5',
-             panduan: 'true',
-             num1: 1,
+             selectClass: 'selected',
+             price: 0,
+             panduan: true,
+             num: [],
              footer: true,
-             span: '编辑'
+             span: '编辑',
+             dataGoods: []
         };
     },
     methods: {
@@ -177,11 +107,13 @@ export default {
                 this.timeClass = num2;
             }
         },
-        reduce(num) {
-            this.num1--;
+        reduce(index) {
+            this.num[index]--;
+            console.log(this.num)
         },
-        plus(num) {
-            this.num1++;
+        plus(index) {
+            this.num[index]++;
+            console.log(this.num)
         },
         coudan() {
             // 使用实例的$router的push方法进行传递, 注意这个是$router 接受的时候是$route
@@ -207,9 +139,27 @@ export default {
             this.footer ? this.span = "完成" : this.span = "编辑";
             this.footer = !this.footer;
         },
-        changeImg() {
+        changeImg(num) {
             
         }
+    },
+    created() {
+        if (this.$store.getters.getGoods[0]) {
+            this.dataGoods = this.$store.getters.getGoods
+            console.log(this.dataGoods)
+            for (var index in this.dataGoods){
+                this.price += this.dataGoods[index].price;
+                this.num.push(1);
+            }
+            if (this.price >= 99) {
+                this.panduan = false;
+            }
+        } else {
+            this.$router.push({
+                path: '/car2'
+            })
+        }
+        
     }
 }
 </script>
@@ -328,18 +278,32 @@ export default {
     main li{
         height: 2.906667rem;
         border-bottom: 1px solid #f1f1f1;
+        clear: both;
     }
     main img{
         float: left;
     }
     .selected{
         margin: 1.226667rem .32rem 0;
+        width: .44rem;
+        height: .44rem;
+        background: url(./img/selected.png);
+        float: left;
     }
-    .footimg{
+    .selectClass{
+        margin: 1.226667rem .32rem 0;
+        width: .44rem;
+        height: .44rem;
+        background: url(./img/unselect.png);
+        float: left;
+    }
+    .foodImg{
         margin: .213333rem;
+        width: 2.56rem;
+        height: 2.56rem;
     }
-    .foot{
-        width: 5.333333rem;
+    .food{
+        width: 4.8rem;
         height: .906667rem;
         line-height: .426667rem;
         font-size: .373333rem;
