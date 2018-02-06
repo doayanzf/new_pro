@@ -203,7 +203,7 @@ export default {
     //     this.$store.dispatch('re',res.data.shop_data)
     // })
   }
-};
+
 </script>
     
 <style lang="css" scoped>
