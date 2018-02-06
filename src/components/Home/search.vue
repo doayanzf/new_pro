@@ -10,7 +10,7 @@
             <ul>
             <li  @click="toproductDetail()">牛排</li>
             <li  @click="toproductDetail1()">豆腐</li>
-            <li  @click="toproductDetail2()">年货</li>
+            <li  @click="toproductDetai2()">年货</li>
             <li @click="toproductDetail3()">火锅</li>
             <li  @click="toproductDetail4()">羊肉</li>
             <li  @click="toproductDetail5()">特供蔬菜</li>
@@ -35,138 +35,141 @@
     
 <script>
 export default {
-    name: "component_name",
-    data() {
-        return {
-        inputlist: [],
-        msg: "",
-        if_flag: "",
-        arr: []
-        
-        };
-    },
+  name: "component_name",
+  data() {
+    return {
+      inputlist: [],
+      msg: "",
+      if_flag: "",
+      arr: []
+    };
+  },
   methods: {
-        back() {
-            history.back()
-        },
-        sou(){
-            if(this.msg == '') {
-                console.log(this.msg)
-                    this.if_flag = true
-                    console.log(this.if_flag)
-                    window.setTimeout(() => {
-                        this.if_flag = false
-                    },2000)
-            }
-            if(this.msg != '') {
-                
-                this.arr.push(this.msg)
-                this.msg = ''
-                window.localStorage.setItem("searchdate",JSON.stringify(this.arr))
+    back() {
+      history.back();
+    },
+    sou() {
+      if (this.msg == "") {
+        console.log(this.msg);
+        this.if_flag = true;
+        console.log(this.if_flag);
+        window.setTimeout(() => {
+          this.if_flag = false;
+        }, 2000);
+      }
+      if (this.msg != "") {
+        this.arr.push(this.msg);
+        this.msg = "";
+        window.localStorage.setItem("searchdate", JSON.stringify(this.arr));
+      }
+    },
+    dis() {
+      if (this.msg == "") {
+        this.if_flag = false;
+      }
+    },
+    shanchu() {
+      window.localStorage.removeItem("searchdate");
+      this.arr = [];
+    },
+    // toproductDetail(productId){
+    //         this.axios.get('http://10.0.157.250:8888/s_niuPai')
+    //         .then(res => {
+    //             console.log(res.data.shop_data);
 
-            }
-        },       
-        dis(){
-                if(this.msg == '') {
-                    this.if_flag = false;
-                }
-        },
-        shanchu() {
-            window.localStorage.removeItem('searchdate')
-            this.arr = []
-            
-        },
-        toproductDetail(productId){
-                this.axios.get('http://10.0.157.250:8888/s_niuPai')
-                .then(res => {
-                    console.log(res.data.shop_data);
-                                
-                    this.$store.dispatch('re',res.data.shop_data)
-                }),
-                
-                this.$router.push({
+    //             this.$store.dispatch('re',res.data.shop_data)
+    //         }),
 
-                    path: '/souSuo/' + productId,
-                    query: {
-                        name: '刘',
-                        age: 18
-                    }
-                })                
-        },
-        toproductDetail1(productId){
-                this.axios.get('http://10.0.157.250:8888/s_douFu')
-                .then(res => {
-                    console.log(res.data.shop_data);
-                                
-                    this.$store.dispatch('re',res.data.shop_data)
-                }),
-                
-                this.$router.push({
+    //         this.$router.push({
 
-                    path: '/souSuo/' + productId,
-                    query: {
-                        name: '刘',
-                        age: 18
-                    }
-                })
-                
-        },
-        toproductDetai2(productId){
-            
-        },
-        toproductDetail3(productId){
-                this.axios.get('http://10.0.157.250:8888/s_huoGuo')
-                .then(res => {
-                    console.log(res.data.shop_data);
-                                
-                    this.$store.dispatch('re',res.data.shop_data)
-                }),
-                
-                this.$router.push({
+    //             path: '/souSuo/' + productId,
+    //             query: {
+    //                 name: '刘',
+    //                 age: 18
+    //             }
+    //         })
+    // },
 
-                    path: '/souSuo/' + productId,
-                    query: {
-                        name: '刘',
-                        age: 18
-                    }
-                })
-                
-        },
-        toproductDetail4(productId){
-                this.axios.get('http://10.0.157.250:8888/s_yangRou')
-                .then(res => {
-                    console.log(res.data.shop_data);
-                                
-                    this.$store.dispatch('re',res.data.shop_data)
-                }),
-                
-                this.$router.push({
+    toproductDetail(productId) {
 
-                    path: '/souSuo/' + productId,
-                    query: {
-                        name: '刘',
-                        age: 18
-                    }
-                })
-                
-        },
-        toproductDetail5(productId){ },
-        toproductDetail6(productId){
-                this.axios.get('http://10.0.157.250:8888/s_lengDong')
-                .then(res => {
-                    console.log(res.data.shop_data);
-                    this.$store.dispatch('re',res.data.shop_data)
-                }),
-                
-                this.$router.push({
+      this.$store.dispatch("re", "http://10.0.157.250:8888/s_niuPai");
 
-                    path: '/souSuo/' + productId,
-                    query: {
-                        name: '刘',
-                        age: 18
-                    }
-                })            
+      this.$router.push({
+        path: "/souSuo/" + productId,
+        query: {
+          name: "刘",
+          age: 18
         }
+      });
+    },
+    toproductDetail1(productId) {
+      
+
+        this.$store.dispatch("re", "http://10.0.157.250:8888/s_douFu");
+      
+        this.$router.push({
+          path: "/souSuo/" + productId,
+          query: {
+            name: "刘",
+            age: 18
+          }
+        });
+    },
+    toproductDetai2(productId) {
+        this.$router.push({
+          path: "/souSuo2/" + productId,
+          query: {
+            name: "刘",
+            age: 18
+          }
+        });
+    },
+    toproductDetail3(productId) {
+      
+        this.$store.dispatch("re", "http://10.0.157.250:8888/s_huoGuo");
+      
+        this.$router.push({
+          path: "/souSuo/" + productId,
+          query: {
+            name: "刘",
+            age: 18
+          }
+        });
+    },
+    toproductDetail4(productId) {
+      
+
+        this.$store.dispatch("re", "http://10.0.157.250:8888/s_yangRou");
+    
+        this.$router.push({
+          path: "/souSuo/" + productId,
+          query: {
+            name: "刘",
+            age: 18
+          }
+        });
+    },
+    toproductDetail5(productId) {
+        this.$router.push({
+          path: "/souSuo2/" + productId,
+          query: {
+            name: "刘",
+            age: 18
+          }
+        });
+    },
+    toproductDetail6(productId) {
+      
+        this.$store.dispatch("re", "http://10.0.157.250:8888/s_lengDong");
+      
+        this.$router.push({
+          path: "/souSuo/" + productId,
+          query: {
+            name: "刘",
+            age: 18
+          }
+        });
+    }
   },
   computed: {
     // jisuan() {
@@ -177,14 +180,14 @@ export default {
   },
 
   components: {
-        "msg-li": {
-        template: `
+    "msg-li": {
+      template: `
                     <ul>
                     <li v-for='pro in arr'  class='aaa' style="height:.795756rem; line-height:.795756rem;border-bottom:1px solid #666">{{pro}}</li>
                     </ul>
                 `,
-        props: ["arr"]
-        }
+      props: ["arr"]
+    }
   },
 
     created() {
@@ -193,115 +196,119 @@ export default {
             this.arr = JSON.parse(window.localStorage.searchdate);
         } 
     }
-}
+
+    // this.axios.get('http://10.0.157.250:8888/s_niuPai')
+    //     .then(res => {
+    //     this.dataGoods = res.data.shop_data
+    //     this.$store.dispatch('re',res.data.shop_data)
+    // })
+  }
 
 </script>
     
 <style lang="css" scoped>
+#box {
+  width: 9.94695rem;
+  background: white;
+}
+.back {
+  position: fixed;
+  width: 2.65252rem;
+  height: 2.65252rem;
+}
+#head {
+  width: 100%;
+  height: 1.32626rem;
+  position: relative;
+  border-bottom: 1px solid #f6f6f6;
+  margin-bottom: 0.265252rem;
+}
+#head > [type="text"] {
+  height: 0.928382rem;
+  width: 7.29443rem;
+  background: #f1f2f6;
+  border-radius: 0.66313rem;
+  margin-left: 1.32626rem;
+  margin-top: 0.212202rem;
+  border: none;
+  padding-left: 0.928382rem;
+}
+#head .back {
+  width: 0.530504rem;
+  height: 0.795756rem;
+  position: absolute;
+  left: 0.397878rem;
+  top: 0.265252rem;
+}
+#head .img4 {
+  position: absolute;
+  width: 0.530504rem;
+  height: 0.530504rem;
+  top: 0.397878rem;
+  left: 60px;
+}
+#head > button {
+  background: white;
+  border: none;
+  font-size: 0.424403rem;
+}
+#remen {
+  width: 9.416446rem;
+  margin: 0 auto;
+  font-size: 0.424403rem;
+  margin-bottom: 0.265252rem;
+}
+#lishi {
+  width: 9.416446rem;
+  margin: 0 auto;
+  font-size: 0.424403rem;
+}
+#remen ul {
+  background: #f4f5f7;
+  width: 9.416446rem;
+  height: 2.65252rem;
+}
+#remen li {
+  list-style: none;
+  font-size: 0.344828rem;
+  float: left;
+  width: 1.299735rem;
+  height: 0.795756rem;
+  font-size: 0.344828rem;
+  text-align: center;
+  line-height: 0.795756rem;
+  background: white;
+  margin-left: 0.265252rem;
+  margin-right: 0.265252rem;
+  margin-top: 0.265252rem;
+  margin-bottom: 0.265252rem;
+}
+#remen li:nth-of-type(6) {
+  width: 1.98939rem;
+}
+#lishi p {
+  width: 100%;
+  height: 0.795756rem;
+  font-size: 0.265252rem;
+  line-height: 0.795756rem;
+  color: #afafaf;
+  text-align: center;
+}
 
-    #box {
-        width: 9.94695rem;
-        background: white;
-    }
-    .back{
-        position:fixed;
-        width:2.65252rem;
-        height:2.65252rem;
-    }
-    #head{
-        width:100%;
-        height:1.32626rem;
-        position: relative;
-        border-bottom:1px solid #f6f6f6;
-        margin-bottom:.265252rem
-    }
-    #head>[type="text"]{
-        height:.928382rem;
-        width: 7.29443rem;
-        background:#f1f2f6;
-        border-radius:.66313rem;
-         margin-left:1.32626rem;
-         margin-top:.212202rem;
-         border:none;
-         padding-left:.928382rem;
-    }
-       #head  .back{
-        width:.530504rem;
-        height:.795756rem;
-        position: absolute;
-        left:.397878rem;
-        top:.265252rem
-    }
-    #head  .img4{
-        position:absolute;
-		width:.530504rem;
-		height: .530504rem;
-        top:.397878rem;
-        left:60px
-	}
-    #head>button{
-        background: white;
-        border:none;
-        font-size:.424403rem
-    }
-    #remen{
-        width:9.416446rem;
-        margin: 0 auto;
-        font-size: .424403rem;
-        margin-bottom:.265252rem
-    }
-       #lishi{
-        width:9.416446rem;
-        margin: 0 auto;
-        font-size: .424403rem;
-    }
-    #remen ul{
-        background:#f4f5f7;
-        width:9.416446rem;
-        height:2.65252rem
-    }
-    #remen li{
-        list-style:none;
-        font-size: .344828rem;
-        float: left;
-        width:1.299735rem;
-        height:.795756rem;
-        font-size: .344828rem;
-        text-align:center;
-        line-height:.795756rem;
-        background: white;
-        margin-left: .265252rem;
-        margin-right: .265252rem;
-        margin-top:.265252rem;
-        margin-bottom: .265252rem
-    }
-    #remen li:nth-of-type(6){
-        width:1.98939rem;
-    }
-    #lishi p{
-        width:100%;
-        height:.795756rem;
-        font-size: .265252rem;
-        line-height:.795756rem;
-        color:#afafaf;
-        text-align:center
-    }
-    
-    #tishi{
-        position: fixed;
-        width:3.97878rem;
-        height:2.122016rem;
-        background:black;
-        color:white;
-        left:2.917772rem;
-        top:7.95756rem;
-        text-align:center;
-        border-radius: .265252rem;
-       padding-top:.265252rem;
-       
-    }
-    #tishi img{
-        width:.795756rem;
-        height:.795756rem;
-    }
+#tishi {
+  position: fixed;
+  width: 3.97878rem;
+  height: 2.122016rem;
+  background: black;
+  color: white;
+  left: 2.917772rem;
+  top: 7.95756rem;
+  text-align: center;
+  border-radius: 0.265252rem;
+  padding-top: 0.265252rem;
+}
+#tishi img {
+  width: 0.795756rem;
+  height: 0.795756rem;
+}
 </style>
