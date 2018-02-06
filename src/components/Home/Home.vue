@@ -8,7 +8,7 @@
 		</ul>
 		<div class="swiper-container">
 			<mt-swipe :auto="1000">
-			<mt-swipe-item><img @click = "" src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></mt-swipe-item>
 			<mt-swipe-item><img src="./img/c24a3227-8177-4ada-b9b6-a390b28f212e (1).jpg" alt=""></mt-swipe-item>
 			<mt-swipe-item><img src="./img/ceb4ac53-dcc2-46dc-839e-54ba336899bf.jpg" alt=""></mt-swipe-item>
 			<mt-swipe-item><img src="./img/1a1c094a-abc3-46a2-8aa0-726b5711bd4e.jpg" alt=""></mt-swipe-item>
@@ -36,10 +36,10 @@
               <img class='k3' @click="heizhurou" src="./img/6cc79d06-92ea-4fee-a9d2-edc6fda32407.jpg"  alt="">
 		  </div>
 		  <div id='xianshi'>———— 限时特惠 ————</div>
-			<ul id='maya' @click='tehui'>
-		  		 <li><img :src="youhui[0].items[0].imgUrl" class='u2' alt=""></li>
+			<ul id='maya'>
+		  		 <li><img :src="youhui[0].items[0].imgUrl"  @click='tehui' class='u2' alt=""></li>
 			     <li>{{youhui[0].items[0].goodsName}}</li>
-			     <li>￥{{youhui[0].items[0].price}}<span>￥{{youhui[0].items[0].marketPrice}}</span><img class= 'add' src="./img/add.png" alt=""></li>
+			     <li>￥{{youhui[0].items[0].price}}<span>￥{{youhui[0].items[0].marketPrice}}</span><img  @click = "add_note(youhui[0].items[0])" class= 'add' src="./img/add.png" alt=""></li>
 		    </ul>
 			 <ul id = 'tehui2'>
 				 <li v-for="you in youhui[1].items" :key='you.id'>
@@ -86,10 +86,10 @@
 				</div>
 			</div>
 			 <div id='xinpin'>———— 新品推荐 ————</div>
-			<ul id='caomei' @click='tehui'>
-				<li><img :src="caome[0].items[0].imgUrl" class='u2' alt=""></li>
+			<ul id='caomei' >
+				<li><img :src="caome[0].items[0].imgUrl" class='u2' @click='tehui' alt=""></li>
 				<li>{{caome[0].items[0].goodsName}}</li>
-				<li>￥{{caome[0].items[0].price}}<span>￥{{caome[0].items[0].marketPrice}}</span><img class= 'add' src="./img/add.png" alt=""></li>
+				<li>￥{{caome[0].items[0].price}}<span>￥{{caome[0].items[0].marketPrice}}</span><img class= 'add'  @click = "add_note(youhui[0].items[0])" src="./img/add.png" alt=""></li>
 		     </ul>
 			 <ul id = 'xinpin2'>
 				 <li v-for="cao in caome[1].items" :key='cao.id'>
