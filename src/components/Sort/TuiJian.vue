@@ -23,7 +23,7 @@ export default {
         };
     },
     created() {
-        this.axios.get('http://10.0.157.219:8888/sort_tuijian')
+        this.axios.get('http://10.0.157.250:8888/sort_tuijian')
       .then(res => {
         console.log(res.data.shop_data);
         
