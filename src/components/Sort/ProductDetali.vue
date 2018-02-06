@@ -30,21 +30,22 @@
                    <li>价格</li>
                </ul>
            </div>
-       <div v-for="product in dataGoodsTow.goods" :key="product.id" class="content" @click="toGood(product.productId)">
+       <div v-for="product in dataGoodsTow.goods" :key="product.id" class="content" >
            <div class="content_more">
                <div class="content_more_left">
-                   <img :src="product.picUrl" alt="">
+                   <img :src="product.picUrl" alt="" @click="toGood(product.productId)">
                </div>
                <div class="content_more_right">
                    <div class="right_1">
-                        <strong>{{product.goodsName}}</strong>
+                       <strong>{{product.goodsName}}</strong>
                         <br>
-                        <span>{{product.description}}</span>
+                        <span>{{product.description}}</span> 
+                    
                    </div>
                    <div class="right_2">
                        <p>￥{{product.marketPrice}}&nbsp;&nbsp;<span>￥{{product.price}}</span></p>
                        <div>
-                           <img src="./img/icon-listcart-75@3x.png" alt="">
+                           <img @click = "add_note(product)" src="./img/icon-listcart-75@3x.png" alt="">
                        </div>   
                    </div>   
                </div>
@@ -92,6 +93,9 @@ export default {
             // history.back();
             //vue方法(-1)是上一个
             this.$router.go(-1)
+        },
+        add_note(product) {
+             this.$store.dispatch('add_goods',product)
         },
         toGood(productId){
    

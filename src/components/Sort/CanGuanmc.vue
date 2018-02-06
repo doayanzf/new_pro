@@ -19,7 +19,7 @@ export default {
     },
     methods: {
         toproductDetail(productId){
-            this.axios.get('http://10.0.157.219:8888/sort_canguanmingcai_cai')
+            this.axios.get('http://10.0.157.250:8888/sort_canguanmingcai_cai')
             .then(res => {
                 console.log(res.data.shop_data);
                                
@@ -36,13 +36,13 @@ export default {
         }
     },
     created() {
-        this.axios.get('http://10.0.157.219:8888/sort_canguanmingcai')
+        this.axios.get('http://10.0.157.250:8888/sort_canguanmingcai')
       .then(res => {
         console.log(res.data.shop_data);
         
         this.productList = res.data.shop_data
       }),
-      this.axios.get('http://10.0.157.219:8888/sort_canguanmingcai_cai')
+      this.axios.get('http://10.0.157.250:8888/sort_canguanmingcai_cai')
          .then(res => {
             this.dataGoods = res.data.shop_data
             this.$store.dispatch('add',res.data.shop_data)
