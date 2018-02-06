@@ -17,7 +17,7 @@
         <br>
         <b>分类</b>
       </router-link>
-      <router-link @click.native ="clickImg(3)" to="/car" class="link">
+      <router-link @click.native ="clickImg(3)" :to="car" class="link">
         <img src="./components/img/cart_n.png" alt="">        
         <img v-show="showIm == 3"  src="./components/img/cart_r.png" alt="">        
         <br>
@@ -40,7 +40,8 @@ export default {
   name: 'App',
   data() {
     return {
-      showIm:1
+      showIm:1,
+      car: '/car'
     }
   },
   components: {
@@ -86,6 +87,13 @@ export default {
       this.showIm = index
     }
   }
+//   beforeUpdate() {
+//       if (this.dataGoods.length != 0) {
+//           this.car = '/car'
+//       } else {
+//           this.car = '/car2'
+//       }
+//   }
 }
 </script>
 

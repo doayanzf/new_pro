@@ -29,7 +29,7 @@
            <div id="main1">
                <p class="title"><span>活动</span>其它</p>
                <ul>
-                   <li v-for="pro in dataGoods">
+                   <li v-for="(pro, index) in dataGoods">
                        <div  @click="changeImg()" class="selected"></div>
                        <img :src="pro.imgUrl" alt="" class="foodImg">
                        <div class="food">{{ pro.goodsName }}</div>
@@ -39,9 +39,9 @@
                                <div class="price">￥{{ pro.marketPrice }}</div>
                            </div>
                            <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce(1)">
-                               <div>{{ num1 }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus(1)">
+                               <img src="./img/reduce.png" alt="" @click="reduce(index)">
+                               <div>{{ num[index] }}</div>
+                               <img src="./img/plus.png" alt="" @click="plus(index)">
                            </div>
                        </div>
                    </li>
@@ -81,7 +81,7 @@ export default {
              selectClass: 'selected',
              price: 0,
              panduan: true,
-             num1: 1,
+             num: [],
              footer: true,
              span: '编辑',
              dataGoods: []
@@ -107,11 +107,13 @@ export default {
                 this.timeClass = num2;
             }
         },
-        reduce() {
-            this.num1--;
+        reduce(index) {
+            this.num[index]--;
+            console.log(this.num)
         },
-        plus() {
-            this.num1++;
+        plus(index) {
+            this.num[index]++;
+            console.log(this.num)
         },
         coudan() {
             // 使用实例的$router的push方法进行传递, 注意这个是$router 接受的时候是$route
@@ -145,15 +147,19 @@ export default {
         if (this.$store.getters.getGoods[0]) {
             this.dataGoods = this.$store.getters.getGoods
             console.log(this.dataGoods)
-            for (var pro of this.dataGoods){
-                this.price += pro.price;
+            for (var index in this.dataGoods){
+                this.price += this.dataGoods[index].price;
+                this.num.push(1);
             }
             if (this.price >= 99) {
                 this.panduan = false;
             }
         } else {
-
+            this.$router.push({
+                path: '/car2'
+            })
         }
+        
     }
 }
 </script>
