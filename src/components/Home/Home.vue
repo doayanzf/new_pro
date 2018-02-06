@@ -106,7 +106,7 @@
 			<div class = 'newyearfood' v-for='prolist in pro3' :Key='prolist.id' >
 				<img :src="prolist.imge.items[0].imgUrl">
 				<ul class='dongtaishengcheng' v-for='pro2list in prolist.list.items' :Key='pro2list.id'>
-					<li><img :src="pro2list.imgUrl" alt="">
+					<li><img :src="pro2list.imgUrl" @click = 'fn(prolist.foodid)' alt="">
 					<h1>{{pro2list.goodsName}}</h1>
 					<h2>￥{{pro2list.marketPrice}}</h2>
 					<h3>￥{{pro2list.price}}<img  class= 'add' src="./img/add.png" alt=""></h3>
@@ -235,6 +235,99 @@ export default {
                 }
             })
 	   },
+	   fn(footid) {
+		   console.log(footid)
+		   if(footid == 0) {
+					this.$router.push({
+					path:'/bobing',
+					query: {
+						goodsname:'新年菜',
+						type:'A'
+					}
+				})
+		   }
+		   if(footid == 1) {
+					this.$router.push({
+					path:'/youxuan',
+					query: {
+						goodsname:'youuxan',
+						type:'B'
+					}
+				})
+		   }
+         if(footid == 2) {
+					this.$router.push({
+					path:'/xihongshi',
+					query: {
+						goodsname:'西红柿',
+						type:'C'
+					}
+				})
+		   }
+		   if(footid == 4) {
+					this.$router.push({
+					path:'/jiakang',
+					query: {
+						goodsname:'肉类',
+						type:'E'
+					}
+				})
+		   }
+		   if(footid == 3) {
+					this.$router.push({
+					path:'/juzi',
+					query: {
+						goodsname:'橘子',
+						type:'D'
+					}
+				})
+		   }
+		    if(footid == 5) {
+					this.$router.push({
+					path:'/jirou',
+					query: {
+						goodsname:'鸡肉',
+						type:'F'
+					}
+				})
+		   }
+		    if(footid == 6) {
+					this.$router.push({
+					path:'/daiyv',
+					query: {
+						goodsname:'带鱼',
+						type:'G'
+					}
+				})
+		   }
+		    if(footid == 7) {
+					this.$router.push({
+					path:'/niunai',
+					query: {
+						goodsname:'牛奶',
+						type:'H'
+					}
+				})
+		   }
+		    if(footid == 8) {
+					this.$router.push({
+					path:'/gutang',
+					query: {
+						goodsname:'骨汤',
+						type:'I'
+					}
+				})
+		   }
+		    if(footid == 9) {
+					this.$router.push({
+					path:'/dami',
+					query: {
+						goodsname:'大米',
+						type:'J'
+					}
+				})
+		   }
+	   },
 	    searc() {
          this.$router.push({
                 path:'/search',
@@ -256,7 +349,7 @@ export default {
 			}
 		}
 		for(var i=0; i<10; i++) {
-			this.pro3.push({imge:this.pro[i],list:this.pro2[i]});
+			this.pro3.push({imge:this.pro[i],list:this.pro2[i],foodid:i});
 			console.log(this.pro3)
 		}
 	  }),

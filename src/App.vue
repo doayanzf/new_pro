@@ -23,7 +23,13 @@ export default {
   },
   computed: {
     isShow() {
-      return this.$route.path.indexOf('/productDetail/') == -1 ? true : false;
+        if ((this.$route.path.indexOf('/productDetail/') != -1) 
+        || this.$route.path.indexOf('/coudan') != -1) {
+            return false;
+        } else {
+            return true;
+        }
+        // return this.$route.path.indexOf('/productDetail/') == -1 ? true : false;
     }
   }
 }

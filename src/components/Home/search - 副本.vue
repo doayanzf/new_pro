@@ -207,7 +207,122 @@ export default {
 </script>
     
 <style lang="css" scoped>
-
+#box {
+  width: 9.94695rem;
+  background: white;
+}
+.bac {
+  position: fixed;
+  width: 2.65252rem;
+  height: 2.65252rem;
+}
+#head {
+  width: 100%;
+  height: 1.32626rem;
+  position: relative;
+  border-bottom: 1px solid #f6f6f6;
+  margin-bottom: 0.265252rem;
+}
+#head > [type="text"] {
+  height: 0.928382rem;
+  width: 7.29443rem;
+  background: #f1f2f6;
+  border-radius: 0.66313rem;
+  margin-left: 1.32626rem;
+  margin-top: 0.212202rem;
+  border: none;
+  padding-left: 0.928382rem;
+}
+#head .back {
+  width: 0.530504rem;
+  height: 0.795756rem;
+  position: absolute;
+  left: 0.397878rem;
+  top: 0.265252rem;
+}
+#head .img4 {
+  position: absolute;
+  width: 0.530504rem;
+  height: 0.530504rem;
+  top: 0.397878rem;
+  left: 60px;
+}
+#head > button {
+  background: white;
+  border: none;
+  font-size: 0.424403rem;
+}
+#remen {
+  width: 9.416446rem;
+  margin: 0 auto;
+  font-size: 0.424403rem;
+  margin-bottom: 0.265252rem;
+}
+#lishi {
+  width: 9.416446rem;
+  margin: 0 auto;
+  font-size: 0.424403rem;
+}
+#remen ul {
+  background: #f4f5f7;
+  width: 9.416446rem;
+  height: 2.65252rem;
+}
+#remen li {
+  list-style: none;
+  font-size: 0.344828rem;
+  float: left;
+  width: 1.299735rem;
+  height: 0.795756rem;
+  font-size: 0.344828rem;
+  text-align: center;
+  line-height: 0.795756rem;
+  background: white;
+  margin-left: 0.265252rem;
+  margin-right: 0.265252rem;
+  margin-top: 0.265252rem;
+  margin-bottom: 0.265252rem;
+}
+#remen li:nth-of-type(6) {
+  width: 1.98939rem;
+}
+#lishi p {
+  width: 100%;
+  height: 0.795756rem;
+  font-size: 0.265252rem;
+  line-height: 0.795756rem;
+  color: #afafaf;
+  text-align: center;
+}
+#tishi {
+  position: fixed;
+  width: 3.97878rem;
+  height: 2.122016rem;
+  background: black;
+  color: white;
+  left: 2.917772rem;
+  top: 7.95756rem;
+  text-align: center;
+  border-radius: 0.265252rem;
+  padding-top: 0.265252rem;
+}
+#tishi img {
+  width: 0.795756rem;
+  height: 0.795756rem;
+}
+            props: ['arr']
+        }
+    },
+    created(){
+        // 本地存储与页面数据同步
+        if(window.localStorage.searchdate) {
+            this.arr = JSON.parse(window.localStorage.searchdate)            
+        } 
+    },
+}
+</script>
+    
+<style lang="css" scoped>
     #box {
         width: 9.94695rem;
         background: white;
