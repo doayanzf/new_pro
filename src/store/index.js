@@ -8,7 +8,8 @@ Vue.use(Vuex)
 export default new Vuex.Store ({
     state: {
         pageData:'',
-        reData: ''
+        reData: '',
+        goodsList:[]
     }    
     ,
     mutations: {
@@ -17,6 +18,9 @@ export default new Vuex.Store ({
         },
         RE(state,data){
             state.reData = data;
+        },
+        ADD_GOODS(state,data) {
+            state.goodsList.push(data)
         }
     },
     actions: {
@@ -25,6 +29,9 @@ export default new Vuex.Store ({
         },
         re(state,data){
             state.commit('RE', data)
+        },
+        add_goods(state,data) {
+            state.commit('ADD_GOODS',data)
         }
     },
     getters: {
@@ -33,6 +40,9 @@ export default new Vuex.Store ({
         },
         getRe(state){
             return state.reData
+        },
+        getGoods(state){
+            return state.goodsList
         }
     }
 })
