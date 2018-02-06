@@ -30,9 +30,9 @@
                <p class="title"><span>活动</span>其它</p>
                <ul>
                    <li>
-                       <img src="./img/selected.png" alt="" class="selected" @click="changeImg">
-                       <img src="./img/youcai.jpg" alt="" class="footimg">
-                       <div class="foot">我厨优选崇明青菜350g</div>
+                       <div  @click="changeImg()" class="selected"></div>
+                       <img src="./img/xiaren.jpg" alt="" class="foodimg">
+                       <div class="food">我厨优选崇明青菜350g</div>
                        <div>
                            <div>
                                <div class="pricenow">￥3.9</div>
@@ -46,9 +46,9 @@
                        </div>
                    </li>
                    <li>
-                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
-                       <img src="./img/meat.jpg" alt="" class="footimg">
-                       <div class="foot">重量家佳康小排400g</div>
+                       <div  @click="changeImg()" class="selected"></div>
+                       <img src="./img/meat.jpg" alt="" class="foodimg">
+                       <div class="food">重量家佳康小排400g</div>
                        <div>
                            <div>
                                <div class="pricenow">￥18.9</div>
@@ -62,9 +62,9 @@
                        </div>
                    </li>
                    <li>
-                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
-                       <img src="./img/duck.jpg" alt="" class="footimg">
-                       <div class="foot">崇明两年半龄老麻鸭900g</div>
+                       <div  @click="changeImg()" class="selected"></div>
+                       <img src="./img/duck.jpg" alt="" class="foodimg">
+                       <div class="food">崇明两年半龄老麻鸭900g</div>
                        <div>
                            <div>
                                <div class="pricenow">￥89</div>
@@ -84,9 +84,9 @@
                <p class="title"><span>折扣</span>同件商品第二件半价</p>
                <ul>
                    <li>
-                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
-                       <img src="./img/mei.jpg" alt="" class="footimg">
-                       <div class="foot">我厨优选红霞草莓一盒(15-20枚净含量300g以上)</div>
+                       <div  @click="changeImg()" class="selected"></div>
+                       <img src="./img/mei.jpg" alt="" class="foodimg">
+                       <div class="food">我厨优选红霞草莓一盒(15-20枚净含量300g以上)</div>
                        <div>
                            <div>
                                <div class="pricenow">￥19.9</div>
@@ -100,18 +100,18 @@
                        </div>
                    </li>
                    <li>
-                       <img src="./img/selected.png" alt="" class="selected"  @click="changeImg">
-                       <img src="./img/jv.jpg" alt="" class="footimg">
-                       <div class="foot">江西南丰贡桔500g</div>
+                       <div  @click="changeImg()" class="selected"></div>
+                       <img src="./img/jv.jpg" alt="" class="foodimg">
+                       <div class="food">江西南丰贡桔500g</div>
                        <div>
                            <div>
                                <div class="pricenow">￥7.9</div>
                                <div class="price">￥9.9</div>
                            </div>
                            <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce(1)">
+                               <img src="./img/reduce.png" alt="" @click="reduce()">
                                <div>{{ num1 }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus(1)">
+                               <img src="./img/plus.png" alt="" @click="plus()">
                            </div>
                        </div>
                    </li>
@@ -149,6 +149,7 @@ export default {
              timeClass: 'time',
              firstClass: 'aaa',
              secondClass: 'bbb',
+             selectClass: 'selected',
              price: '￥123.30',
              sum: '5',
              panduan: 'true',
@@ -177,10 +178,10 @@ export default {
                 this.timeClass = num2;
             }
         },
-        reduce(num) {
+        reduce() {
             this.num1--;
         },
-        plus(num) {
+        plus() {
             this.num1++;
         },
         coudan() {
@@ -207,7 +208,7 @@ export default {
             this.footer ? this.span = "完成" : this.span = "编辑";
             this.footer = !this.footer;
         },
-        changeImg() {
+        changeImg(num) {
             
         }
     }
@@ -334,11 +335,22 @@ export default {
     }
     .selected{
         margin: 1.226667rem .32rem 0;
+        width: .44rem;
+        height: .44rem;
+        background: url(./img/selected.png);
+        float: left;
     }
-    .footimg{
+    .selectClass{
+        margin: 1.226667rem .32rem 0;
+        width: .44rem;
+        height: .44rem;
+        background: url(./img/unselect.png);
+        float: left;
+    }
+    .foodimg{
         margin: .213333rem;
     }
-    .foot{
+    .food{
         width: 5.333333rem;
         height: .906667rem;
         line-height: .426667rem;
