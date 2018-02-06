@@ -48,6 +48,8 @@ import DianXinss from '../components/Sort/DianXinss.vue'
 // 分类二级路由的一级路由
 import ProductDetali from '../components/Sort/ProductDetali'
 import SouSuo from '../components/Home/SouSuo'
+import SouSuo2 from '../components/Home/SouSuo2'
+
 
 
 import GoodsDetails from '../components/Sort/GoodsDetails'
@@ -125,6 +127,8 @@ export default new VueRouter({
     {path: '/productDetail/:productId', component: ProductDetali},
     {path: '/goodsDetails/:goodId', component: GoodsDetails},
     {path: '/souSuo/:goodId', component: SouSuo},
+    {path: '/souSuo2/:goodId', component: SouSuo2},
+    
     
     {path: '/coudan/:coudanId', component: Coudan},
     

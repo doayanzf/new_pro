@@ -6,30 +6,8 @@
             <input type="text" v-model="msg" @click='dis'>
             <button @click='sou'>搜索</button>
         </div>
-          <h2>我厨为您找的结果共{{dataGoods.length}}个</h2>
-        <div class="concent" v-for="product in dataGoodsTow" :key="product.id">
+          <h2>我厨为您找的结果共0个</h2>
         
-          <div class="content_more">
-               <div class="content_more_left">
-                   <img :src="product.picUrl" alt="">
-               </div>
-               <div class="content_more_right">
-                   <div class="right_1">
-                        <strong>{{product.goodsName}}</strong>
-                        <br>
-                        <span>{{product.description}}</span>
-                        
-                   </div>
-                   <div class="right_2">
-                       <p>￥{{product.marketPrice}}&nbsp;&nbsp;<span>￥{{product.price}}</span></p>
-                       
-                       <div>
-                           <img src="./../Sort/img/icon-listcart-75@3x.png" alt="">
-                       </div>   
-                   </div>   
-               </div>
-           </div>
-        </div>
     </div>
 </template>
     
