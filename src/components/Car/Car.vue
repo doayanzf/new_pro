@@ -29,46 +29,14 @@
            <div id="main1">
                <p class="title"><span>活动</span>其它</p>
                <ul>
-                   <li>
+                   <li v-for="pro in dataGoods">
                        <div  @click="changeImg()" class="selected"></div>
-                       <img src="./img/xiaren.jpg" alt="" class="foodimg">
-                       <div class="food">我厨优选崇明青菜350g</div>
+                       <img :src="pro.imgUrl" alt="" class="foodImg">
+                       <div class="food">{{ pro.goodsName }}</div>
                        <div>
                            <div>
-                               <div class="pricenow">￥3.9</div>
-                               <div class="price">￥6.5</div>
-                           </div>
-                           <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce(1)">
-                               <div>{{ num1 }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus(1)">
-                           </div>
-                       </div>
-                   </li>
-                   <li>
-                       <div  @click="changeImg()" class="selected"></div>
-                       <img src="./img/meat.jpg" alt="" class="foodimg">
-                       <div class="food">重量家佳康小排400g</div>
-                       <div>
-                           <div>
-                               <div class="pricenow">￥18.9</div>
-                               <div class="price">￥26.8</div>
-                           </div>
-                           <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce(1)">
-                               <div>{{ num1 }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus(1)">
-                           </div>
-                       </div>
-                   </li>
-                   <li>
-                       <div  @click="changeImg()" class="selected"></div>
-                       <img src="./img/duck.jpg" alt="" class="foodimg">
-                       <div class="food">崇明两年半龄老麻鸭900g</div>
-                       <div>
-                           <div>
-                               <div class="pricenow">￥89</div>
-                               <div class="price">￥98</div>
+                               <div class="pricenow">￥{{ pro.price }}</div>
+                               <div class="price">￥{{ pro.marketPrice }}</div>
                            </div>
                            <div class="number">
                                <img src="./img/reduce.png" alt="" @click="reduce(1)">
@@ -78,52 +46,13 @@
                        </div>
                    </li>
                </ul>
-               <p class="fenge"></p>
-           </div>
-           <div id="main2">
-               <p class="title"><span>折扣</span>同件商品第二件半价</p>
-               <ul>
-                   <li>
-                       <div  @click="changeImg()" class="selected"></div>
-                       <img src="./img/mei.jpg" alt="" class="foodimg">
-                       <div class="food">我厨优选红霞草莓一盒(15-20枚净含量300g以上)</div>
-                       <div>
-                           <div>
-                               <div class="pricenow">￥19.9</div>
-                               <div class="price">￥39.9</div>
-                           </div>
-                           <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce(1)">
-                               <div>{{ num1 }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus(1)">
-                           </div>
-                       </div>
-                   </li>
-                   <li>
-                       <div  @click="changeImg()" class="selected"></div>
-                       <img src="./img/jv.jpg" alt="" class="foodimg">
-                       <div class="food">江西南丰贡桔500g</div>
-                       <div>
-                           <div>
-                               <div class="pricenow">￥7.9</div>
-                               <div class="price">￥9.9</div>
-                           </div>
-                           <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce()">
-                               <div>{{ num1 }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus()">
-                           </div>
-                       </div>
-                   </li>
-               </ul>
-               <p class="fenge"></p>
            </div>
        </main>
        <div class="wtf2"></div>
        <footer v-show="footer">
            <img src="./img/selected.png" alt="">
-           <div id="price">合计：<span> {{ price }} </span></div>
-           <div id="jiesuan">结算({{ sum }})</div>
+           <div id="price">合计：<span>￥{{ price.toFixed(2) }}</span></div>
+           <div id="jiesuan">结算({{ this.dataGoods.length }})</div>
            <div id="baoyou" v-show="!panduan">已包邮</div>
            <div id="baoyou2" v-show="panduan" @click="coudan">全场满99包邮 点我包邮<span id="trangle"></span></div>
        </footer>
@@ -150,12 +79,12 @@ export default {
              firstClass: 'aaa',
              secondClass: 'bbb',
              selectClass: 'selected',
-             price: '￥123.30',
-             sum: '5',
-             panduan: 'true',
+             price: 0,
+             panduan: true,
              num1: 1,
              footer: true,
-             span: '编辑'
+             span: '编辑',
+             dataGoods: []
         };
     },
     methods: {
@@ -210,6 +139,20 @@ export default {
         },
         changeImg(num) {
             
+        }
+    },
+    created() {
+        if (this.$store.getters.getGoods[0]) {
+            this.dataGoods = this.$store.getters.getGoods
+            console.log(this.dataGoods)
+            for (var pro of this.dataGoods){
+                this.price += pro.price;
+            }
+            if (this.price >= 99) {
+                this.panduan = false;
+            }
+        } else {
+
         }
     }
 }
@@ -329,6 +272,7 @@ export default {
     main li{
         height: 2.906667rem;
         border-bottom: 1px solid #f1f1f1;
+        clear: both;
     }
     main img{
         float: left;
@@ -347,11 +291,13 @@ export default {
         background: url(./img/unselect.png);
         float: left;
     }
-    .foodimg{
+    .foodImg{
         margin: .213333rem;
+        width: 2.56rem;
+        height: 2.56rem;
     }
     .food{
-        width: 5.333333rem;
+        width: 4.8rem;
         height: .906667rem;
         line-height: .426667rem;
         font-size: .373333rem;

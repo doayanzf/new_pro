@@ -1,7 +1,7 @@
 <template>
     <div>
         <header>
-            <img src="./img/back.png" alt="">
+            <img src="./img/back.png" alt="" @click="back">
             <div>凑单</div>
         </header>
         <main>
@@ -108,6 +108,9 @@ export default {
         plus() {
             this.num++;
         },
+        back() {
+            this.$router.go(-1);
+        }
     }
     
 }
