@@ -5,10 +5,30 @@
      -->
     <router-view></router-view>
     <div class="tabbar" v-show="isShow">
-      <router-link to="/home">首页</router-link>
-      <router-link to="/Sort">分类</router-link>
-      <router-link to="/car">购物车</router-link>
-      <router-link to="/mine">我的</router-link>
+      <router-link  @click.native ="clickImg(1)" to="/home" class="link" >
+        <img src="./components/img/index_n.png" alt="">
+        <img v-show="showIm == 1" src="./components/img/index_r.png" alt="">
+        <br>
+        <b>首页</b>
+      </router-link>
+      <router-link @click.native ="clickImg(2)" to="/Sort" class="link">
+        <img src="./components/img/shopping_n.png" alt="">
+        <img v-show="showIm == 2"  src="./components/img/shopping_r.png" alt="">
+        <br>
+        <b>分类</b>
+      </router-link>
+      <router-link @click.native ="clickImg(3)" to="/car" class="link">
+        <img src="./components/img/cart_n.png" alt="">        
+        <img v-show="showIm == 3"  src="./components/img/cart_r.png" alt="">        
+        <br>
+        <b>购物车</b>
+      </router-link>
+      <router-link @click.native ="clickImg(4)" to="/mine" class="link">
+        <img src="./components/img/my_n.png" alt="">        
+        <img v-show="showIm == 4"  src="./components/img/my_r.png" alt="">        
+        <br>
+        <b>我的</b>
+      </router-link>
     </div>
   </div>
 </template>
@@ -18,6 +38,11 @@ import HelloWorld from './components/HelloWorld'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      showIm:1
+    }
+  },
   components: {
     HelloWorld
   },
@@ -46,17 +71,19 @@ export default {
          (this.$route.path.indexOf('/xihongshi') != -1) || 
          (this.$route.path.indexOf('/youxuan') != -1) || 
          (this.$route.path.indexOf('/zuocai') != -1)
-         
-         
-         
-         
-         
+          
          ){
             return false;
         } else {
             return true;
         }
         // return this.$route.path.indexOf('/productDetail/') == -1 ? true : false;
+    }
+    
+  },
+  methods:{
+    clickImg(index){
+      this.showIm = index
     }
   }
 }
@@ -71,12 +98,26 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 1.333333rem;
-  background-color: wheat;
+  border-top: 1px solid #e5e5e5;
+  height: 1.37931rem;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-
+#app .tabbar img{
+  width: .769231rem;
+  height: .769231rem;
+  position: absolute;
+  top: .13rem;
+  left:.848806rem;
+}
+.link{
+  padding-top: .3626rem;
+  position: relative;
+  width: 25%;
+  height: 1.32626rem;
+  text-align: center;
+}
 
 </style>
