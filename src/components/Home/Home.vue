@@ -337,7 +337,7 @@ export default {
 	  // 在created钩子函数里面做网络请求
   created() {
     // 使用axios处理网络请求
-    this.axios.get('http://10.0.157.219:8888/home')
+    this.axios.get('http://10.0.157.250:8888/home')
       .then(res => {
 		  console.log(res.data.shop_data.length);
 		this.dataList = res.data.shop_data;
@@ -353,13 +353,13 @@ export default {
 			console.log(this.pro3)
 		}
 	  }),
-	   this.axios.get('http://10.0.157.219:8888/caomei')
+	   this.axios.get('http://10.0.157.250:8888/caomei')
       .then(res => {
 		  console.log(res.data.shop_data);
 		  this.caome = res.data.shop_data
 		console.log(this.caome)
 	  }),
-	  this.axios.get('http://10.0.157.219:8888/youhui')
+	  this.axios.get('http://10.0.157.250:8888/youhui')
       .then(res => {
 		  console.log(res.data.shop_data);
 		  this.youhui = res.data.shop_data;
