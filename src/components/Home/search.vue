@@ -77,7 +77,7 @@ export default {
             
         },
         toproductDetail(productId){
-                this.axios.get('http://10.0.157.219:8888/s_niuPai')
+                this.axios.get('http://10.0.157.250:8888/s_niuPai')
                 .then(res => {
                     console.log(res.data.shop_data);
                                 
@@ -94,7 +94,7 @@ export default {
                 })                
         },
         toproductDetail1(productId){
-                this.axios.get('http://10.0.157.219:8888/s_douFu')
+                this.axios.get('http://10.0.157.250:8888/s_douFu')
                 .then(res => {
                     console.log(res.data.shop_data);
                                 
@@ -115,7 +115,7 @@ export default {
             
         },
         toproductDetail3(productId){
-                this.axios.get('http://10.0.157.219:8888/s_huoGuo')
+                this.axios.get('http://10.0.157.250:8888/s_huoGuo')
                 .then(res => {
                     console.log(res.data.shop_data);
                                 
@@ -133,7 +133,7 @@ export default {
                 
         },
         toproductDetail4(productId){
-                this.axios.get('http://10.0.157.219:8888/s_yangRou')
+                this.axios.get('http://10.0.157.250:8888/s_yangRou')
                 .then(res => {
                     console.log(res.data.shop_data);
                                 
@@ -152,7 +152,7 @@ export default {
         },
         toproductDetail5(productId){ },
         toproductDetail6(productId){
-                this.axios.get('http://10.0.157.219:8888/s_lengDong')
+                this.axios.get('http://10.0.157.250:8888/s_lengDong')
                 .then(res => {
                     console.log(res.data.shop_data);
                     this.$store.dispatch('re',res.data.shop_data)
@@ -190,17 +190,17 @@ export default {
     created() {
 
         if (window.localStorage.searchdate) {
-            this.arr = window.localStorage.searchdate;
+            this.arr = JSON.parse(window.localStorage.searchdate);
         } else {
-            window.localStorage.searchdate = [];
-            this.arr = window.localStorage.searchdate;
+            // window.localStorage.searchdate = [];
+            // this.arr = window.localStorage.searchdate;
         }
 
-        this.axios.get('http://10.0.157.219:8888/s_niuPai')
-            .then(res => {
-            this.dataGoods = res.data.shop_data
-            this.$store.dispatch('re',res.data.shop_data)
-        })
+        // this.axios.get('http://10.0.157.250:8888/s_niuPai')
+        //     .then(res => {
+        //     this.dataGoods = res.data.shop_data
+        //     this.$store.dispatch('re',res.data.shop_data)
+        // })
     }
 }
 
