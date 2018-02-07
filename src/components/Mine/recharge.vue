@@ -25,6 +25,8 @@
             <Card class="Card"></Card>
         </div>
         <div class="divShow">
+            <span>我已同意并阅读我厨的充值协议</span>
+            <span>充值协议</span>
         </div>
 
         
@@ -64,8 +66,21 @@ export default {
     }
     .divShow{
         height: 4rem;
+        font-size: .37rem;
+        text-align: center;
+        padding-top: .693333rem;
         /* border: #a59999 1px solid; */
         /* background: rgb(255, 255, 255); */
+    }
+    .divShow>span:nth-of-type(1){
+        padding-left: .666667rem;
+        background: url('./img/r-unselect@3x.png')
+        0 center no-repeat;
+        background-size: .533333rem;
+
+    }
+    .divShow>span:nth-of-type(2){
+        color: #6eb042;
     }
     .rouD{
         height: .586667rem;

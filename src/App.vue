@@ -71,6 +71,7 @@ export default {
          (this.$route.path.indexOf('/tejiataocan') != -1) || 
          (this.$route.path.indexOf('/xihongshi') != -1) || 
          (this.$route.path.indexOf('/youxuan') != -1) || 
+         (this.$route.path.indexOf('/recharge') != -1) || 
          (this.$route.path.indexOf('/zuocai') != -1)
           
          ){

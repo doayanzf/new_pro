@@ -42,7 +42,6 @@ export default {
         this.axios.get('http://10.0.157.250:8888/rechrge')
         .then(res => {
             this.productList = res.data.shop_data.paytypes
-            console.log(this.productList)
         })
     }
 }
