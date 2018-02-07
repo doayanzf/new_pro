@@ -50,8 +50,6 @@
 
                 </div>
             </div>
-             <!-- 如果需要分页器 -->
-            <div class="swiper-pagination"></div>
         </div>
     </div>
 </template>

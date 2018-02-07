@@ -36,7 +36,7 @@
        <div v-for="product in dataGoodsTow.goods" :key="product.id" class="content" >
            <div class="content_more">
                <div class="content_more_left">
-                   <img :src="product.picUrl" alt="" @click="toGood(product.productId)">
+                   <img :src="product.picUrl" alt="" @click="toGood(product.productId, product)">
                </div>
                <div class="content_more_right">
                    <div class="right_1">
@@ -102,8 +102,8 @@ export default {
         add_note(product) {
              this.$store.dispatch('add_goods',product)
         },
-        toGood(productId){
-   
+        
+        toGood(productId,product){
             this.$router.push({
 
                 path:'/goodsDetails/' + productId,
@@ -112,6 +112,10 @@ export default {
                     age: 18
                 }
             })
+            this.$store.dispatch('xx',product)
+            
+            
+            
         },
         toData() {
             this.dataGoodsTow = dataGoods[0]
@@ -275,16 +279,20 @@ export default {
         border-bottom: 1px solid #f4f5f7;
     }
     .content_more_left{
-        width: 3.448276rem;
-        height: 3.448276rem;
-        padding-top: .212202rem;
+        width: 2.65252rem;
+        height: 2.65252rem;
+        padding-top: .530504rem;
+        margin-left: .530504rem;
+        margin-right: .265252rem;
         float: left;
     }
        
     
     .content_more_left img{
-        width: 3.448276rem;
-        height: 3.448276rem;
+
+        width: 2.65252rem;
+        height: 2.65252rem;
+        
     }
     .content_more_right{
         height: 3.448276rem;

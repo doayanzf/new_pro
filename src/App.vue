@@ -71,7 +71,13 @@ export default {
          (this.$route.path.indexOf('/tejiataocan') != -1) || 
          (this.$route.path.indexOf('/xihongshi') != -1) || 
          (this.$route.path.indexOf('/youxuan') != -1) || 
+<<<<<<< HEAD
+         (this.$route.path.indexOf('/zuocai') != -1) || 
+         (this.$route.path.indexOf('/goodsDetails/') != -1)
+=======
+         (this.$route.path.indexOf('/recharge') != -1) || 
          (this.$route.path.indexOf('/zuocai') != -1)
+>>>>>>> b88d2924e96695ed61563ee46a57b5803a460b1b
           
          ){
             return false;

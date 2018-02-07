@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="booder">
-            <img src="./details_img/3e0c6682-5aff-4bf2-83bd-f3bdcc20a735.jpg" alt="">
+            <img :src="dataGoods.picUrl" alt="">
         </div>
        <div class="header">
            <div @click="back()">
@@ -9,9 +9,9 @@
            </div>
        </div>
        <div class="commodity_name">
-           <h1>我厨优选特供白菜仔300g</h1>
-           <span>口感鲜嫩,清香爽口</span>
-            <p>￥8.9&nbsp;&nbsp;<span>￥9.9</span></p>
+           <h1>{{dataGoods.goodsName}}</h1>
+           <span>{{dataGoods.description}}</span>
+            <p>￥{{dataGoods.price}}&nbsp;&nbsp;<span>￥{{dataGoods.marketPrice}}</span></p>
        </div>
        <div class="characteristics">
            <img src="./details_img/navigation.png" alt="">
@@ -45,8 +45,17 @@
            <p>-----猜你喜欢-----</p>
        </div>
        <div class="img">
-           <img src="./details_img/57f21041-f91f-4517-85d5-1d8284f2de49.jpg" alt="">
-           <img src="./details_img/30f6da0d-3731-4f0f-bf72-b6dbca284f86.jpg" alt="">
+           <img :src="dataGoods.picUrl" alt="">
+           <img :src="dataGoods.picUrl" alt="">
+       </div>
+
+       <div class="tabar">
+           <div>
+               <img src="./img/cart_n.png" alt="">
+           </div>
+           <div @click = "add_note(dataGoods)">
+               <span>加入购物车</span>
+           </div>
        </div>
            
     </div>
@@ -57,7 +66,8 @@ export default {
   name: "GoodsDetails",
   data() {
     return {
-      msg: "商品详情页面"
+      msg: "商品详情页面",
+      dataGoods: ""
       //  msg: this.$route.params.productId
       // productList: [
       //      {productId: '1001', productName: '商品1', productPrice: 11.5},
@@ -85,7 +95,13 @@ export default {
       // history.back();
       //vue方法(-1)是上一个
       this.$router.go(-1);
+    },
+    add_note(dataGoods) {
+             this.$store.dispatch('add_goods',dataGoods)
     }
+  },
+  created() {
+    this.dataGoods = this.$store.getters.getXx;
   }
 };
 </script>
@@ -94,6 +110,44 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+.tabar {
+  z-index: 4;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top: 1px solid #e5e5e5;
+  height: 1.37931rem;
+  
+  display: flex;
+}
+.tabar div:nth-of-type(1){
+    width: 1.962865rem;
+    height: 1.37931rem;
+    text-align: center;
+    background: #eb481c;
+    padding-top: .265252rem;
+    border-right: 1px solid white;
+    
+}
+.tabar div:nth-of-type(2){
+    width: 100%;
+    height: 1.37931rem;
+    text-align: center;
+    background: #ff5918;
+    color: white;
+    text-align: center;
+    font-size: .477454rem;
+    
+}
+.tabar div:nth-of-type(2) span{
+    line-height: 1.37931rem;
+}
+.tabar div:nth-of-type(1) img{
+    width: .795756rem;
+    height: .795756rem;
+    
 }
 .header img {
   width: 0.795756rem;
@@ -161,61 +215,59 @@ export default {
   height: 2.572944rem;
   background: white;
 }
-.addres p{
-    color: #9f9f9f;
+.addres p {
+  color: #9f9f9f;
 }
-.addres p span{
-    color: #2a422a
+.addres p span {
+  color: #2a422a;
 }
-.addres_1{
-   padding-top: .557029rem;
-    font-size: .397878rem; 
+.addres_1 {
+  padding-top: 0.557029rem;
+  font-size: 0.397878rem;
 }
-.addres_1 p{
-    float: left;
+.addres_1 p {
+  float: left;
 }
-.addres_1 p:nth-of-type(1){
-    
-    padding-left: 1.32626rem
+.addres_1 p:nth-of-type(1) {
+  padding-left: 1.32626rem;
 }
-.addres_1 p:nth-of-type(2){
-    
-    padding-left: 25%
+.addres_1 p:nth-of-type(2) {
+  padding-left: 25%;
 }
-.addres_2{
-    padding-top: .795756rem;
-    clear: both;
-    display: flex;
-    justify-content:space-around;
-    font-size: .397878rem;   
+.addres_2 {
+  padding-top: 0.795756rem;
+  clear: both;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.397878rem;
 }
-.pingjia{
-    width: 100%;
-    height: 1.32626rem;
-    background: white;
-    margin-top: .265252rem;
-    display: flex;
-    justify-content: space-between;
-    padding-top: .397878rem;
-    padding-left: .265252rem;
-    padding-right: .265252rem;
-    font-size: .397878rem;
+.pingjia {
+  width: 100%;
+  height: 1.32626rem;
+  background: white;
+  margin-top: 0.265252rem;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.397878rem;
+  padding-left: 0.265252rem;
+  padding-right: 0.265252rem;
+  font-size: 0.397878rem;
 }
-.pingjia img{
-    width: .344828rem;
-    height: .344828rem;
+.pingjia img {
+  width: 0.344828rem;
+  height: 0.344828rem;
 }
-.like{
-    width: 100%;
-    height: 1.140584rem;
-    font-size: .450928rem;
-    text-align: center;
+.like {
+  width: 100%;
+  height: 1.140584rem;
+  font-size: 0.450928rem;
+  text-align: center;
 }
-.like p{
-    line-height: 1.140584rem;
+.like p {
+  line-height: 1.140584rem;
 }
-.img img{
-    width: 10rem;
-    height: 10rem;
+.img img {
+  width: 10rem;
+  height: 10rem;
 }
 </style>

@@ -43,7 +43,7 @@
 		    </ul>
 			 <ul id = 'tehui2'>
          <div class="swiper-container nav">
-           <div class="nav_1 swiper-wrapper">
+           <div class="swiper-wrapper nav_1">
                  	 <li v-for="you in youhui[1].ite" :key='you.id' class='tehui3 swiper-slide'>
                       <ul	class = 'te1'>
                         <li @click='nongfushanquan'><img :src="you.imgUrl" alt=""></li>
@@ -125,15 +125,9 @@
 </template>
     
 <script>
-// import { Swipe, SwipeItem } from "mint-ui";
-// import "mint-ui/lib/style.css";
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
 export default {
-  // components: {
-  //   "mt-swipe": Swipe,
-  //   "mt-swipe-item": SwipeItem
-  // },
   name: "component_name",
   data() {
     return {
@@ -378,6 +372,25 @@ export default {
   mounted() {
     console.log("mounted", this);
     var swiper = new Swiper(".swiper-container", {
+      pagination: ".swiper-pagination",
+      paginationClickable: true,
+      slidesPerView: 3,
+      // slidesPerView: "auto",
+      loop: true,
+      // speed: 600,
+      freeMode: true,
+      freeModeMomentum: false,
+      freeModeMomentumBounce: false,
+      // 最后一个元素和容器的间隔
+      // slidesOffsetAfter : 55,
+      initialSlide: 0,
+      // 右边不回弹
+      // slidesPerView: 'auto',
+      onTouchEnd: function() {
+        swiper.startAutoplay();
+      }
+    });
+    var swiper = new Swiper(".swiper-container2", {
       pagination: ".swiper-pagination",
       paginationClickable: true,
       slidesPerView: 3,
