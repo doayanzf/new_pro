@@ -75,8 +75,8 @@ export default {
         var swiper = new Swiper('.swiper-container', {
             pagination: '.swiper-pagination',
             paginationClickable: true,
-            // slidesPerView: 1.5,
-            slidesPerView: 'auto',
+            slidesPerView: 1.5,
+            // slidesPerView: 'auto',
             // loop: true,
             // speed: 600,
             freeMode : true,

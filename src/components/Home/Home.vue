@@ -6,26 +6,26 @@
 			<li><a href=""><img src="./img/icon.png" class='img3' alt=""></a></li>
 			<li><a href=""><img  @click = 'searc' src="./img/search.png" class='img4' alt=""></a></li>
 		</ul>
-		<div class="swiper-container2">
-			<div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./img/c24a3227-8177-4ada-b9b6-a390b28f212e (1).jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./img/ceb4ac53-dcc2-46dc-839e-54ba336899bf.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./img/1a1c094a-abc3-46a2-8aa0-726b5711bd4e.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./img/9c015991-8a35-4675-a627-9d51d401acd0.jpg" alt=""></div>
-        <div class="swiper-slide"><img src="./img/285cbf69-b11f-4f8d-9955-a83a71543c8c.jpg" alt=""></div>
-			</div>
-		</div>
+		<div class="abcd" >
+			<mt-swipe :auto="1000">
+			<mt-swipe-item><img  @click="tejiataocan" src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click="jiayan" src="./img/c24a3227-8177-4ada-b9b6-a390b28f212e (1).jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click="jianguo" src="./img/ceb4ac53-dcc2-46dc-839e-54ba336899bf.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click='shucai' src="./img/1a1c094a-abc3-46a2-8aa0-726b5711bd4e.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click='shucai' src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click="nongjiale" src="./img/9c015991-8a35-4675-a627-9d51d401acd0.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click='bank' src="./img/285cbf69-b11f-4f8d-9955-a83a71543c8c.jpg" alt=""></mt-swipe-item>
+			</mt-swipe>
+		  </div>
 		  <ul id = 'gou'>
 			  <li  @click='tehui'><img src="./img/4b5226d0-068b-47ab-8942-4cce2079c134.jpg" alt=""></li>
 			  <li @click="tejiataocan"><img src="./img/51760a0f-2fb2-465e-936e-cada0969a3f2.jpg" alt=""></li>
 			  <li @click="chaojituangou"><img src="./img/04309f99-dd62-4654-a27e-41534240bd98.jpg" alt=""></li>
-			  <li @click="rexiaojingcai"><img src="./img/485a48f7-1df6-4d7a-85c6-193bd65f4e4e.jpg" alt=""></li>
-			  <li @click="tejiataocan"><img src="./img/6f4bc5fb-1734-4566-a9a8-4886e7488050.jpg" alt=""></li>
-			  <li @click="chaojituangou"><img src="./img/8bd774b9-69aa-4b13-8434-9be4ce30fb5d.jpg" alt=""></li>
-			  <li @click="chaojituangou"><img src="./img/e615c3f6-698b-4fe9-ae21-f9a8e8598929.jpg" alt=""></li>
-			  <li @click="chaojituangou"><img src="./img/c04031aa-dd93-4c6e-bef6-e3622b247702.jpg" alt=""></li>
+			  <li @click="jingcai"><img src="./img/485a48f7-1df6-4d7a-85c6-193bd65f4e4e.jpg" alt=""></li>
+			  <li @click="shilixinpin"><img src="./img/6f4bc5fb-1734-4566-a9a8-4886e7488050.jpg" alt=""></li>
+			  <li @click="niunai"><img src="./img/8bd774b9-69aa-4b13-8434-9be4ce30fb5d.jpg" alt=""></li>
+			  <li @click='bank'><img src="./img/e615c3f6-698b-4fe9-ae21-f9a8e8598929.jpg" alt=""></li>
+			  <li @click="wode"><img src="./img/c04031aa-dd93-4c6e-bef6-e3622b247702.jpg" alt=""></li>
 		  </ul>
 		  <div id ='kuaibao'>
            	  <div id='kk'>
@@ -36,7 +36,7 @@
               <img class='k3' @click="heizhurou" src="./img/6cc79d06-92ea-4fee-a9d2-edc6fda32407.jpg"  alt="">
 		  </div>
 		  <div id='xianshi'>———— 限时特惠 ————</div>
-			<ul id='maya'>
+			<ul id='maya' v-if="youhui.length > 0">
 		  		 <li><img :src="youhui[0].ite[0].imgUrl"  @click='tehui' class='u2' alt=""></li>
 			     <li>{{youhui[0].ite[0].goodsName}}</li>
 			     <li>￥{{youhui[0].ite[0].price}}<span>￥{{youhui[0].ite[0].marketPrice}}</span><img  @click = "add_note(youhui[0].ite[0])" class= 'add' src="./img/add.png" alt=""></li>
@@ -44,14 +44,17 @@
 			 <ul id = 'tehui2'>
          <div class="swiper-container nav">
            <div class="swiper-wrapper nav_1">
-                 	 <li v-for="you in youhui[1].ite" :key='you.id' class='tehui3 swiper-slide'>
+              <template v-if="youhui.length > 0">
+                <li  v-for="you in youhui[1].ite" :key='you.id' class='tehui3 swiper-slide'>
                       <ul	class = 'te1'>
-                        <li @click='nongfushanquan'><img :src="you.imgUrl" alt=""></li>
+                        <li><img :src="you.imgUrl" alt="" @click='nongfushanquan(you)'></li>
                         <li>{{you.goodsName}}</li>
                         <li>￥{{you.marketPrice}}</li>
                         <li>￥{{you.price}}<img  @click = 'add_note(you)' class= 'add' src="./img/add.png" alt=""></li>
                       </ul>
                  	 </li>
+              </template>
+                 	 
            </div>
          </div>
 			 </ul>
@@ -71,7 +74,7 @@
 				<div id = 'mai1'>
 					<h1>买手推荐</h1>
 					<p>超值购买</p>
-					<img @click='nongfushanquan' src="./img/e83a2301-70b4-4e56-bf1a-dcd3a72bfa32.jpg" alt="">
+					<img @click='dami' src="./img/e83a2301-70b4-4e56-bf1a-dcd3a72bfa32.jpg" alt="">
 				</div>
 				<div id = 'mai2'>
 					<h1>大厨教做菜</h1>
@@ -81,7 +84,7 @@
 				<div id = 'mai3'>
 					<h1>净菜热销排行</h1>
 					<p>荷塘小炒</p>
-					<img  @click='nongfushanquan' src="./img/68855427-f98d-4658-bd36-d08be25b9e73.jpg" alt="">
+					<img  @click='dami' src="./img/68855427-f98d-4658-bd36-d08be25b9e73.jpg" alt="">
 				</div>
 				<div id = 'mai4'>
 					<h1>银行特惠</h1>
@@ -90,15 +93,15 @@
 				</div>
 			</div>
 			 <div id='xinpin'>———— 新品推荐 ————</div>
-			<ul id='caomei' >
+			<ul id='caomei' v-if="caome.length > 0">
 				<li><img :src="caome[0].ite[0].imgUrl" class='u2' @click='tehui' alt=""></li>
 				<li>{{caome[0].ite[0].goodsName}}</li>
 				<li>￥{{caome[0].ite[0].price}}<span>￥{{caome[0].ite[0].marketPrice}}</span><img class= 'add'  @click = "add_note(youhui[0].ite[0])" src="./img/add.png" alt=""></li>
 		     </ul>
-			 <ul id = 'xinpin2'>
+			 <ul id = 'xinpin2'  v-if="caome.length > 0">
 				 <li v-for="cao in caome[1].ite" :key='cao.id'>
 					 <ul class = 'xin1'>
-						 <li><img @click='nongfushanquan' :src="cao.imgUrl" alt=""></li>
+						 <li><img @click='nongfushanquan(cao)' :src="cao.imgUrl" alt="" ></li>
 						 <li>{{cao.goodsName}}</li>
 						 <li>￥{{cao.marketPrice}}</li>
 						 <li>￥{{cao.price}}<img  @click = 'add_note(cao)' class= 'add' src="./img/add.png" alt=""></li>
@@ -108,7 +111,7 @@
 			<div class = 'newyearfood' v-for='prolist in pro3' :Key='prolist.id' >
 				<img :src="prolist.imge.ite[0].imgUrl">
 				<ul class='dongtaishengcheng' v-for='pro2list in prolist.list.ite' :Key='pro2list.id'>
-					<li><img :src="pro2list.imgUrl" @click = 'fn(prolist.foodid)' alt="">
+					<li><img :src="pro2list.imgUrl" @click = 'nongfushanquan(pro2list)' alt="">
 						<h1>{{pro2list.goodsName}}</h1>
 						<h2>￥{{pro2list.marketPrice}}</h2>
 						<h3>￥{{pro2list.price}}<img  @click = 'add_note(pro2list)'  class= 'add' src="./img/add.png" alt=""></h3>
@@ -127,6 +130,7 @@
 <script>
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
+import Vue from 'vue'
 export default {
   name: "component_name",
   data() {
@@ -172,12 +176,57 @@ export default {
         }
       });
     },
+    jiayan() {
+      this.$router.push({
+        path: "/jiayan",
+        query: {
+          name: "家宴盛典",
+          type: 3
+        }
+      });
+    },
+    jianguo() {
+      this.$router.push({
+        path: "/jianguo",
+        query: {
+          name: "干货坚果",
+          type: 8
+        }
+      });
+    },
+    shucai() {
+      this.$router.push({
+        path: "/shucai",
+        query: {
+          goodsname: "时令鲜蔬",
+          type: "S"
+        }
+      });
+    },
     rexiaojingcai() {
       this.$router.push({
-        path: "/rexiaojingcai",
+        path: "/zuocai",
         query: {
           name: "热销净菜",
           type: 4
+        }
+      });
+    },
+    dami() {
+      this.$router.push({
+        path: "/dami",
+        query: {
+          goodsname: "大米",
+          type: "J"
+        }
+      });
+    },
+    xihongshi() {
+      this.$router.push({
+        path: "/xihongshi",
+        query: {
+          goodsname: "西红柿",
+          type: "C"
         }
       });
     },
@@ -190,12 +239,30 @@ export default {
         }
       });
     },
-    nongfushanquan() {
+    nongfushanquan(pro) {
       this.$router.push({
-        path: "/nongfushanquan",
+        path: "/goodsDetails/" + 123,
         query: {
-          name: "农夫山泉",
-          type: 6
+          name: "限时特惠"
+        }
+      });
+      this.$store.dispatch("xx", pro);
+    },
+    shilixinpin() {
+      this.$router.push({
+        path: "/shilixinpin",
+        query: {
+          name: "shilixinpin",
+          type: 7
+        }
+      });
+    },
+    jingcai() {
+      this.$router.push({
+        path: "/tejiajingcai",
+        query: {
+          name: "tejiajingcai",
+          type: 32431
         }
       });
     },
@@ -235,98 +302,22 @@ export default {
         }
       });
     },
-    fn(footid) {
-      console.log(footid);
-      if (footid == 0) {
-        this.$router.push({
-          path: "/bobing",
-          query: {
-            goodsname: "新年菜",
-            type: "A"
-          }
-        });
-      }
-      if (footid == 1) {
-        this.$router.push({
-          path: "/youxuan",
-          query: {
-            goodsname: "youuxan",
-            type: "B"
-          }
-        });
-      }
-      if (footid == 2) {
-        this.$router.push({
-          path: "/xihongshi",
-          query: {
-            goodsname: "西红柿",
-            type: "C"
-          }
-        });
-      }
-      if (footid == 4) {
-        this.$router.push({
-          path: "/jiakang",
-          query: {
-            goodsname: "肉类",
-            type: "E"
-          }
-        });
-      }
-      if (footid == 3) {
-        this.$router.push({
-          path: "/juzi",
-          query: {
-            goodsname: "橘子",
-            type: "D"
-          }
-        });
-      }
-      if (footid == 5) {
-        this.$router.push({
-          path: "/jirou",
-          query: {
-            goodsname: "鸡肉",
-            type: "F"
-          }
-        });
-      }
-      if (footid == 6) {
-        this.$router.push({
-          path: "/daiyv",
-          query: {
-            goodsname: "带鱼",
-            type: "G"
-          }
-        });
-      }
-      if (footid == 7) {
-        this.$router.push({
-          path: "/niunai",
-          query: {
-            goodsname: "牛奶",
-            type: "H"
-          }
-        });
-      }
-      if (footid == 8) {
-        this.$router.push({
-          path: "/gutang",
-          query: {
-            goodsname: "骨汤",
-            type: "I"
-          }
-        });
-      }
-      if (footid == 9) {
-        this.$router.push({
-          path: "/dami",
-          query: {
-            goodsname: "大米",
-            type: "J"
-          }
-        });
-      }
+    wode() {
+      this.$router.push({
+        path: "/mine",
+        query: {
+          name: "个人账户"
+        }
+      });
+    },
+    niunai() {
+      this.$router.push({
+        path: "/niunai",
+        query: {
+          goodsname: "牛奶",
+          type: "H"
+        }
+      });
     },
     searc() {
       this.$router.push({
@@ -336,47 +327,32 @@ export default {
   },
   mounted() {
     console.log("mounted", this);
-    var swiper = new Swiper(".swiper-container", {
-      pagination: ".swiper-pagination",
-      paginationClickable: true,
-      slidesPerView: 3,
-      // slidesPerView: "auto",
-      loop: true,
-      // speed: 600,
-      freeMode: true,
-      freeModeMomentum: false,
-      freeModeMomentumBounce: false,
-      // 最后一个元素和容器的间隔
-      // slidesOffsetAfter : 55,
-      initialSlide: 0,
-      // 右边不回弹
-      // slidesPerView: 'auto',
-      onTouchEnd: function() {
-        swiper.startAutoplay();
-      }
-    });
-    var swiper = new Swiper(".swiper-container2", {
-      pagination: ".swiper-pagination",
-      paginationClickable: true,
-      slidesPerView: 3,
-      // slidesPerView: "auto",
-      loop: true,
-      // speed: 600,
-      freeMode: true,
-      freeModeMomentum: false,
-      freeModeMomentumBounce: false,
-      // 最后一个元素和容器的间隔
-      // slidesOffsetAfter : 55,
-      initialSlide: 0,
-      // 右边不回弹
-      // slidesPerView: 'auto',
-      onTouchEnd: function() {
-        swiper.startAutoplay();
-      }
-    });
+    // var swiper = new Swiper(".swiper-container", {
+    //   pagination: ".swiper-pagination",
+    //   paginationClickable: true,
+    //   slidesPerView: 3,
+    //   // slidesPerView: "auto",
+    //   loop: true,
+    //   // speed: 600,
+    //   freeMode: true,
+    //   freeModeMomentum: false,
+    //   freeModeMomentumBounce: false,
+    //   // 最后一个元素和容器的间隔
+    //   // slidesOffsetAfter : 55,
+    //   initialSlide: 0,
+    //   // 右边不回弹
+    //   // slidesPerView: 'auto',
+    //   onTouchEnd: function() {
+    //     swiper.startAutoplay();
+    //   }
+    // });
+    console.log(this)
+   
+    
   },
   // 在created钩子函数里面做网络请求
   created() {
+   
     // 使用axios处理网络请求
     this.axios.get("http://10.0.157.250:8888/home").then(res => {
       console.log(res.data.shop_data.length);
@@ -392,16 +368,34 @@ export default {
         this.pro3.push({ imge: this.pro[i], list: this.pro2[i], foodid: i });
         console.log(this.pro3);
       }
-    }),
+    })
       this.axios.get("http://10.0.157.250:8888/caomei").then(res => {
         console.log(res.data.shop_data);
+  
         this.caome = res.data.shop_data;
+        // this.caome = this.caome.concat(res.data.shop_data);
         console.log(this.caome);
-      }),
+      })
       this.axios.get("http://10.0.157.250:8888/youhui").then(res => {
         console.log(res.data.shop_data);
         this.youhui = res.data.shop_data;
+        // this.youhui =
         console.log(this.youhui);
+
+          Vue.nextTick(function () {
+            
+                var swiper = new Swiper(".swiper-container", {
+                pagination: ".swiper-pagination",
+                  // paginationClickable: true,
+                  slidesPerView: 2.5,
+                  // slidesPerView: "auto",
+                  // loop: true,
+                  // speed: 600,
+                  freeMode: true,
+              
+                });
+              
+            })
       });
   }
 };
@@ -480,12 +474,12 @@ export default {
   margin-left: 4.244032rem;
   margin-bottom: 0.132626rem;
 }
-.swiper-container {
+.abcd {
   width: 100%;
   height: 4.774536rem;
   margin-top: 1.405836rem;
 }
-.swiper-container img {
+.abcd img {
   width: 9.94695rem;
   height: 4.509284rem;
 }
@@ -605,7 +599,7 @@ export default {
   overflow: hidden;
   white-space: nowrap;
   overflow: hidden;
-  padding-top: 0.265252rem;
+  padding-top: 10px;
 }
 #tehui2 .tehui3 {
   display: inline-block;
