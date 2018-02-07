@@ -12,9 +12,10 @@ export default new Vuex.Store ({
     state: {
         pageData:'',
         reData: '',
-        goodsList:[]
-    }    
-    ,
+        goodsList:[],
+        xxList: []
+       
+    }   , 
     mutations: {
         ADD(state,data) {
             state.pageData = data
@@ -25,6 +26,10 @@ export default new Vuex.Store ({
         ADD_GOODS(state,data) {
             state.goodsList.push(data);
             console.log(state.goodsList)
+        },
+        XX(state,data){
+            state.xxList = data;
+            console.log(state.xxList)
         }
     },
     actions: {
@@ -36,6 +41,9 @@ export default new Vuex.Store ({
         },
         add_goods(state,data) {
             state.commit('ADD_GOODS',data)
+        },
+        xx(state,data) {
+            state.commit('XX',data)
         }
     },
     getters: {
@@ -47,6 +55,9 @@ export default new Vuex.Store ({
         },
         getGoods(state){
             return state.goodsList
+        },
+        getXx(state){
+            return state.xxList
         }
     }
 })

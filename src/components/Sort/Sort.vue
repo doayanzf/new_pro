@@ -104,7 +104,7 @@ export default {
         height: .928382rem;
         margin-top: .132626rem;
         border: 2px solid #f4f5f7;
-        border-radius: 5%;
+        border-radius: .132626rem;
         color: gray;
     
     }
