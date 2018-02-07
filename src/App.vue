@@ -77,7 +77,8 @@ export default {
         this.$route.path.indexOf("/youxuan") != -1 ||
         this.$route.path.indexOf("/recharge") != -1 ||
         this.$route.path.indexOf("/zuocai") != -1 ||
-        this.$route.path.indexOf("/goodsDetails/") != -1
+        this.$route.path.indexOf("/goodsDetails/") != -1 ||
+        this.$route.path.indexOf("/sub/") != -1
       ) {
         return false;
       } else {

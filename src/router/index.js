@@ -54,6 +54,8 @@ import GoodsDetails from '../components/Sort/GoodsDetails'
 //  购物车一级路由规则
 import Coudan from '../components/Car/Coudan'
 import Car2 from '../components/Car/Car2'
+import Sub from '../components/Car/Sub'
+
 
 
 // 导入mine一级路由
@@ -120,6 +122,8 @@ export default new VueRouter({
     // 购物车的路由规则
     { path: '/car', component: Car },
     { path: '/car2', component: Car2 },
+    { path: '/sub/:goodId', component: Sub },
+    
 
 
     // 分类页面和主页的路由规则
