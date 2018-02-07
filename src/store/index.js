@@ -23,7 +23,8 @@ export default new Vuex.Store ({
             state.reData = data;
         },
         ADD_GOODS(state,data) {
-            state.goodsList.push(data)
+            state.goodsList.push(data);
+            console.log(state.goodsList)
         }
     },
     actions: {

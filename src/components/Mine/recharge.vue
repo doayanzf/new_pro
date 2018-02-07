@@ -8,7 +8,7 @@
                 <p>账户明细</p>
             </div>
             <div class="PosinD">
-                <div class="TopD"  :class="{ cssName1: msg, 'cssName2': !msg }" >
+                <div class="TopD" :class="{ cssName1: msg, 'cssName2': !msg }" >
                     <div class="dLeft" @click="changeB(true)"></div>
                     <div class="dRight" @click="changeB(false)"></div>
                 </div>
@@ -20,12 +20,20 @@
         </div>
         <div class="fixedD">
         </div>
-        <Carousel></Carousel>
+        <div class="rouDbottom">
+            <Carousel class="Carousel"></Carousel>
+            <Card class="Card"></Card>
+        </div>
+        <div class="divShow">
+        </div>
+
+        
     </div>
 </template>
     
 <script>
 import Carousel from './recharge/Carousel'
+import Card from './recharge/Card'
 export default {
     name: "Recharge",
     data () {
@@ -43,7 +51,8 @@ export default {
         }
     },
     components: {
-        Carousel
+        Carousel,
+        Card
     }
 }
 </script>
@@ -52,11 +61,33 @@ export default {
     .Dbody{
         width: 100%;
         background-color: #f4f4f4;
-        border: 1px rgb(255, 0, 0) solid;
+    }
+    .divShow{
+        height: 4rem;
+        /* border: #a59999 1px solid; */
+        /* background: rgb(255, 255, 255); */
+    }
+    .rouD{
+        height: .586667rem;
+        border-radius: 0 0 .453333rem .453333rem;
+        background: rgb(255, 255, 255);
+        
+    }
+    .rouDbottom{
+        background: rgb(255, 255, 255);
+        margin: 0 .32rem;
+        padding: 0 .293333rem;
+        height: 15.093333rem;
+        box-shadow: 0px 0px 15px #888888;
+        border-radius: 0 0 .386667rem .386667rem;
+    }
+    .Carousel{
+        margin: 0 auto;
     }
     /* 固定部分 */
     .fixedD{
-        margin-top: 6.133333rem;
+        height: 6rem;
+        /* background: #fff; */
     }
     /* 浮动中间部分开始 */
     .posD{        
@@ -67,25 +98,29 @@ export default {
         left: 0;
         top: 0;
         right: 0;
+        z-index: 2;
     }
     .PosinD{
         position: absolute;
         top: 2rem;
         width: 100%;
         height: 4.133333rem;
-        /* background: #a76464; */
     }
     .TopD{
-        width: 100%;
+        width: 9.386667rem;
         height:1.866667rem;
         display: flex;
         align-items: stretch;
+        margin: 0 auto;
+        /* padding: 0 .293333rem; */
         
     }
     .TopD>div{
         width: 50%;
     }
     .bootomD{
+        width: 9.386667rem;
+        margin: 0 auto;
         height: 2.186667rem;
         background: rgb(255, 255, 255);
         border-top: #e5e5e5 .026667rem solid;
@@ -121,8 +156,6 @@ export default {
         background-image: url('./img/card-recharge@3x.png');
         background-size: cover;
     }
-
-    
 
     /* ----------上背景------------ */
     .imgBack{
