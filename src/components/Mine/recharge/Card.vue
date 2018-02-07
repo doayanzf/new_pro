@@ -2,12 +2,6 @@
     <div class="Dboy">
        <ul class="outUl">
             <li>支付方式</li>
-            <!-- <li>
-               <img class="srcLeft" src="../img/alipay.png" alt="">
-               支付方式
-               <img class="srcRight"  @click="changeIm" v-show="boolean" src="../img/uncheck@3x.png" alt="">
-               <img class="srcRight"  @click="changeIm" v-show="!boolean" src="../img/checked@3x.png" alt="">
-            </li> -->
             <li v-for="(value, index) in productList" 
                 :key="value.id" 
                 @click="changeLI(index)">

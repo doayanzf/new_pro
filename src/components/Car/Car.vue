@@ -38,11 +38,10 @@
                                <div class="pricenow">￥{{ pro.price }}</div>
                                <div class="price">￥{{ pro.marketPrice }}</div>
                            </div>
-                           <div class="number">
-                               <img src="./img/reduce.png" alt="" @click="reduce(index)">
-                               <div>{{ num[index] }}</div>
-                               <img src="./img/plus.png" alt="" @click="plus(index)">
-                           </div>
+                           <n_umber 
+                                :danJia='pro.price'
+                                @up="addPrice"></n_umber>
+                          
                        </div>
                    </li>
                </ul>
@@ -66,6 +65,7 @@
 </template>
     
 <script>
+import n_umber from './n_umber'
 export default {
     name: "component_name",
     data () {
@@ -84,10 +84,15 @@ export default {
              num: [],
              footer: true,
              span: '编辑',
-             dataGoods: []
+             dataGoods: [],
+             fnData:1,
         };
     },
     methods: {
+        addPrice(chN) {
+            this.price += chN
+
+        },
         changeBg(num) {
             if (num == 2) {
                 this.firstClass = 'aaa';
@@ -108,22 +113,15 @@ export default {
             }
         },
         reduce(index) {
-            this.num[index]--;
-            console.log(this.num)
+            this.fnData--;
+            // console.log(this.num)
         },
         plus(index) {
-            this.num[index]++;
-            console.log(this.num)
+            this.fnData++;
+            // console.log(this.num)
         },
         coudan() {
-            // 使用实例的$router的push方法进行传递, 注意这个是$router 接受的时候是$route
-            // 字符串形式(路由路径)
-            // this.$router.push('/productDetail/' + productId);
-            // 对象形式
-            // this.$router.push({
-            //     path: '/productDetail/' + productId
-            // })
-            // 可以带查询参数 (之前的路由规则不影响)
+            
             this.$router.push({
                 path: '/coudan/' + 123,
                 query: {
@@ -143,14 +141,19 @@ export default {
             
         }
     },
+    components: {
+        n_umber
+    },
     created() {
         if (this.$store.getters.getGoods[0]) {
             this.dataGoods = this.$store.getters.getGoods
-            console.log(this.dataGoods)
-            for (var index in this.dataGoods){
-                this.price += this.dataGoods[index].price;
-                this.num.push(1);
+            // console.log(this.dataGoods)
+            
+            for(var pro of this.dataGoods) {
+                // console.log(pro)
+                this.price += pro.price
             }
+            
             if (this.price >= 99) {
                 this.panduan = false;
             }

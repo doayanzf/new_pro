@@ -57,7 +57,9 @@
 </template>
   
 <script>
-import Swiper from '../../../../static/swiper-3.4.2.min.js'
+// import Swiper from '../../../../static/swiper-3.4.2.min.js'
+    import Swiper from 'swiper';
+    import 'swiper/dist/css/swiper.min.css';
 export default {
     name: "Carousel",
     data () {
@@ -69,6 +71,28 @@ export default {
         changeType(num) {
             this.isType = num
         }
+    },
+    mounted() {
+        console.log('mounted', this)
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            // slidesPerView: 1.5,
+            slidesPerView: 'auto',
+            // loop: true,
+            // speed: 600,
+            freeMode : true,
+            freeModeMomentum : false,
+            freeModeMomentumBounce : false,
+            // 最后一个元素和容器的间隔
+            // slidesOffsetAfter : 55,
+            initialSlide :3,
+            // 右边不回弹
+            // slidesPerView: 'auto',
+            onTouchEnd: function() {
+                swiper.startAutoplay()
+            }
+        });
     }
 }
 
@@ -77,7 +101,7 @@ export default {
 </script>
     
 <style lang="css" scoped>
-    @import '../../../../static/swiper-3.4.2.min.css';
+    /* @import '../../../../static/swiper-3.4.2.min.css'; */
     .inDspan{
         display: inline-block;
         background: url('../img/icon-more@3x.png')
