@@ -2,7 +2,7 @@
     <div>
         <div id="fixed" class="fixed">
             <header>
-                <div><img src="./img/back.png" alt=""></div>
+                <div  @click="back()"><img src="./img/back.png" alt=""></div>
                 <div><img src="./img/location.png" alt=""></div>
                 <div> {{ address }} </div>
                 <div><img src="./img/xiala.png" alt=""></div>
@@ -31,7 +31,7 @@
                <ul>
                    <li v-for="(pro, index) in dataGoods">
                        <div  @click="changeImg()" class="selected"></div>
-                       <img :src="pro.imgUrl" alt="" class="foodImg">
+                       <img :src="pro.imgUrl ? pro.imgUrl : pro.picUrl" alt="" class="foodImg">
                        <div class="food">{{ pro.goodsName }}</div>
                        <div>
                            <div>
@@ -89,6 +89,12 @@ export default {
         };
     },
     methods: {
+        back() {
+            //h5方法
+            // history.back();
+            //vue方法(-1)是上一个
+            this.$router.go(-1)
+        },
         addPrice(chN) {
             this.price += chN
 
