@@ -15,9 +15,10 @@
        <div class="nav">
            <div class="nav_1">
                 <ul>
-                    <li class="li" :class="{liClass: firstClass == 'aaa'}" @click="changeBg(1)">{{dataGoodsTow.name}}</li>
-                    <li class="li" :class="{liClass: liClass == 2}" @click="changeBg(2)">{{dataGoodsTow.name}}</li>
-                    <li class="li" :class="{liClass: liClass == 3}" @click="changeBg(3)">我厨优选海鲜</li>
+                    
+                    <li class="li" :class="{liClass: firstClass == 'aaa'}" @click="changeBg(1)" v-for="pro in dataGoods" :key="pro.id">{{pro.name}}</li>
+                    <!-- <li class="li" :class="{liClass: liClass == 2}" @click="changeBg(2)">{{dataGoodsTow.name}}</li>
+                    <li class="li" :class="{liClass: liClass == 3}" @click="changeBg(3)"></li> -->
                     <!-- <li>我厨优选海鲜</li>
                     <li>我厨优选海鲜</li>
                     <li>我厨优选海鲜</li>    -->
@@ -190,25 +191,33 @@ export default {
 
     
 
-
+    .nav_1{
+        overflow: hidden;
+        height: 1.37931rem;
+        position: relative;
+    }
 
     .nav_1 ul{
-        width: 100%;
+        width: 50.079576rem;
         height: 1.37931rem;
         overflow-x:auto;
         font-size: .397878rem;
+        
     }
     .li{
+        
+        /* background: red; */
         text-align: center;
         line-height: 1.37931rem;
         float: left;
+     
         width: 3.076923rem;
         height: 1.37931rem;
     }
     .liClass{
         text-align: center;
         line-height: 1.37931rem;
-        float: left;
+        /* float: left; */
         width: 3.076923rem;
         height: 1.37931rem;
         border-bottom: 1px solid green;
