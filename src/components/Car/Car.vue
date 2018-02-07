@@ -58,7 +58,7 @@
            <img src="./img/selected.png" alt="" v-show="jieSuan" @click="changejie">
            <img src="./img/unselect.png" alt="" v-show="!jieSuan"  @click="changejie">
            <div id="price">合计：<span>￥{{ price.toFixed(2) }}</span></div>
-           <div id="jiesuan">结算({{ num }})</div>
+           <div id="jiesuan" @click="toSub()">结算({{ num }})</div>
            <div id="baoyou" v-show="!panduan">已包邮</div>
            <div id="baoyou2" v-show="panduan" @click="coudan">全场满99包邮 点我包邮<span id="trangle"></span></div>
        </footer>
@@ -143,6 +143,16 @@ export default {
             
             this.$router.push({
                 path: '/coudan/' + 123,
+                query: {
+                    name: '刘',
+                    age: 18
+                }
+            })
+        },
+        toSub(){
+            this.$router.push({
+
+                path:'/sub/' + 123,
                 query: {
                     name: '刘',
                     age: 18

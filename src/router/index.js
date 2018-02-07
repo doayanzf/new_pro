@@ -15,7 +15,6 @@ import Mine from '../components/Mine/Mine.vue'
 import tehui from '../components/Home/tehui.vue'
 import tejiataocan from '../components/Home/tejiataocan.vue'
 import chaojituangou from '../components/Home/chaojituangou.vue'
-import rexiaojingcai from '../components/Home/rexiaojingcai.vue'
 import heizhurou from '../components/Home/heizhurou.vue'
 import nongfushanquan from '../components/Home/nongfushanquan.vue'
 import nongjiale from '../components/Home/nongjiale.vue'
@@ -23,16 +22,14 @@ import manglu from '../components/Home/manglu.vue'
 import zuocai from '../components/Home/zuocai.vue'
 import bank from '../components/Home/bank.vue'
 import search from '../components/Home/search.vue'
-import bobing from '../components/Home/bobing.vue'
-import youxuan from '../components/Home/youxuan.vue'
 import xihongshi from '../components/Home/xihongshi.vue'
-import juzi from '../components/Home/juzi.vue'
-import jiakang from '../components/Home/jiakang.vue'
-import jirou from '../components/Home/jirou.vue'
-import daiyv from '../components/Home/daiyv.vue'
 import niunai from '../components/Home/niunai.vue'
-import gutang from '../components/Home/gutang.vue'
 import dami from '../components/Home/dami.vue'
+import shilixinpin from '../components/Home/shilixinpin.vue'
+import tejiajingcai from '../components/Home/tejiajingcai.vue'
+import jiayan from '../components/Home/jiayan.vue'
+import jianguo from '../components/Home/jianguo.vue'
+import shucai from '../components/Home/shucai.vue'
 // 导入分类二级路由
 import TuiJian from '../components/Sort/TuiJian.vue'
 import WoChuyx from '../components/Sort/WoChuyx.vue'
@@ -57,6 +54,8 @@ import GoodsDetails from '../components/Sort/GoodsDetails'
 //  购物车一级路由规则
 import Coudan from '../components/Car/Coudan'
 import Car2 from '../components/Car/Car2'
+import Sub from '../components/Car/Sub'
+
 
 
 // 导入mine一级路由
@@ -71,6 +70,8 @@ import GroundBuy from '../components/Mine/groundBuy.vue'
 import DOpinion from '../components/Mine/dOpinion.vue'
 import Myfavorite from '../components/Mine/myfavorite.vue'
 import MyAddress from '../components/Mine/myAddress.vue'
+
+
 
 
 // 创建路由实例，并且配置路由规则
@@ -117,12 +118,15 @@ export default new VueRouter({
     { path: '/about', component: About},
     { path: '/groundBuy', component: GroundBuy},
     { path: '/myfavorite', component: Myfavorite},
-    { path: '/myAddress', component: MyAddress},
+ 
+    
 
 
     // 购物车的路由规则
     { path: '/car', component: Car },
     { path: '/car2', component: Car2 },
+    { path: '/sub/:goodId', component: Sub },
+    
 
 
     // 分类页面和主页的路由规则
@@ -139,7 +143,6 @@ export default new VueRouter({
     { path: '/tehui', component: tehui },
     { path: '/tejiataocan', component:  tejiataocan },
     { path: '/chaojituangou', component: chaojituangou },
-    { path: '/rexiaojingcai', component: rexiaojingcai },
     { path: '/heizhurou', component:heizhurou },
     { path: '/nongfushanquan', component:nongfushanquan },
     { path: '/nongjiale', component:nongjiale },
@@ -147,16 +150,14 @@ export default new VueRouter({
     { path: '/zuocai', component:zuocai},
     { path: '/bank', component:bank},
     { path: '/search', component:search},
-    { path: '/bobing', component:bobing},
-    { path: '/youxuan', component:youxuan},
     { path: '/xihongshi', component:xihongshi},
-    { path: '/juzi', component:juzi},
-    { path: '/jiakang', component:jiakang},
-    { path: '/jirou', component:jirou},
-    { path: '/daiyv', component:daiyv},
     { path: '/niunai', component:niunai},
-    { path: '/gutang', component:gutang},
     { path: '/dami', component:dami},
+    { path: '/shilixinpin', component:shilixinpin},
+    { path: '/tejiajingcai', component:tejiajingcai},
+    { path: '/jiayan', component:jiayan},
+    { path: '/jianguo', component:jianguo},
+    { path: '/shucai', component:shucai},
   ]
 })
 

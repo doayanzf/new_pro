@@ -1,6 +1,12 @@
 <template>
     <div>
-       <h1>About</h1>
+       <img src="./img/aboutUs1.jpg" alt="">
+       <img src="./img/aboutUs2.jpg" alt="">
+       <img src="./img/aboutUs3.jpg" alt="">
+       <img src="./img/aboutUs4.jpg" alt="">
+       <img src="./img/aboutUs5.jpg" alt="">
+     
+       
     </div>
 </template>
     
@@ -16,5 +22,7 @@ export default {
 </script>
     
 <style lang="css" scoped>
-    
+    img{
+        width: 100%;
+    }
 </style>

@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class='bac' @click='back'></div>
-       <img class='img' src="./img2/863a77c2-33db-45d6-84f6-4e87fab67df6.jpg" alt="">
-        <img class='img' src="./img2/466ce317-6762-4224-a431-f7bcc5efc9ab.jpg" alt="">
-        <ul class='u1'>
+       <img class='img' src="./img2/fd5751ec-1679-4a83-a32c-bd0d80d94a21.jpg" alt="">
+       
+        <!-- <ul class='u1'>
            <li v-for="pro in goods" :key="pro.id" class="l1">
                <ul class='u2'>
                    <li><img  :src="pro.icon"></li>
@@ -12,7 +12,7 @@
                    <li @click="add_note(pro)">加入购物车</li>
                </ul>
            </li>
-       </ul>
+       </ul> -->
     </div>
 </template>
     
@@ -27,17 +27,14 @@ export default {
   methods: {
     back() {
       history.back();
-    },
-    add_note(data) {
-      this.$store.dispatch("add_goods", data);
     }
   },
-  created() {
-    this.axios.get("http://10.0.157.250:8888/tejitaocan").then(res => {
-      this.goods = res.data.shop_data;
-      console.log(this.goods);
-    });
-  }
+//   created() {
+//     this.axios.get("http://10.0.157.250:8888/shucai").then(res => {
+//       this.goods = res.data.shop_data;
+//       console.log(this.goods);
+//     });
+//   }
 };
 </script>
     

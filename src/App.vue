@@ -30,79 +30,87 @@
         <b>我的</b>
       </router-link>
     </div>
+    <!-- <div class="pic">
+            <a href="#"><img v-lazy="'./../img/loadding.gif'" alt=""></a>
+        </div>  -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import HelloWorld from "./components/HelloWorld";
 
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
-      showIm:1,
-      car: '/car'
-    }
+      showIm: 1,
+      car: "/car"
+    };
   },
   components: {
     HelloWorld
   },
   computed: {
     isShow() {
-        if ((this.$route.path.indexOf('/productDetail/') != -1) || 
-        (this.$route.path.indexOf('/coudan') != -1) ||
-         (this.$route.path.indexOf('/tehui') != -1) || 
-         (this.$route.path.indexOf('/bank') != -1) || 
-         (this.$route.path.indexOf('/bobing') != -1) || 
-         (this.$route.path.indexOf('/chaojituangou') != -1) || 
-         (this.$route.path.indexOf('/daiyv') != -1) || 
-         (this.$route.path.indexOf('/dami') != -1) || 
-         (this.$route.path.indexOf('/gutang') != -1) || 
-         (this.$route.path.indexOf('/heizhurou') != -1) || 
-         (this.$route.path.indexOf('/jiakang') != -1) || 
-         (this.$route.path.indexOf('/juzi') != -1) || 
-         (this.$route.path.indexOf('/manglu') != -1) || 
-         (this.$route.path.indexOf('/niunai') != -1) || 
-         (this.$route.path.indexOf('/nongfushanquan') != -1) || 
-         (this.$route.path.indexOf('/nongjiale') != -1) || 
-         (this.$route.path.indexOf('/rexiaojingcai') != -1) || 
-         (this.$route.path.indexOf('/search') != -1) || 
-         (this.$route.path.indexOf('/SouSuo') != -1) || 
-         (this.$route.path.indexOf('/tejiataocan') != -1) || 
-         (this.$route.path.indexOf('/xihongshi') != -1) || 
-         (this.$route.path.indexOf('/youxuan') != -1) || 
-         (this.$route.path.indexOf('/recharge') != -1) || 
-         (this.$route.path.indexOf('/zuocai') != -1)
-          
-         ){
-            return false;
-        } else {
-            return true;
-        }
-        // return this.$route.path.indexOf('/productDetail/') == -1 ? true : false;
+      if (
+        this.$route.path.indexOf("/productDetail/") != -1 ||
+        this.$route.path.indexOf("/coudan") != -1 ||
+        this.$route.path.indexOf("/tehui") != -1 ||
+         this.$route.path.indexOf("/jiayan") != -1 ||
+          this.$route.path.indexOf("/jianguo") != -1 ||
+           this.$route.path.indexOf("/dami") != -1 ||
+            this.$route.path.indexOf("/shilixinpin") != -1 ||
+             this.$route.path.indexOf("/shucai") != -1 ||
+              this.$route.path.indexOf("/tejiajingcai") != -1 ||
+               this.$route.path.indexOf("/tejiataocan") != -1 ||
+        this.$route.path.indexOf("/bank") != -1 ||
+        this.$route.path.indexOf("/chaojituangou") != -1 ||    
+        this.$route.path.indexOf("/dami") != -1 ||
+        this.$route.path.indexOf("/heizhurou") != -1 ||
+        this.$route.path.indexOf("/juzi") != -1 ||
+        this.$route.path.indexOf("/manglu") != -1 ||
+        this.$route.path.indexOf("/niunai") != -1 ||
+        this.$route.path.indexOf("/nongfushanquan") != -1 ||
+        this.$route.path.indexOf("/nongjiale") != -1 ||
+        this.$route.path.indexOf("/rexiaojingcai") != -1 ||
+        this.$route.path.indexOf("/search") != -1 ||
+        this.$route.path.indexOf("/SouSuo") != -1 ||
+        this.$route.path.indexOf("/tejiataocan") != -1 ||
+        this.$route.path.indexOf("/xihongshi") != -1 ||
+        this.$route.path.indexOf("/youxuan") != -1 ||
+        this.$route.path.indexOf("/recharge") != -1 ||
+        this.$route.path.indexOf("/zuocai") != -1 ||
+        this.$route.path.indexOf("/goodsDetails/") != -1 ||
+        this.$route.path.indexOf("/sub/") != -1 ||
+        this.$route.path.indexOf("/about") != -1
+      ) {
+        return false;
+      } else {
+        return true;
+      }
+      // return this.$route.path.indexOf('/productDetail/') == -1 ? true : false;
     }
-    
   },
-  methods:{
-    clickImg(index){
-      this.showIm = index
+  methods: {
+    clickImg(index) {
+      this.showIm = index;
     }
   }
-//   beforeUpdate() {
-//       if (this.dataGoods.length != 0) {
-//           this.car = '/car'
-//       } else {
-//           this.car = '/car2'
-//       }
-//   }
-}
+  //   beforeUpdate() {
+  //       if (this.dataGoods.length != 0) {
+  //           this.car = '/car'
+  //       } else {
+  //           this.car = '/car2'
+  //       }
+  //   }
+};
 </script>
 
 <style>
-#app{
+#app {
   background: #f4f5f7;
 }
-#app .tabbar{
+#app .tabbar {
   z-index: 3;
   position: fixed;
   left: 0;
@@ -115,19 +123,18 @@ export default {
   align-items: center;
   justify-content: space-around;
 }
-#app .tabbar img{
-  width: .769231rem;
-  height: .769231rem;
+#app .tabbar img {
+  width: 0.769231rem;
+  height: 0.769231rem;
   position: absolute;
-  top: .13rem;
-  left:.848806rem;
+  top: 0.13rem;
+  left: 0.848806rem;
 }
-.link{
-  padding-top: .3626rem;
+.link {
+  padding-top: 0.3626rem;
   position: relative;
   width: 25%;
   height: 1.32626rem;
   text-align: center;
 }
-
 </style>
