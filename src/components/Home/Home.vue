@@ -6,7 +6,7 @@
 			<li><a href=""><img src="./img/icon.png" class='img3' alt=""></a></li>
 			<li><a href=""><img  @click = 'searc' src="./img/search.png" class='img4' alt=""></a></li>
 		</ul>
-		<div class="swiper-container">
+		<!-- <div class="swiper-container">
 			<mt-swipe :auto="1000">
 			<mt-swipe-item><img src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></mt-swipe-item>
 			<mt-swipe-item><img src="./img/c24a3227-8177-4ada-b9b6-a390b28f212e (1).jpg" alt=""></mt-swipe-item>
@@ -16,7 +16,7 @@
 			<mt-swipe-item><img src="./img/9c015991-8a35-4675-a627-9d51d401acd0.jpg" alt=""></mt-swipe-item>
 			<mt-swipe-item><img src="./img/285cbf69-b11f-4f8d-9955-a83a71543c8c.jpg" alt=""></mt-swipe-item>
 			</mt-swipe>
-		  </div>
+		  </div> -->
 		  <ul id = 'gou'>
 			  <li  @click='tehui'><img src="./img/4b5226d0-068b-47ab-8942-4cce2079c134.jpg" alt=""></li>
 			  <li @click="tejiataocan"><img src="./img/51760a0f-2fb2-465e-936e-cada0969a3f2.jpg" alt=""></li>
@@ -42,10 +42,9 @@
 			     <li>￥{{youhui[0].ite[0].price}}<span>￥{{youhui[0].ite[0].marketPrice}}</span><img  @click = "add_note(youhui[0].ite[0])" class= 'add' src="./img/add.png" alt=""></li>
 		    </ul>
 			 <ul id = 'tehui2'>
-         <div id ='bao'>
-           	<mt-swipe :auto="0" style='width:375px'>
-               <mt-swipe-item  v-for="you in youhui[1].ite" :key='you.id' class='tehui3'>
-                 	 <li>
+         <div class="swiper-container nav">
+           <div class="nav_1 swiper-wrapper">
+                 	 <li v-for="you in youhui[1].ite" :key='you.id' class='tehui3 swiper-slide'>
                       <ul	class = 'te1'>
                         <li @click='nongfushanquan'><img :src="you.imgUrl" alt=""></li>
                         <li>{{you.goodsName}}</li>
@@ -53,9 +52,8 @@
                         <li>￥{{you.price}}<img  @click = 'add_note(you)' class= 'add' src="./img/add.png" alt=""></li>
                       </ul>
                  	 </li>
-               </mt-swipe-item>
-           	</mt-swipe>
-             </div>
+           </div>
+         </div>
 			 </ul>
 			<div id = 'nongjia'>
 				<div id = 'nong1'>
@@ -127,13 +125,15 @@
 </template>
     
 <script>
-import { Swipe, SwipeItem } from "mint-ui";
-import "mint-ui/lib/style.css";
+// import { Swipe, SwipeItem } from "mint-ui";
+// import "mint-ui/lib/style.css";
+import Swiper from "swiper";
+import "swiper/dist/css/swiper.min.css";
 export default {
-  components: {
-    "mt-swipe": Swipe,
-    "mt-swipe-item": SwipeItem
-  },
+  // components: {
+  //   "mt-swipe": Swipe,
+  //   "mt-swipe-item": SwipeItem
+  // },
   name: "component_name",
   data() {
     return {
@@ -340,6 +340,28 @@ export default {
       });
     }
   },
+  mounted() {
+    console.log("mounted", this);
+    var swiper = new Swiper(".swiper-container", {
+      pagination: ".swiper-pagination",
+      paginationClickable: true,
+      slidesPerView: 3,
+      // slidesPerView: "auto",
+      loop: true,
+      // speed: 600,
+      freeMode: true,
+      freeModeMomentum: false,
+      freeModeMomentumBounce: false,
+      // 最后一个元素和容器的间隔
+      // slidesOffsetAfter : 55,
+      initialSlide: 0,
+      // 右边不回弹
+      // slidesPerView: 'auto',
+      onTouchEnd: function() {
+        swiper.startAutoplay();
+      }
+    });
+  },
   // 在created钩子函数里面做网络请求
   created() {
     // 使用axios处理网络请求
@@ -452,7 +474,7 @@ export default {
 }
 .swiper-container img {
   width: 9.94695rem;
-  height:4.509284rem
+  height: 4.509284rem;
 }
 
 #gou {
@@ -565,33 +587,29 @@ export default {
 }
 #tehui2 {
   width: 100%;
-  height:6.100796rem;
+  height: 6.100796rem;
   white-space: nowrap;
   overflow: hidden;
   white-space: nowrap;
   overflow: hidden;
-  padding-top:.265252rem
+  padding-top: 0.265252rem;
 }
-#bao {
-  width: 500px;
-  height:230px
-}
-#tehui2  .tehui3 {
+#tehui2 .tehui3 {
   display: inline-block;
-  width:3.448276rem;
+  width: 3.448276rem;
   height: 5.835544rem;
   list-style: none;
   margin-left: 0.212202rem;
   margin-right: 0.212202rem;
 }
 #tehui2 img {
-  width:3.448276rem;
+  width: 3.448276rem;
   height: 3.448276rem;
 }
-#tehui2  .tehui3 ul li:first-of-type {
+#tehui2 .tehui3 ul li:first-of-type {
   text-indent: 0em;
 }
-#tehui2  .tehui3 ul li:nth-of-type(2) {
+#tehui2 .tehui3 ul li:nth-of-type(2) {
   height: 0.530504rem;
   line-height: 0.530504rem;
   font-size: 0.318302rem;
@@ -600,20 +618,20 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-#tehui2  .tehui3 ul li:nth-of-type(3) {
+#tehui2 .tehui3 ul li:nth-of-type(3) {
   font-size: 0.238727rem;
   color: #bababa;
   height: 0.530504rem;
   line-height: 0.530504rem;
   text-decoration: line-through;
 }
-#tehui2  .tehui3 ul li:nth-of-type(4) {
+#tehui2 .tehui3 ul li:nth-of-type(4) {
   font-size: 0.265252rem;
   height: 0.530504rem;
   line-height: 0.530504rem;
   color: red;
 }
-#tehui2  .tehui3 ul li {
+#tehui2 .tehui3 ul li {
   text-indent: 1.5em;
 }
 #maya li {
@@ -626,7 +644,7 @@ export default {
   right: 0.265252rem;
   top: 0.265252rem;
 }
-#tehui2  .tehui3 ul li {
+#tehui2 .tehui3 ul li {
   position: relative;
 }
 #tehui2 .add {

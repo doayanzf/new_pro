@@ -4,7 +4,7 @@
            <div @click="back()">
                <img src="./img/back.png" alt="">
            </div>
-           <div>{{dataGoodsTow.title}}</div>
+           <div>{{dataGoods[0].title}}</div>
            <div>
                <img src="./img/icon-search-40@2x.png" @click="searc" alt="">
                <img src="./img/cart_n.png" alt="">
@@ -12,16 +12,19 @@
            
        </div>
 
-       <div class="nav">
-           <div class="nav_1">
-                <ul>
-                    <li class="li" :class="{liClass: firstClass == 'aaa'}" @click="changeBg(1)">{{dataGoodsTow.name}}</li>
-                    <li class="li" :class="{liClass: liClass == 2}" @click="changeBg(2)">{{dataGoodsTow.name}}</li>
-                    <li class="li" :class="{liClass: liClass == 3}" @click="changeBg(3)">我厨优选海鲜</li>
+       <div class="swiper-container nav">
+           <div class="nav_1 swiper-wrapper">
+              
+                    
+                    <div class="li swiper-slide" :class="{liClass: firstClass == ind}" @click="changeBg(ind)" v-for="( pro, ind) in dataGoods" :key="pro.id">
+                        {{pro.name}}
+                    </div>
+                    <!-- <li class="li" :class="{liClass: liClass == 2}" @click="changeBg(2)">{{dataGoodsTow.name}}</li>
+                    <li class="li" :class="{liClass: liClass == 3}" @click="changeBg(3)"></li> -->
                     <!-- <li>我厨优选海鲜</li>
                     <li>我厨优选海鲜</li>
                     <li>我厨优选海鲜</li>    -->
-                </ul>
+              
            </div>    
        </div>
        <div class="nav_2">
@@ -57,6 +60,8 @@
 </template>
     
 <script>
+import Swiper from 'swiper';
+    import 'swiper/dist/css/swiper.min.css';
 export default {
     name: "ProductDetali",
     data () {
@@ -64,7 +69,7 @@ export default {
              msg: '商品详情页面',
              dataGoods: '',
              dataGoodsTow: '',
-             firstClass: 'aaa',
+             firstClass: 0,
              liClass: 'li'
             //  msg: this.$route.params.productId
             // productList: [
@@ -112,16 +117,17 @@ export default {
             this.dataGoodsTow = dataGoods[0]
             
         },
-        changeBg(num) {
-            if (num == 1) {
-                this.firstClass = 'aaa';
-                this.liClass = '';
-            } else {
-                this.firstClass = '';
-                this.liClass = num;
-            }
+        changeBg(n) {
+            // if (num == 1) {
+            //     this.firstClass = 'aaa';
+            //     this.liClass = '';
+            // } else {
+            //     this.firstClass = '';
+            //     this.liClass = num;
+            // }
+            this.firstClass = n;
 
-            this.dataGoodsTow = this.dataGoods[num-1]
+            this.dataGoodsTow = this.dataGoods[n]
             
 
         },
@@ -135,6 +141,28 @@ export default {
 
         this.dataGoods = this.$store.getters.getData
         this.dataGoodsTow = this.dataGoods[0];
+    },
+    mounted() {
+        console.log('mounted', this)
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            // slidesPerView: 1.5,
+            slidesPerView: 'auto',
+            // loop: true,
+            // speed: 600,
+            freeMode : true,
+            freeModeMomentum : false,
+            freeModeMomentumBounce : false,
+            // 最后一个元素和容器的间隔
+            // slidesOffsetAfter : 55,
+            initialSlide :0,
+            // 右边不回弹
+            // slidesPerView: 'auto',
+            onTouchEnd: function() {
+                swiper.startAutoplay()
+            }
+        });
     }
     
 }
@@ -190,25 +218,33 @@ export default {
 
     
 
-
+    .nav_1{
+        /* overflow: hidden; */
+        height: 1.37931rem;
+        position: relative;
+    }
 
     .nav_1 ul{
-        width: 100%;
+        width: 50.079576rem;
         height: 1.37931rem;
         overflow-x:auto;
         font-size: .397878rem;
+        
     }
     .li{
+        
+        /* background: red; */
         text-align: center;
         line-height: 1.37931rem;
         float: left;
+     
         width: 3.076923rem;
         height: 1.37931rem;
     }
     .liClass{
         text-align: center;
         line-height: 1.37931rem;
-        float: left;
+        /* float: left; */
         width: 3.076923rem;
         height: 1.37931rem;
         border-bottom: 1px solid green;
