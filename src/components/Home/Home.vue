@@ -6,26 +6,26 @@
 			<li><a href=""><img src="./img/icon.png" class='img3' alt=""></a></li>
 			<li><a href=""><img  @click = 'searc' src="./img/search.png" class='img4' alt=""></a></li>
 		</ul>
-		<!-- <div class="swiper-container">
+		<div class="swiper-container">
 			<mt-swipe :auto="1000">
-			<mt-swipe-item><img src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/c24a3227-8177-4ada-b9b6-a390b28f212e (1).jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/ceb4ac53-dcc2-46dc-839e-54ba336899bf.jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/1a1c094a-abc3-46a2-8aa0-726b5711bd4e.jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/9c015991-8a35-4675-a627-9d51d401acd0.jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/285cbf69-b11f-4f8d-9955-a83a71543c8c.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img  @click="tejiataocan" src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click="chaojituangou" src="./img/c24a3227-8177-4ada-b9b6-a390b28f212e (1).jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click="rexiaojingcai" src="./img/ceb4ac53-dcc2-46dc-839e-54ba336899bf.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click="heizhurou" src="./img/1a1c094a-abc3-46a2-8aa0-726b5711bd4e.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click='nongfushanquan' src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click="nongjiale" src="./img/9c015991-8a35-4675-a627-9d51d401acd0.jpg" alt=""></mt-swipe-item>
+			<mt-swipe-item><img @click='bank' src="./img/285cbf69-b11f-4f8d-9955-a83a71543c8c.jpg" alt=""></mt-swipe-item>
 			</mt-swipe>
-		  </div> -->
+		  </div>
 		  <ul id = 'gou'>
 			  <li  @click='tehui'><img src="./img/4b5226d0-068b-47ab-8942-4cce2079c134.jpg" alt=""></li>
 			  <li @click="tejiataocan"><img src="./img/51760a0f-2fb2-465e-936e-cada0969a3f2.jpg" alt=""></li>
 			  <li @click="chaojituangou"><img src="./img/04309f99-dd62-4654-a27e-41534240bd98.jpg" alt=""></li>
-			  <li @click="rexiaojingcai"><img src="./img/485a48f7-1df6-4d7a-85c6-193bd65f4e4e.jpg" alt=""></li>
-			  <li @click="tejiataocan"><img src="./img/6f4bc5fb-1734-4566-a9a8-4886e7488050.jpg" alt=""></li>
-			  <li @click="chaojituangou"><img src="./img/8bd774b9-69aa-4b13-8434-9be4ce30fb5d.jpg" alt=""></li>
-			  <li @click="chaojituangou"><img src="./img/e615c3f6-698b-4fe9-ae21-f9a8e8598929.jpg" alt=""></li>
-			  <li @click="chaojituangou"><img src="./img/c04031aa-dd93-4c6e-bef6-e3622b247702.jpg" alt=""></li>
+			  <li @click="jingcai"><img src="./img/485a48f7-1df6-4d7a-85c6-193bd65f4e4e.jpg" alt=""></li>
+			  <li @click="shilixinpin"><img src="./img/6f4bc5fb-1734-4566-a9a8-4886e7488050.jpg" alt=""></li>
+			  <li @click="niunai"><img src="./img/8bd774b9-69aa-4b13-8434-9be4ce30fb5d.jpg" alt=""></li>
+			  <li @click='bank'><img src="./img/e615c3f6-698b-4fe9-ae21-f9a8e8598929.jpg" alt=""></li>
+			  <li @click="wode"><img src="./img/c04031aa-dd93-4c6e-bef6-e3622b247702.jpg" alt=""></li>
 		  </ul>
 		  <div id ='kuaibao'>
            	  <div id='kk'>
@@ -205,6 +205,24 @@ export default {
         }
       });
     },
+    shilixinpin(){
+       this.$router.push({
+        path: "/shilixinpin",
+        query: {
+          name: "shilixinpin",
+          type: 7
+        }
+      });
+    },
+    jingcai() {
+      this.$router.push({
+        path: "/tejiajingcai",
+        query: {
+          name: "tejiajingcai",
+          type: 32431
+        }
+      });
+    },
     nongjiale() {
       this.$router.push({
         path: "/nongjiale",
@@ -240,6 +258,23 @@ export default {
           type: 10
         }
       });
+    },
+    wode(){
+      this.$router.push({
+        path: "/mine",
+        query: {
+          name: "个人账户",
+        }
+      });
+    },
+    niunai(){
+       this.$router.push({
+          path: "/niunai",
+          query: {
+            goodsname: "牛奶",
+            type: "H"
+          }
+        });
     },
     fn(footid) {
       console.log(footid);

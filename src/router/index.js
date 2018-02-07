@@ -15,7 +15,6 @@ import Mine from '../components/Mine/Mine.vue'
 import tehui from '../components/Home/tehui.vue'
 import tejiataocan from '../components/Home/tejiataocan.vue'
 import chaojituangou from '../components/Home/chaojituangou.vue'
-import rexiaojingcai from '../components/Home/rexiaojingcai.vue'
 import heizhurou from '../components/Home/heizhurou.vue'
 import nongfushanquan from '../components/Home/nongfushanquan.vue'
 import nongjiale from '../components/Home/nongjiale.vue'
@@ -33,6 +32,8 @@ import daiyv from '../components/Home/daiyv.vue'
 import niunai from '../components/Home/niunai.vue'
 import gutang from '../components/Home/gutang.vue'
 import dami from '../components/Home/dami.vue'
+import shilixinpin from '../components/Home/shilixinpin.vue'
+import tejiajingcai from '../components/Home/tejiajingcai.vue'
 // 导入分类二级路由
 import TuiJian from '../components/Sort/TuiJian.vue'
 import WoChuyx from '../components/Sort/WoChuyx.vue'
@@ -139,7 +140,6 @@ export default new VueRouter({
     { path: '/tehui', component: tehui },
     { path: '/tejiataocan', component:  tejiataocan },
     { path: '/chaojituangou', component: chaojituangou },
-    { path: '/rexiaojingcai', component: rexiaojingcai },
     { path: '/heizhurou', component:heizhurou },
     { path: '/nongfushanquan', component:nongfushanquan },
     { path: '/nongjiale', component:nongjiale },
@@ -157,6 +157,8 @@ export default new VueRouter({
     { path: '/niunai', component:niunai},
     { path: '/gutang', component:gutang},
     { path: '/dami', component:dami},
+    { path: '/shilixinpin', component:shilixinpin},
+    { path: '/tejiajingcai', component:tejiajingcai},
   ]
 })
 
