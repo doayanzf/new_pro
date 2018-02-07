@@ -1,8 +1,10 @@
 <template>
     <div>
         <div class='bac' @click='back'></div>
-       <img src="./img2/97a71e13-8a90-478c-9009-9e454dcea413.jpg" alt="">
-       <ul class='u1'>
+       <img class='img' src="./img2/db675a44-77a6-433d-a9cf-8e99f311fbb9.jpg" alt="">
+        <img class='img' src="./img2/658e3d04-9599-48eb-80ba-1fa55d040140.jpg" alt="">
+         <img class='img' src="./img2/75a17d74-3d45-4de2-b229-969af46ffc07.jpg" alt="">
+        <ul class='u1'>
            <li v-for="pro in goods" :key="pro.id" class="l1">
                <ul class='u2'>
                    <li><img  :src="pro.icon"></li>
@@ -32,7 +34,7 @@ export default {
     },
   },
   created() {
-    this.axios.get("http://10.0.157.250:8888/tejiajingcai").then(res => {
+    this.axios.get("http://10.0.157.250:8888/jianguo").then(res => {
       this.goods = res.data.shop_data;
       console.log(this.goods);
     });
@@ -41,7 +43,7 @@ export default {
 </script>
     
 <style lang="css" scoped>
-img {
+.img {
   width: 10rem;
 }
 .bac {

@@ -1,8 +1,9 @@
 <template>
     <div>
         <div class='bac' @click='back'></div>
-       <img src="./img2/97a71e13-8a90-478c-9009-9e454dcea413.jpg" alt="">
-       <ul class='u1'>
+       <img class='img' src="./img2/c93a4c90-4c78-4fc5-b93c-dcc13c3a458d.jpg" alt="">
+        <img class='img' src="./img2/f06ddacc-f94f-491f-a6cb-4c29c9fb124e.jpg" alt="">
+        <ul class='u1'>
            <li v-for="pro in goods" :key="pro.id" class="l1">
                <ul class='u2'>
                    <li><img  :src="pro.icon"></li>
@@ -29,10 +30,10 @@ export default {
     },
     add_note(data) {
       this.$store.dispatch("add_goods", data);
-    },
+    }
   },
   created() {
-    this.axios.get("http://10.0.157.250:8888/tejiajingcai").then(res => {
+    this.axios.get("http://10.0.157.250:8888/jiayan").then(res => {
       this.goods = res.data.shop_data;
       console.log(this.goods);
     });
@@ -41,7 +42,7 @@ export default {
 </script>
     
 <style lang="css" scoped>
-img {
+.img {
   width: 10rem;
 }
 .bac {

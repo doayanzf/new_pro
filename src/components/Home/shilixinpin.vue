@@ -6,7 +6,7 @@
         </h1>
        </div>
         <div class = 'xinpin' v-for='pro in goods' :key="pro.id">
-            <img class='img' :src="pro.picUrl" alt="" @click='zhuanqu' >
+            <img class='img' :src="pro.picUrl" alt="" @click='zhuanqu(pro)' >
             <h1>{{pro.goodsName}}</h1>
             <h2>￥{{pro.price}}<span>￥{{pro.marketPrice}}</span><img class='img2' @click="add(pro)" src="./img2/icon-listcart-75@3x.png" alt=""></h2>
         </div>
@@ -33,9 +33,15 @@ export default {
       this.$router.push({
         path: "/goodsDetails/" + 123,
         query: {
-          name: "本周特惠专区",
+          name: "时令新品区",
           type: 3
         }
+      });
+    },
+    created() {
+      this.axios.get("http://10.0.157.250:8888/xinqu").then(res => {
+        this.goods = res.data.shop_data;
+        console.log(this.goods);
       });
     }
   },

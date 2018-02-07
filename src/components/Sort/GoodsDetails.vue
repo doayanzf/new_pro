@@ -1,7 +1,8 @@
 <template>
     <div>
         <div class="booder">
-            <img :src="dataGoods.picUrl" alt="">
+           <div class='bac' @click='back'></div>
+            <img :src="dataGoods.imgUrl ? dataGoods.imgUrl : dataGoods.picUrl" alt="">
         </div>
        <div class="header">
            <div @click="back()">
@@ -45,8 +46,8 @@
            <p>-----猜你喜欢-----</p>
        </div>
        <div class="img">
-           <img :src="dataGoods.picUrl" alt="">
-           <img :src="dataGoods.picUrl" alt="">
+           <img :src="dataGoods.imgUrl ? dataGoods.imgUrl : dataGoods.picUrl" alt="">
+           <img :src="dataGoods.imgUrl ? dataGoods.imgUrl : dataGoods.picUrl" alt="">
        </div>
 
        <div class="tabar">
@@ -97,7 +98,7 @@ export default {
       this.$router.go(-1);
     },
     add_note(dataGoods) {
-             this.$store.dispatch('add_goods',dataGoods)
+      this.$store.dispatch("add_goods", dataGoods);
     }
   },
   created() {
@@ -111,6 +112,11 @@ export default {
   margin: 0;
   padding: 0;
 }
+.bac {
+  position: fixed;
+  width: 2.65252rem;
+  height: 2.65252rem;
+}
 .tabar {
   z-index: 4;
   position: fixed;
@@ -119,35 +125,32 @@ export default {
   bottom: 0;
   border-top: 1px solid #e5e5e5;
   height: 1.37931rem;
-  
+
   display: flex;
 }
-.tabar div:nth-of-type(1){
-    width: 1.962865rem;
-    height: 1.37931rem;
-    text-align: center;
-    background: #eb481c;
-    padding-top: .265252rem;
-    border-right: 1px solid white;
-    
+.tabar div:nth-of-type(1) {
+  width: 1.962865rem;
+  height: 1.37931rem;
+  text-align: center;
+  background: #eb481c;
+  padding-top: 0.265252rem;
+  border-right: 1px solid white;
 }
-.tabar div:nth-of-type(2){
-    width: 100%;
-    height: 1.37931rem;
-    text-align: center;
-    background: #ff5918;
-    color: white;
-    text-align: center;
-    font-size: .477454rem;
-    
+.tabar div:nth-of-type(2) {
+  width: 100%;
+  height: 1.37931rem;
+  text-align: center;
+  background: #ff5918;
+  color: white;
+  text-align: center;
+  font-size: 0.477454rem;
 }
-.tabar div:nth-of-type(2) span{
-    line-height: 1.37931rem;
+.tabar div:nth-of-type(2) span {
+  line-height: 1.37931rem;
 }
-.tabar div:nth-of-type(1) img{
-    width: .795756rem;
-    height: .795756rem;
-    
+.tabar div:nth-of-type(1) img {
+  width: 0.795756rem;
+  height: 0.795756rem;
 }
 .header img {
   width: 0.795756rem;
