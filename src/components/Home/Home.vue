@@ -6,17 +6,17 @@
 			<li><a href=""><img src="./img/icon.png" class='img3' alt=""></a></li>
 			<li><a href=""><img  @click = 'searc' src="./img/search.png" class='img4' alt=""></a></li>
 		</ul>
-		<!-- <div class="swiper-container">
-			<mt-swipe :auto="1000">
-			<mt-swipe-item><img src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/c24a3227-8177-4ada-b9b6-a390b28f212e (1).jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/ceb4ac53-dcc2-46dc-839e-54ba336899bf.jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/1a1c094a-abc3-46a2-8aa0-726b5711bd4e.jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/9c015991-8a35-4675-a627-9d51d401acd0.jpg" alt=""></mt-swipe-item>
-			<mt-swipe-item><img src="./img/285cbf69-b11f-4f8d-9955-a83a71543c8c.jpg" alt=""></mt-swipe-item>
-			</mt-swipe>
-		  </div> -->
+		<div class="swiper-container2">
+			<div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="./img/9cee48bc-51f7-47df-b9a7-e6d1b81d572c.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./img/c24a3227-8177-4ada-b9b6-a390b28f212e (1).jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./img/ceb4ac53-dcc2-46dc-839e-54ba336899bf.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./img/1a1c094a-abc3-46a2-8aa0-726b5711bd4e.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./img/62c71877-1f51-44d2-aae7-dafd35f8e33f.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./img/9c015991-8a35-4675-a627-9d51d401acd0.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./img/285cbf69-b11f-4f8d-9955-a83a71543c8c.jpg" alt=""></div>
+			</div>
+		</div>
 		  <ul id = 'gou'>
 			  <li  @click='tehui'><img src="./img/4b5226d0-068b-47ab-8942-4cce2079c134.jpg" alt=""></li>
 			  <li @click="tejiataocan"><img src="./img/51760a0f-2fb2-465e-936e-cada0969a3f2.jpg" alt=""></li>
@@ -43,7 +43,7 @@
 		    </ul>
 			 <ul id = 'tehui2'>
          <div class="swiper-container nav">
-           <div class="nav_1 swiper-wrapper">
+           <div class="swiper-wrapper nav_1">
                  	 <li v-for="you in youhui[1].ite" :key='you.id' class='tehui3 swiper-slide'>
                       <ul	class = 'te1'>
                         <li @click='nongfushanquan'><img :src="you.imgUrl" alt=""></li>
@@ -125,15 +125,9 @@
 </template>
     
 <script>
-// import { Swipe, SwipeItem } from "mint-ui";
-// import "mint-ui/lib/style.css";
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
 export default {
-  // components: {
-  //   "mt-swipe": Swipe,
-  //   "mt-swipe-item": SwipeItem
-  // },
   name: "component_name",
   data() {
     return {
@@ -343,6 +337,25 @@ export default {
   mounted() {
     console.log("mounted", this);
     var swiper = new Swiper(".swiper-container", {
+      pagination: ".swiper-pagination",
+      paginationClickable: true,
+      slidesPerView: 3,
+      // slidesPerView: "auto",
+      loop: true,
+      // speed: 600,
+      freeMode: true,
+      freeModeMomentum: false,
+      freeModeMomentumBounce: false,
+      // 最后一个元素和容器的间隔
+      // slidesOffsetAfter : 55,
+      initialSlide: 0,
+      // 右边不回弹
+      // slidesPerView: 'auto',
+      onTouchEnd: function() {
+        swiper.startAutoplay();
+      }
+    });
+    var swiper = new Swiper(".swiper-container2", {
       pagination: ".swiper-pagination",
       paginationClickable: true,
       slidesPerView: 3,
