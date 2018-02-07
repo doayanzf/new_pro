@@ -30,6 +30,9 @@
         <b>我的</b>
       </router-link>
     </div>
+    <!-- <div class="pic">
+            <a href="#"><img v-lazy="'./../img/loadding.gif'" alt=""></a>
+        </div>  -->
   </div>
 </template>
 
@@ -75,7 +78,8 @@ export default {
         this.$route.path.indexOf("/recharge") != -1 ||
         this.$route.path.indexOf("/zuocai") != -1 ||
         this.$route.path.indexOf("/goodsDetails/") != -1 ||
-        this.$route.path.indexOf("/sub/") != -1
+        this.$route.path.indexOf("/sub/") != -1 ||
+        this.$route.path.indexOf("/about") != -1
       ) {
         return false;
       } else {

@@ -36,7 +36,7 @@
        <div v-for="product in dataGoodsTow.goods" :key="product.id" class="content" >
            <div class="content_more">
                <div class="content_more_left">
-                   <img :src="product.picUrl" alt="" @click="toGood(product.productId, product)">
+                   <img v-lazy="product.picUrl" alt="" @click="toGood(product.productId, product)">
                </div>
                <div class="content_more_right">
                    <div class="right_1">
@@ -97,7 +97,10 @@ export default {
             //h5方法
             // history.back();
             //vue方法(-1)是上一个
-            this.$router.go(-1)
+            // this.$router.go(-1)
+            this.$router.push({
+                path:'/sort/tuijian'
+            })
         },
         add_note(product) {
              this.$store.dispatch('add_goods',product)
