@@ -30,7 +30,13 @@
                <p class="title"><span>活动</span>其它</p>
                <ul>
                    <li v-for="(pro, index) in dataGoods">
-                       <div  @click="changeImg()" class="selected"></div>
+                       <selected
+                        name="" id="" 
+                        :danJia='pro.price' 
+                        :jie='jieSuan' 
+                        @sele="changePrice"
+                        ref='header'></selected>
+                       <!-- <div  @click="changeImg()" class="selected"></div> -->
                        <img :src="pro.imgUrl ? pro.imgUrl : pro.picUrl" alt="" class="foodImg">
                        <div class="food">{{ pro.goodsName }}</div>
                        <div>
@@ -49,9 +55,10 @@
        </main>
        <div class="wtf2"></div>
        <footer v-show="footer">
-           <img src="./img/selected.png" alt="">
+           <img src="./img/selected.png" alt="" v-show="jieSuan" @click="changejie">
+           <img src="./img/unselect.png" alt="" v-show="!jieSuan"  @click="changejie">
            <div id="price">合计：<span>￥{{ price.toFixed(2) }}</span></div>
-           <div id="jiesuan">结算({{ this.dataGoods.length }})</div>
+           <div id="jiesuan">结算({{ num }})</div>
            <div id="baoyou" v-show="!panduan">已包邮</div>
            <div id="baoyou2" v-show="panduan" @click="coudan">全场满99包邮 点我包邮<span id="trangle"></span></div>
        </footer>
@@ -66,6 +73,7 @@
     
 <script>
 import n_umber from './n_umber'
+import selected from './selected'
 export default {
     name: "component_name",
     data () {
@@ -81,11 +89,12 @@ export default {
              selectClass: 'selected',
              price: 0,
              panduan: true,
-             num: [],
              footer: true,
              span: '编辑',
              dataGoods: [],
              fnData:1,
+             num: 0,
+             jieSuan: true
         };
     },
     methods: {
@@ -97,7 +106,11 @@ export default {
         },
         addPrice(chN) {
             this.price += chN
-
+            if (this.price >= 99) {
+                this.panduan = false;
+            } else {
+                this.panduan = true;
+            }
         },
         changeBg(num) {
             if (num == 2) {
@@ -143,12 +156,19 @@ export default {
             this.footer ? this.span = "完成" : this.span = "编辑";
             this.footer = !this.footer;
         },
-        changeImg(num) {
-            
+        changePrice(price, toprice) {
+            this.price += price;
+            this.num += toprice;
+        },
+        changejie() {
+            this.jieSuan = !this.jieSuan;
+            console.log(this.$refs)
+            // this.$refs.f2.childFn();
         }
     },
     components: {
-        n_umber
+        n_umber,
+        selected
     },
     created() {
         if (this.$store.getters.getGoods[0]) {
@@ -159,15 +179,17 @@ export default {
                 // console.log(pro)
                 this.price += pro.price
             }
-            
             if (this.price >= 99) {
                 this.panduan = false;
+            } else {
+                this.panduan = true;
             }
         } else {
             this.$router.push({
                 path: '/car2'
             })
         }
+        this.num = this.dataGoods.length;
         
     }
 }
@@ -292,20 +314,6 @@ export default {
     main img{
         float: left;
     }
-    .selected{
-        margin: 1.226667rem .32rem 0;
-        width: .44rem;
-        height: .44rem;
-        background: url(./img/selected.png);
-        float: left;
-    }
-    .selectClass{
-        margin: 1.226667rem .32rem 0;
-        width: .44rem;
-        height: .44rem;
-        background: url(./img/unselect.png);
-        float: left;
-    }
     .foodImg{
         margin: .213333rem;
         width: 2.56rem;
@@ -427,7 +435,7 @@ export default {
     #footer2 div:first-of-type{
         color: #f75200;
         font-size: .426667rem;
-        margin: .36rem 3.09rem 0 0;
+        margin: .36rem 3rem 0 0;
     }
     #footer2 div:nth-of-type(2){
         color: #969696;
