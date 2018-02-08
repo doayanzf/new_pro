@@ -5,10 +5,13 @@ import App from './App'
 import router from './router'
 import VueLazyload from 'vue-lazyload'  //引入这个懒加载插件
 
+import { Lazyload } from 'mint-ui';
+Vue.use(Lazyload);
+
+
 import axios from 'axios'
 import store from './store'
 import { Swipe, SwipeItem } from 'mint-ui';
-
 import 'mint-ui/lib/style.css'
 // Vue.use(VueLazyload)
 Vue.use(VueLazyload, {
@@ -19,6 +22,8 @@ Vue.use(VueLazyload, {
 })
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+
+
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
 new Vue({
