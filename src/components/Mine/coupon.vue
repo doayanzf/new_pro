@@ -2,10 +2,14 @@
     <div class="Dboy">
        <div class="Dfirst" @click="backRou">优惠券</div>
        <div class="Dtwo">
-           <span :class="{botlv:nameL == 1}" @click="Cbotlv(1)">未使用</span>
-           <span :class="{botlv:nameL == 2}" @click="Cbotlv(2)">已使用</span>
-           <span :class="{botlv:nameL == 3}" @click="Cbotlv(3)">已过期</span>
+           <router-link to="/Coupon/unused" class="routerR" :class="{botlv:nameL == 1}" @click="Cbotlv(1)">未使用</router-link>
+           <!-- <span>未使用</span> -->
+           <router-link to="/Coupon/Use" class="routerR" :class="{botlv:nameL == 2}" @click="Cbotlv(2)">已使用</router-link>
+           <router-link to="/Coupon/Age" class="routerR" :class="{botlv:nameL == 3}" @click="Cbotlv(3)">已过期</router-link>
        </div>
+       <router-view>
+
+       </router-view>
        <div class="Dthree">
            暂时没有可用的优惠券
        </div>
@@ -23,6 +27,19 @@ export default {
     methods: {
         Cbotlv(um) {
             this.nameL = um
+            if(um == 1){
+                this.$router.push({
+                    path: '/Coupon/unused'
+                })
+            } else if (um == 2) {
+                this.$router.push({
+                    path: '/Coupon/Use'
+                })
+            } else if (um == 3) {
+                this.$router.push({
+                    path: '/Coupon/Age'
+                })
+            }
         },
         backRou() {
             this.$router.push({
@@ -50,7 +67,7 @@ export default {
         display: flex;
         justify-content: space-around;
     }
-    .Dtwo>span{
+    .routerR{
         line-height: 1.233333rem;
         width: 1.6rem;
         text-align: center;

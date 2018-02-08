@@ -70,6 +70,9 @@ import GroundBuy from '../components/Mine/groundBuy.vue'
 import DOpinion from '../components/Mine/dOpinion.vue'
 import Myfavorite from '../components/Mine/myfavorite.vue'
 import MyAddress from '../components/Mine/myAddress.vue'
+import Coupon_two from '../components/Mine/coupon_two'
+import Coupon_two1 from '../components/Mine/coupon_two1'
+import Coupon_two2 from '../components/Mine/coupon_two2'
 
 
 
@@ -109,7 +112,11 @@ export default new VueRouter({
     // mine路由规则
     { path: '/mine', component: Mine} ,
     { path: '/recharge', component: Recharge},
-    { path: '/coupon', component: Coupon},
+    { path: '/coupon', component: Coupon,children:[
+      {path: 'unused', component: Coupon_two},
+      {path: 'Use', component: Coupon_two1},
+      {path: 'Age', component: Coupon_two2},
+    ]},
     { path: '/help', component: Help},
     { path: '/dOpinion', component: DOpinion},
     { path: '/order', component: Order},
