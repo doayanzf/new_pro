@@ -15,18 +15,33 @@
                 <div class="bootomD">
                     <p>账户余额(元)</p>
                     <h1><span>￥</span>{{ money }}</h1>
+                    
                 </div>
             </div>
         </div>
         <div class="fixedD">
         </div>
-        <div class="rouDbottom">
+        <div class="rouDbottom" v-show="msg">
             <Carousel class="Carousel"></Carousel>
             <Card class="Card"></Card>
         </div>
+        <div class="rouDbottomtwo" v-show="!msg">
+            
+            <input type="text" v-model="carnumber" placeholder="请在这里输入用户名">
+    
+            <input :type="Ttype" v-model="urser" placeholder="请在这里输入密码">
+            <span @click="showS"></span>
+        </div>
         <div class="divShow">
-            <span>我已同意并阅读我厨的充值协议</span>
+            <span>
+                <i v-show="!bool" @click='Cbo'></i>
+                <i v-show="bool" @click='Cbo'></i>
+                我已同意并阅读我厨的充值协议
+            </span>
             <span>充值协议</span>
+        </div>
+        <div class="boTpo" :class="{ boTpo: bool, 'botpo': !bool }">
+            立即充值
         </div>
 
         
@@ -41,7 +56,11 @@ export default {
     data () {
         return {
              msg: true,
-             money: 0
+             money: 0,
+             bool:true,
+             Ttype: 'password',
+             carnumber: '',
+             urser: ''
         };
     },
     methods: {
@@ -50,6 +69,12 @@ export default {
         },
         changeB(data){
             this.msg = data
+        },
+        Cbo() {
+            this.bool = !this.bool
+        },
+        showS() {
+            this.Ttype = 'text'
         }
     },
     components: {
@@ -64,22 +89,55 @@ export default {
         width: 100%;
         background-color: #f4f4f4;
     }
+    .boTpo{
+        height: 1.333333rem;
+        line-height: 1.333333rem;
+        background: #ff5918;
+        width: 100%;
+        text-align: center;
+        font-size: .4rem;
+        color: #fff;
+    }
+    .botpo{
+        height: 1.333333rem;
+        line-height: 1.333333rem;
+        background: #ff5918;
+        width: 100%;
+        text-align: center;
+        font-size: .4rem;
+        background: #55514f;
+    }
     .divShow{
-        height: 4rem;
+        height: 2.1rem;
         font-size: .37rem;
         text-align: center;
         padding-top: .693333rem;
-        /* border: #a59999 1px solid; */
-        /* background: rgb(255, 255, 255); */
     }
-    .divShow>span:nth-of-type(1){
-        padding-left: .666667rem;
-        background: url('./img/r-unselect@3x.png')
-        0 center no-repeat;
-        background-size: .533333rem;
+    .divShow>span>i{
+        margin-top: .03rem;
+        float: left;
+        margin-right: .266667rem;
+        display: inline-block;
+        height: .433333rem;
+        width:  .433333rem;
 
     }
+    .divShow>span>i:nth-of-type(1){
+        background: url('./img/r-unselect@3x.png')
+        center center no-repeat;
+        background-size: .433333rem;
+    }
+    .divShow>span>i:nth-of-type(2){
+        background: url('./img/r-selected@3x.png')
+        center center no-repeat;
+        background-size: .433333rem;
+    }
+    .divShow>span:nth-of-type(1){
+        display: inline-block;
+        padding-left: .2rem;
+    }
     .divShow>span:nth-of-type(2){
+        display: inline-block;
         color: #6eb042;
     }
     .rouD{
@@ -95,6 +153,41 @@ export default {
         height: 15.093333rem;
         box-shadow: 0px 0px 15px #888888;
         border-radius: 0 0 .386667rem .386667rem;
+    }
+    .rouDbottomtwo{
+        overflow:hidden;
+        background: rgb(255, 255, 255);
+        margin: 0 .32rem;
+        padding: 0 .293333rem;
+        box-shadow: 0px 0px 15px #888888;
+        border-radius: 0 0 .386667rem .386667rem;
+        position: relative;
+    }
+    .rouDbottomtwo>span{
+        display: block;
+        width: .48rem;
+        height: .373333rem;
+        background: url(img/hidepwd@3x.png)
+        no-repeat center center;
+        background-size: cover;
+        position: absolute;
+        top: 1.866667rem;;
+        right: .66rem;
+    }
+    .rouDbottomtwo>input{
+        display: block;
+        height: .966667rem;
+        width: 100%;
+        border: none;
+    }
+    .rouDbottomtwo>input:nth-of-type(1){
+        border-bottom: 1px #cccccc solid;
+        margin-top: .566667rem;
+        border-top: 1px #cccccc solid;
+    }
+    .rouDbottomtwo>input:nth-of-type(2){
+        border-bottom: 1px #cccccc solid;
+        margin-bottom: 3.786667rem;
     }
     .Carousel{
         margin: 0 auto;

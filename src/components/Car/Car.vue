@@ -97,6 +97,10 @@ export default {
         },
         addPrice(chN) {
             this.price += chN
+            
+            if(this.price >= 99) {
+                this.panduan = false
+            }
 
         },
         changeBg(num) {
