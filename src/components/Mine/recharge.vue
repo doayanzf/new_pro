@@ -26,19 +26,11 @@
             <Card class="Card"></Card>
         </div>
         <div class="rouDbottomtwo" v-show="!msg">
-            <table>
-                <tr>
-                    <td>
-                         <input type="text">
-                    </td>
-                    <td>
-                        <input :type="Ttype">
-                    </td>
-                </tr>
-            </table>
-
-          
-           
+            
+            <input type="text" v-model="carnumber" placeholder="请在这里输入用户名">
+    
+            <input :type="Ttype" v-model="urser" placeholder="请在这里输入密码">
+            <span @click="showS"></span>
         </div>
         <div class="divShow">
             <span>
@@ -66,7 +58,9 @@ export default {
              msg: true,
              money: 0,
              bool:true,
-             Ttype: 'password'
+             Ttype: 'password',
+             carnumber: '',
+             urser: ''
         };
     },
     methods: {
@@ -78,6 +72,9 @@ export default {
         },
         Cbo() {
             this.bool = !this.bool
+        },
+        showS() {
+            this.Ttype = 'text'
         }
     },
     components: {
@@ -158,13 +155,39 @@ export default {
         border-radius: 0 0 .386667rem .386667rem;
     }
     .rouDbottomtwo{
+        overflow:hidden;
         background: rgb(255, 255, 255);
         margin: 0 .32rem;
         padding: 0 .293333rem;
-        height: 15.093333rem;
         box-shadow: 0px 0px 15px #888888;
         border-radius: 0 0 .386667rem .386667rem;
-        height: 8rem;
+        position: relative;
+    }
+    .rouDbottomtwo>span{
+        display: block;
+        width: .48rem;
+        height: .373333rem;
+        background: url(img/hidepwd@3x.png)
+        no-repeat center center;
+        background-size: cover;
+        position: absolute;
+        top: 1.866667rem;;
+        right: .66rem;
+    }
+    .rouDbottomtwo>input{
+        display: block;
+        height: .966667rem;
+        width: 100%;
+        border: none;
+    }
+    .rouDbottomtwo>input:nth-of-type(1){
+        border-bottom: 1px #cccccc solid;
+        margin-top: .566667rem;
+        border-top: 1px #cccccc solid;
+    }
+    .rouDbottomtwo>input:nth-of-type(2){
+        border-bottom: 1px #cccccc solid;
+        margin-bottom: 3.786667rem;
     }
     .Carousel{
         margin: 0 auto;
