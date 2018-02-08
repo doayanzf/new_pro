@@ -130,7 +130,7 @@
 <script>
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
-import Vue from 'vue'
+import Vue from "vue";
 export default {
   name: "component_name",
   data() {
@@ -346,13 +346,10 @@ export default {
     //     swiper.startAutoplay();
     //   }
     // });
-    console.log(this)
-   
-    
+    console.log(this);
   },
   // 在created钩子函数里面做网络请求
   created() {
-   
     // 使用axios处理网络请求
     this.axios.get("http://10.0.157.250:8888/home").then(res => {
       console.log(res.data.shop_data.length);
@@ -368,35 +365,32 @@ export default {
         this.pro3.push({ imge: this.pro[i], list: this.pro2[i], foodid: i });
         console.log(this.pro3);
       }
-    })
-      this.axios.get("http://10.0.157.250:8888/caomei").then(res => {
-        console.log(res.data.shop_data);
-  
-        this.caome = res.data.shop_data;
-        // this.caome = this.caome.concat(res.data.shop_data);
-        console.log(this.caome);
-      })
-      this.axios.get("http://10.0.157.250:8888/youhui").then(res => {
-        console.log(res.data.shop_data);
-        this.youhui = res.data.shop_data;
-        // this.youhui =
-        console.log(this.youhui);
+    });
+    this.axios.get("http://10.0.157.250:8888/caomei").then(res => {
+      console.log(res.data.shop_data);
 
-          Vue.nextTick(function () {
-            
-                var swiper = new Swiper(".swiper-container", {
-                pagination: ".swiper-pagination",
-                  // paginationClickable: true,
-                  slidesPerView: 2.5,
-                  // slidesPerView: "auto",
-                  // loop: true,
-                  // speed: 600,
-                  freeMode: true,
-              
-                });
-              
-            })
+      this.caome = res.data.shop_data;
+      // this.caome = this.caome.concat(res.data.shop_data);
+      console.log(this.caome);
+    });
+    this.axios.get("http://10.0.157.250:8888/youhui").then(res => {
+      console.log(res.data.shop_data);
+      this.youhui = res.data.shop_data;
+      // this.youhui =
+      console.log(this.youhui);
+
+      Vue.nextTick(function() {
+        var swiper = new Swiper(".swiper-container", {
+          pagination: ".swiper-pagination",
+          // paginationClickable: true,
+          slidesPerView: 2.5,
+          // slidesPerView: "auto",
+          // loop: true,
+          // speed: 600,
+          freeMode: true
+        });
       });
+    });
   }
 };
 </script>
