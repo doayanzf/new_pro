@@ -37,7 +37,6 @@ export default {
     .Dbody{
         width: 100%;
         background-color: #f4f4f4;
-        border: 1px blue solid;
     }
     .TopD{
         position: relative;

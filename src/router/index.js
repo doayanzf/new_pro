@@ -118,6 +118,7 @@ export default new VueRouter({
     { path: '/about', component: About},
     { path: '/groundBuy', component: GroundBuy},
     { path: '/myfavorite', component: Myfavorite},
+    { path: '/MyAddress', component: MyAddress},
  
     
 

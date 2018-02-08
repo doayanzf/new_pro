@@ -7,13 +7,13 @@
            </div>
            <div>
                <h1>{{ prime }}</h1>
-               <p>优惠券</p>
+               <p @click.stop="coupon">优惠券</p>
            </div>
        </div>
        <div class="bottom">
            <img src="./img/profile-arrow@3x.png" alt=""  >
            <p>充值立送现金券哦~</p>
-           <p @click.stop="coupon">马上充值 &gt</p>
+           <p>马上充值 &gt</p>
        </div>
     </div>
 </template>
