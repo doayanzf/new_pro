@@ -54,7 +54,7 @@
            </div>
        </div>
 
-           
+          
     </div>
 </template>
     
@@ -156,7 +156,7 @@ main {
   /* height: 6.790451rem;; */
   font-size: 0.424403rem;
 }
-.beizhu div{
+.beizhu div {
   width: 100%;
   height: 1.37931rem;
   background: white;
@@ -174,7 +174,7 @@ main {
   height: 1.37931rem;
 
   display: flex;
-  font-size: .397878rem
+  font-size: 0.397878rem;
 }
 .taber_1 {
   width: 10rem;
@@ -184,14 +184,14 @@ main {
   text-align: center;
 }
 
-.taber_2{
-    width: 100%;
-    height: 1.37931rem;
-    background: #ff5918;
-    text-align: center;
-    font-size: .477454rem;
-    color: white;
-    line-height: 1.37931rem;
+.taber_2 {
+  width: 100%;
+  height: 1.37931rem;
+  background: #ff5918;
+  text-align: center;
+  font-size: 0.477454rem;
+  color: white;
+  line-height: 1.37931rem;
 }
 </style>
 

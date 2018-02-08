@@ -72,6 +72,8 @@ import Myfavorite from '../components/Mine/myfavorite.vue'
 import MyAddress from '../components/Mine/myAddress.vue'
 
 
+
+
 // 创建路由实例，并且配置路由规则
 export default new VueRouter({
   mode: 'history',
@@ -116,7 +118,8 @@ export default new VueRouter({
     { path: '/about', component: About},
     { path: '/groundBuy', component: GroundBuy},
     { path: '/myfavorite', component: Myfavorite},
-    { path: '/myAddress', component: MyAddress},
+ 
+    
 
 
     // 购物车的路由规则
