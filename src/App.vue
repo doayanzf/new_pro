@@ -60,7 +60,7 @@ export default {
           this.$route.path.indexOf("/jianguo") != -1 ||
            this.$route.path.indexOf("/dami") != -1 ||
             this.$route.path.indexOf("/shilixinpin") != -1 ||
-             this.$route.path.indexOf("/shucai") != -1 ||
+             
               this.$route.path.indexOf("/tejiajingcai") != -1 ||
                this.$route.path.indexOf("/tejiataocan") != -1 ||
         this.$route.path.indexOf("/bank") != -1 ||

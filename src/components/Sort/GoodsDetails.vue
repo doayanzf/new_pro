@@ -1,5 +1,5 @@
-<template>
-    <div>
+<template onLoad="scrollTo(0,0)">
+    <div >
         <div class="booder">
            <div class='bac' @click='back'></div>
             <img :src="dataGoods.imgUrl ? dataGoods.imgUrl : dataGoods.picUrl" alt="">

@@ -125,9 +125,7 @@ export default new VueRouter({
     { path: '/about', component: About},
     { path: '/groundBuy', component: GroundBuy},
     { path: '/myfavorite', component: Myfavorite},
-    { path: '/MyAddress', component: MyAddress},
- 
-    
+    { path: '/MyAddress', component: MyAddress},      
 
 
     // 购物车的路由规则
