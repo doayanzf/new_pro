@@ -48,13 +48,20 @@ export default new Vuex.Store ({
             state.reData = data;
         },
         ADD_GOODS(state,data) {
-            state.goodsList.push(data);
-            
-            // console.log(state.goodsList)
+            if(state.goodsList.length > 0) {
+                for(var temp of state.goodsList){
+                    if(temp.offShelve ==  data.offShelve) {
+                        temp.onSale++
+                    } else {
+                        state.goodsList.push(data);
+                    }
+                }
+            } else {
+                state.goodsList.push(data)
+            }
         },
         XX(state,data){
             state.xxList = data;
-            // console.log(state.xxList)
         },
         ALLTURE(state, boole) {
             for ( var temp of state.goodsList ) {
