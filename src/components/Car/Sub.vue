@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div>
            <div class="header">
                <img src="./img/left.png" alt="" @click="back()">
                <h2>确认订单</h2>
@@ -19,23 +19,20 @@
                    <span>商品清单</span>
                </div>
                <div>
-                   <span>共1件</span>
+                   <span>共{{ goodsnum }}件</span>
                    <img src="./img/right.jpg" alt="">
                </div>
-
            </div>
-
-      
-           <div id="main1">
-              
-         
-                   <div v-for="(pro, index) in dataGoods" :key="pro.id">
-                       
-                       <img :src="pro.imgUrl ? pro.imgUrl : pro.picUrl" alt="" class="foodImg">
-                      
-                   </div>
-             
-           </div>
+           
+        <div class="swiper-container">
+            <div id="main1" class="swiper-wrapper">
+                <span v-for="(pro, index) in dataGoods" :key="index.id" class="tpos swiper-slide">
+                    <span class="pos">x{{ pro.onSale }}</span>
+                    <img :src="pro.imgUrl ? pro.imgUrl : pro.picUrl" alt="" class="foodImg">
+                </span>
+            </div>
+        </div>
+        
     
        <div class="beizhu">
            <div>优惠码</div><br>
@@ -43,22 +40,24 @@
            <div>账户余额</div><br>
            <div>发票</div><br>
            <div>备注</div>
-           
        </div>
+
         <div class="tabar">
            <div class="taber_1">
-              <span>应付:</span>
+              <span>应付:{{ totalprice }}￥</span>
            </div>
            <div class="taber_2">
                <span>提交订单</span>
            </div>
        </div>
-
-          
     </div>
 </template>
     
 <script>
+import Swiper from "swiper";
+import "swiper/dist/css/swiper.min.css";
+import Vue from "vue";
+
 export default {
   name: "Sub",
   data() {
@@ -74,8 +73,41 @@ export default {
       this.$router.go(-1);
     }
   },
+  computed: {
+    dataGoods() {
+      return this.$store.getters.totalgoods;
+    },
+    goodsnum() {
+      return this.$store.getters.goodsnum;
+    },
+    totalprice() {
+      return this.$store.getters.totalprice;
+    }
+    
+  },
   created() {
-    this.dataGoods = this.$store.getters.getGoods;
+     Vue.nextTick(function() {
+        var swiper = new Swiper(".swiper-container", {
+        pagination: ".swiper-pagination",
+        // paginationClickable: true,
+        slidesPerView: 4,
+        // slidesPerView: "auto",
+        // loop: true,
+        // speed: 600,
+          freeMode: true
+        });
+    });
+    // setTimeout(function () {
+    //   var swiper = new Swiper(".swiper-container", {
+    //     pagination: ".swiper-pagination",
+    //     // paginationClickable: true,
+    //     slidesPerView: 2.5,
+    //     // slidesPerView: "auto",
+    //     // loop: true,
+    //     // speed: 600,
+    //     freeMode: true
+    //     });
+    // }, 5000)
   }
 };
 </script>
@@ -84,6 +116,20 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+.tpos{
+  position: relative;
+}
+.pos{
+  text-align: center;
+  position: absolute;
+  /* display: inline-block; */
+  width: .733333rem;
+  height: .533333rem;
+  line-height: .533333rem;
+  background-color: #f9f9f9;
+  border: #000 solid .026667rem;
+  border-radius: 1rem;
 }
 .header {
   width: 100%;
@@ -134,11 +180,12 @@ export default {
   width: 0.318302rem;
   height: 0.318302rem;
 }
-main {
-  /* background: #fff; */
-}
+
 #main1 {
-  width: 100%;
+  display: flex;
+  /* flex-wrap: wrap;
+  justify-content: space-around; */
+  width: 10rem;
   /* height: 2.758621rem; */
   margin-top: 0.265252rem;
   clear: both;

@@ -18,7 +18,7 @@
 			</mt-swipe>
 		  </div>
 		  <ul id = 'gou'>
-			  <li  @click='tehui'><img src="./img/4b5226d0-068b-47ab-8942-4cce2079c134.jpg" alt=""></li>
+			  <li @click='tehui'><img src="./img/4b5226d0-068b-47ab-8942-4cce2079c134.jpg" alt=""></li>
 			  <li @click="tejiataocan"><img src="./img/51760a0f-2fb2-465e-936e-cada0969a3f2.jpg" alt=""></li>
 			  <li @click="chaojituangou"><img src="./img/04309f99-dd62-4654-a27e-41534240bd98.jpg" alt=""></li>
 			  <li @click="jingcai"><img src="./img/485a48f7-1df6-4d7a-85c6-193bd65f4e4e.jpg" alt=""></li>
@@ -118,11 +118,6 @@
 					</li>
 				</ul>
 			</div>
-
-
-
-
-
 			<div id='kong'></div>
 	</div>
 </template>
@@ -326,33 +321,10 @@ export default {
     }
   },
   mounted() {
-    console.log("mounted", this);
-    // var swiper = new Swiper(".swiper-container", {
-    //   pagination: ".swiper-pagination",
-    //   paginationClickable: true,
-    //   slidesPerView: 3,
-    //   // slidesPerView: "auto",
-    //   loop: true,
-    //   // speed: 600,
-    //   freeMode: true,
-    //   freeModeMomentum: false,
-    //   freeModeMomentumBounce: false,
-    //   // 最后一个元素和容器的间隔
-    //   // slidesOffsetAfter : 55,
-    //   initialSlide: 0,
-    //   // 右边不回弹
-    //   // slidesPerView: 'auto',
-    //   onTouchEnd: function() {
-    //     swiper.startAutoplay();
-    //   }
-    // });
-    console.log(this);
+    
   },
-  // 在created钩子函数里面做网络请求
   created() {
-    // 使用axios处理网络请求
     this.axios.get("http://10.0.157.250:8888/home").then(res => {
-      console.log(res.data.shop_data.length);
       this.dataList = res.data.shop_data;
       for (var index in this.dataList) {
         if (index % 2 != 0) {
@@ -363,22 +335,16 @@ export default {
       }
       for (var i = 0; i < 10; i++) {
         this.pro3.push({ imge: this.pro[i], list: this.pro2[i], foodid: i });
-        console.log(this.pro3);
       }
     });
     this.axios.get("http://10.0.157.250:8888/caomei").then(res => {
-      console.log(res.data.shop_data);
 
       this.caome = res.data.shop_data;
       // this.caome = this.caome.concat(res.data.shop_data);
-      console.log(this.caome);
     });
+    
     this.axios.get("http://10.0.157.250:8888/youhui").then(res => {
-      console.log(res.data.shop_data);
       this.youhui = res.data.shop_data;
-      // this.youhui =
-      console.log(this.youhui);
-
       Vue.nextTick(function() {
         var swiper = new Swiper(".swiper-container", {
           pagination: ".swiper-pagination",
@@ -391,6 +357,7 @@ export default {
         });
       });
     });
+
   }
 };
 </script>

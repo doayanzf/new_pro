@@ -29,14 +29,11 @@
            <div id="main1">
                <p class="title"><span>活动</span>其它</p>
                <ul>
-                   <li v-for="(pro, index) in dataGoods">
-                       <selected
-                        name="" id="" 
-                        :danJia='pro.price' 
-                        :jie='jieSuan' 
-                        @sele="changePrice"
-                        ref='header'></selected>
-                       <!-- <div  @click="changeImg()" class="selected"></div> -->
+                   <li v-for="(pro, index) in dataGoods" :key="index.id">
+                    <div  
+                    @click="changeImg(pro.source)" 
+                    :class="{ selectedc: !pro.offShelve, 'selectClass': pro.offShelve }" 
+                    > </div>
                        <img :src="pro.imgUrl ? pro.imgUrl : pro.picUrl" alt="" class="foodImg">
                        <div class="food">{{ pro.goodsName }}</div>
                        <div>
@@ -44,10 +41,12 @@
                                <div class="pricenow">￥{{ pro.price }}</div>
                                <div class="price">￥{{ pro.marketPrice }}</div>
                            </div>
-                           <n_umber 
-                                :danJia='pro.price'
-                                @up="addPrice"></n_umber>
                           
+                            <div class="number">
+                                <img src="./img/reduce.png" alt="" @click="reNum(pro.source)">
+                                <div>{{ pro.onSale }}</div>
+                                <img src="./img/plus.png" alt="" @click="addNum(pro.source)">
+                            </div>
                        </div>
                    </li>
                </ul>
@@ -57,10 +56,10 @@
        <footer v-show="footer">
            <img src="./img/selected.png" alt="" v-show="jieSuan" @click="changejie">
            <img src="./img/unselect.png" alt="" v-show="!jieSuan"  @click="changejie">
-           <div id="price">合计：<span>￥{{ price.toFixed(2) }}</span></div>
-           <div id="jiesuan" @click="toSub()">结算({{ num }})</div>
-           <div id="baoyou" v-show="!panduan">已包邮</div>
-           <div id="baoyou2" v-show="panduan" @click="coudan">全场满99包邮 点我包邮<span id="trangle"></span></div>
+           <div id="price">合计：<span>￥{{  totalprice.toFixed(2) }}</span></div>
+           <div id="jiesuan" @click="toSub()">结算({{ goodsnum }})</div>
+           <div id="baoyou" v-show="totalprice > 99">已包邮</div>
+           <div id="baoyou2" v-show="totalprice <= 99" @click="coudan">全场满99包邮 点我包邮<span id="trangle"></span></div>
        </footer>
        <div id="footer2" v-show="!footer">
            <img src="./img/unselect.png" alt="">
@@ -72,8 +71,8 @@
 </template>
     
 <script>
-import n_umber from './n_umber'
-import selected from './selected'
+
+
 export default {
     name: "component_name",
     data () {
@@ -91,13 +90,22 @@ export default {
              panduan: true,
              footer: true,
              span: '编辑',
-             dataGoods: [],
              fnData:1,
              num: 0,
              jieSuan: true
         };
     },
     methods: {
+       
+        changeImg(id) {
+            this.$store.dispatch('changeboole', id);
+        },
+        addNum(id) {
+            this.$store.dispatch('addNum', id);
+        },
+        reNum(id) {
+            this.$store.dispatch('reNum', id);
+        },
         back() {
             //h5方法
             // history.back();
@@ -172,40 +180,71 @@ export default {
         },
         changejie() {
             this.jieSuan = !this.jieSuan;
-            console.log(this.$refs)
-            // this.$refs.f2.childFn();
+            this.$store.dispatch('allture', this.jieSuan)
         }
     },
     components: {
-        n_umber,
-        selected
+    },
+    computed: {
+        dataGoods() {
+
+            if (this.$store.getters.getGoods[0]) {
+                console.log(this.$store.getters.getGoods)
+                return this.$store.getters.getGoods
+            } else {
+                this.$router.push({
+                    path: '/car2'
+                })
+            }
+        },
+        totalprice() {
+            return this.$store.getters.totalprice
+        },
+        goodsnum() {
+            return this.$store.getters.goodsnum
+        },
+
     },
     created() {
+
         if (this.$store.getters.getGoods[0]) {
-            this.dataGoods = this.$store.getters.getGoods
-            // console.log(this.dataGoods)
             
             for(var pro of this.dataGoods) {
-                // console.log(pro)
                 this.price += pro.price
             }
-            if (this.price >= 99) {
-                this.panduan = false;
-            } else {
+            if (this.price >= 99) { } else {
                 this.panduan = true;
             }
-        } else {
+
+         } else {
             this.$router.push({
                 path: '/car2'
             })
         }
-        this.num = this.dataGoods.length;
         
+        if( this.$route.path != '/car2'){ this.num = this.dataGoods.length }
+            
     }
 }
 </script>
     
 <style lang="css" scoped>
+    .selectedc{
+        margin: 1.226667rem .32rem 0;
+        width: .44rem;
+        height: .44rem;
+        background: url(./img/selected.png);
+        background-size: cover;
+        float: left;
+    }
+    .selectClass{
+        margin: 1.226667rem .32rem 0;
+        width: .44rem;
+        height: .44rem;
+        background: url(./img/unselect.png);
+        float: left;
+        background-size: cover;
+    }
     #fixed{
         position: fixed;
         top: 0;
@@ -460,6 +499,19 @@ export default {
         background: #ff3b30;
         color: #fff;
         font-size: .4rem;
+    }
+     .number{
+        width: 2.16rem;
+        height: .693333rem;
+        background: #f5f5f5;
+        float: right;
+        margin-right: .32rem;
+        border-radius: .32rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .number div{
+        margin-top: .16rem;
     }
     
     

@@ -17,6 +17,30 @@ export default new Vuex.Store ({
        
     }   , 
     mutations: {
+        CHANGBOOLE(state, id) {
+            for ( var temp of state.goodsList ) {
+                if ( temp.source == id ) {
+                    temp.offShelve = !temp.offShelve
+                }
+            }
+
+        },
+        ADDNUM( state, id ) {
+            for (var temp of state.goodsList) {
+                if ( temp.source == id & !temp.offShelve == true ) {
+                    temp.onSale++
+                }
+            }
+        },
+        RENUM(state, id) {
+            for (var temp of state.goodsList) {
+                if (temp.source == id & !temp.offShelve == true) {
+                    if (temp.onSale > 0) {
+                        temp.onSale--
+                    }
+                }
+            }
+        },
         ADD(state,data) {
             state.pageData = data
         },
@@ -25,14 +49,29 @@ export default new Vuex.Store ({
         },
         ADD_GOODS(state,data) {
             state.goodsList.push(data);
-            console.log(state.goodsList)
+            
+            // console.log(state.goodsList)
         },
         XX(state,data){
             state.xxList = data;
-            console.log(state.xxList)
+            // console.log(state.xxList)
+        },
+        ALLTURE(state, boole) {
+            for ( var temp of state.goodsList ) {
+                temp.offShelve = !boole
+            }
         }
     },
     actions: {
+        changeboole(state, id) {
+            state.commit('CHANGBOOLE',id)
+        },
+        addNum(state, id) {
+            state.commit('ADDNUM',id)
+        },
+        reNum(state, id) {
+            state.commit('RENUM',id)
+        },
         add(state,data) {
             state.commit('ADD',data)
         },
@@ -44,6 +83,9 @@ export default new Vuex.Store ({
         },
         xx(state,data) {
             state.commit('XX',data)
+        },
+        allture(state, boole) {
+            state.commit('ALLTURE',boole)
         }
     },
     getters: {
@@ -58,6 +100,33 @@ export default new Vuex.Store ({
         },
         getXx(state){
             return state.xxList
+        },
+        totalprice(state) {
+            var totalprice = 0
+            for (var temp of state.goodsList) {
+                if (!temp.offShelve) {
+                    totalprice += temp.onSale *　temp.price
+                }
+            }
+            return totalprice
+        },
+        goodsnum(state) {
+            var goodsnum = 0
+            for (var temp of state.goodsList) {
+                if (!temp.offShelve) {
+                    goodsnum += temp.onSale
+                }
+            }
+            return goodsnum
+        },
+        totalgoods(state) {
+            var totalgoods = []
+            for (var temp of state.goodsList) {
+                if (!temp.offShelve) {
+                    totalgoods.push(temp)
+                }
+            }
+            return totalgoods
         }
     }
 })
